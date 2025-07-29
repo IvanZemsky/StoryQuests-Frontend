@@ -1,0 +1,99 @@
+# api/endpoints/stories.yaml
+findMany:
+   summary: Get all stories
+   description: Retrieves a list of stories.
+   tags:
+      - stories
+   responses:
+      "200":
+         description: Successful operation
+         content:
+            application/json:
+               schema:
+                  type: array
+                  items:
+                     $ref: "#/components/schemas/Story"
+      "400":
+         $ref: "../responses.yaml#/BadRequestError"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+      "404":
+         $ref: "../responses.yaml#/NotFoundError"
+
+findOne:
+   summary: Get a story by ID
+   description: Retrieves a single story based on its ID.
+   tags:
+      - stories
+   parameters:
+      - in: path
+        name: storyId
+        schema:
+           type: string
+        required: true
+        description: ID of the story to retrieve.
+   responses:
+      "200":
+         description: Successful operation
+         content:
+            application/json:
+               schema:
+                  $ref: "#/components/schemas/Story"
+      "400":
+         $ref: "../responses.yaml#/BadRequestError"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+      "404":
+         $ref: "../responses.yaml#/NotFoundError"
+
+components:
+   schemas:
+      Story:
+         type: object
+         properties:
+            id:
+               type: string
+               description: "Story ID"
+            name:
+               type: string
+               description: "Story name"
+            description:
+               type: string
+               description: "Story description"
+            img:
+               type: string
+               description: "Story image URL"
+            author:
+               type: object
+               properties:
+                  id:
+                     type: string
+                     description: "Author ID"
+                  login:
+                     type: string
+                     description: "Author login"
+               description: "Story author information"
+            tags:
+               type: array
+               items:
+                  type: string
+               description: "Story tags"
+            sceneCount:
+               type: integer
+               format: int32
+               description: "Number of scenes in the story"
+            passes:
+               type: integer
+               format: int32
+               description: "Number of passes"
+            likes:
+               type: integer
+               format: int32
+               description: "Number of likes"
+            isLiked:
+               type: boolean
+               description: "Whether the story is liked by the user"
+            date:
+               type: string
+               format: date
+               description: "Story creation date"

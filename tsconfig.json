@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src/shared/next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["src/shared/next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/providers/mocks.tsx"],
   "exclude": ["node_modules"]
 }

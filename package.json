@@ -6,12 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api": "npx openapi-typescript ./src/shared/api/schema/main.yaml -o ./src/shared/api/schema/generated.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.83.0",
-    "curry-query": "^1.0.1",
     "next": "15.4.4",
+    "openapi-fetch": "^0.14.0",
+    "openapi-react-query": "^0.5.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "zod": "^4.0.10"
@@ -23,6 +25,14 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.4",
+    "msw": "^2.10.4",
+    "openapi-msw": "^1.2.0",
+    "openapi-typescript": "^7.8.0",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

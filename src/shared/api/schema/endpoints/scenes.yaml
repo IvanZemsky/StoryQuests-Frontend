@@ -1,0 +1,113 @@
+# api/endpoints/scenes.yaml
+findMany:
+   summary: Get all scenes
+   description: Retrieves a list of scenes.
+   tags:
+      - scenes
+   responses:
+      "200":
+         description: Successful operation
+         content:
+            application/json:
+               schema:
+                  type: array
+                  items:
+                     $ref: "#/components/schemas/Scene"
+      "400":
+         $ref: "../responses.yaml#/BadRequestError"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+      "404":
+         $ref: "../responses.yaml#/NotFoundError"
+
+findOne:
+   summary: Get a scene by ID
+   description: Retrieves a single scene based on its ID.
+   tags:
+      - scenes
+   parameters:
+      - in: path
+        name: sceneId
+        schema:
+           type: string
+        required: true
+        description: ID of the scene to retrieve.
+   responses:
+      "200":
+         description: Successful operation
+         content:
+            application/json:
+               schema:
+                  $ref: "#/components/schemas/Scene"
+      "400":
+         $ref: "../responses.yaml#/BadRequestError"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+      "404":
+         $ref: "../responses.yaml#/NotFoundError"
+
+components:
+   schemas:
+      Scene:
+         type: object
+         required: # Определяем обязательные поля согласно вашему типу
+            - id
+            - storyId
+            - number
+            - type
+            - answers
+            - title
+            - description
+            - img
+         properties:
+            id:
+               type: string
+               description: "Scene ID"
+            storyId:
+               type: string
+               description: "ID of the story this scene belongs to"
+            number:
+               type: integer
+               format: int32
+               description: "Scene number within the story"
+            type:
+               type: string
+               description: "Type of the scene (e.g., 'start', 'middle', 'end')"
+            answers:
+               type: array
+               description: "Possible answers/choices for this scene"
+               items:
+                  $ref: "#/components/schemas/Answer" # Ссылка на схему ответа
+            title:
+               type: string
+               description: "Title of the scene"
+            description:
+               type: string
+               description: "Detailed description of the scene"
+            img:
+               type: string
+               format: url # Предполагаем, что это URL изображения
+               description: "URL of the image associated with the scene"
+            passes:
+               type: integer
+               format: int32
+               description: "Number of times this scene has been passed"
+               # nullable: true # Можно добавить, если passes может быть null, но по TS он просто undefined
+
+      Answer: # Определяем структуру для поля `answers`
+         type: object
+         required:
+            - id
+            - text
+            - nextSceneId # Предполагаем, что каждый ответ ведет к следующей сцене
+         properties:
+            id:
+               type: string
+               description: "ID of the answer choice"
+            text:
+               type: string
+               description: "The text displayed for this answer choice"
+            nextSceneId:
+               type: string
+               nullable: true # Следующая сцена может отсутствовать (конец ветки)
+               description: "ID of the next scene, or null if this is an ending choice"
