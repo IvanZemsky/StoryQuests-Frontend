@@ -1,0 +1,101 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   -webkit-tap-highlight-color: transparent;
+}
+
+body {
+   font-size: 18px;
+   font-family: "Montserrat";
+   font-weight: 400;
+   font-style: normal;
+   overflow-y: scroll;
+   background-color: var(--primaryMain);
+   color: var(--primaryText);
+}
+
+.root {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+ul,
+ol,
+li {
+   list-style: none;
+}
+
+a,
+a:visited,
+a:active {
+   text-decoration: none;
+}
+
+input,
+textarea {
+   display: flex;
+   outline: none;
+   background: none;
+   box-shadow: none;
+   border: none;
+   font-family: inherit;
+   font-size: inherit;
+   color: inherit;
+
+   &::-webkit-outer-spin-button,
+   &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+   }
+}
+
+button {
+   box-shadow: none;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   font-size: inherit;
+   font-family: inherit;
+   background: none;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-size: inherit;
+   font-weight: inherit;
+}
+
+hr {
+   display: block;
+   border: none;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}
+
+table {
+   border-collapse: collapse;
+}
+
+.react-flow svg {
+   overflow: visible; /* Для сохранения видимости reactflow ребер */
+}
+
+div.react-flow__attribution {
+   /* // исправление ссылки */
+   background-color: var(--primaryDark);
+   padding: 3px;
+   opacity: 0.5;
+
+   a {
+      padding-right: 4px;
+      color: var(--primaryText);
+   }
+}

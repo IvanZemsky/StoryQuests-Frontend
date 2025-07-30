@@ -1,0 +1,144 @@
+.container {
+   display: inline-block;
+   padding: 2px;
+   border-radius: 20px;
+   transition: all 0.15s linear;
+   background: var(--gradientMain);
+}
+
+.container:disabled {
+   filter: brightness(0.7);
+   pointer-events: none;
+}
+
+.container.disabled {
+   filter: brightness(0.7);
+   pointer-events: none;
+}
+
+.container.minWidth {
+   min-width: 125px;
+}
+
+.container.uppercase {
+   text-transform: uppercase;
+}
+
+.content {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   padding: 13px 15px;
+   width: 100%;
+   min-height: 100%;
+   border-radius: 19px;
+   transition: all 0.15s linear;
+}
+
+.content.icon {
+   width: 49px;
+   padding: 0;
+   aspect-ratio: 1 / 1;
+}
+
+.content svg {
+   flex-shrink: 1;
+   width: 17px;
+   height: auto;
+   transition: all 0.15s linear;
+}
+
+.outlined.secondary .content {
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+}
+
+.outlined.secondary svg {
+   fill: var(--secondaryText);
+   stroke: var(--secondaryText);
+}
+
+.outlined.primary .content {
+   background-color: var(--secondaryMain);
+   color: var(--primaryText);
+}
+
+.outlined.primary svg {
+   fill: var(--secondaryText);
+   stroke: var(--secondaryText);
+}
+
+/* Hover Effect Implementation */
+@media (hover: hover) {
+   .outlined.defaultHover:hover:not(:disabled) .content {
+      background-color: rgba(0, 0, 0, 0);
+   }
+}
+
+/* Active Effect (for devices without hover) */
+@media (hover: none) {
+   .outlined.defaultHover:active .content {
+      background-color: rgba(0, 0, 0, 0);
+   }
+}
+
+.gradient .content {
+   color: var(--primaryText);
+}
+
+/* Hover Effect Implementation */
+@media (hover: hover) {
+   .gradient.defaultHover:hover:not(:disabled) span {
+      background-color: var(--secondaryMain);
+   }
+}
+
+/* Active Effect (for devices without hover) */
+@media (hover: none) {
+   .gradient.defaultHover:active span {
+      background-color: var(--secondaryMain);
+   }
+}
+
+.filled.primary {
+   box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
+}
+
+.filled.primary .content {
+   background-color: var(--secondaryMain);
+   color: var(--primaryText);
+}
+
+.filled.primary svg {
+   fill: var(--primaryText);
+   stroke: var(--primaryText);
+}
+
+.filled.secondary {
+   box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
+}
+
+.filled.secondary .content {
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+}
+
+.filled.secondary svg {
+   fill: var(--secondaryText);
+   stroke: var(--secondaryText);
+}
+
+/* Hover Effect Implementation */
+@media (hover: hover) {
+   .filled.defaultHover:hover:not(:disabled) {
+      box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
+   }
+}
+
+/* Active Effect (for devices without hover) */
+@media (hover: none) {
+   .filled.defaultHover:active {
+      box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
+   }
+}

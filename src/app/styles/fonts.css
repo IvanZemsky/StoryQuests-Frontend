@@ -1,0 +1,72 @@
+/* Montserrat */
+
+@font-face {
+   font-family: "Montserrat";
+   src: local("Montserrat-Regular"),
+      url("../../shared/assets/fonts/Montserrat/Montserrat-Regular.ttf")
+         format("truetype");
+   font-weight: 400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Montserrat";
+   src: local("Montserrat-Medium"),
+      url("../../shared/assets/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+   font-weight: 500;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Montserrat";
+   src: local("Montserrat-SemiBold"),
+      url("../../shared/assets/fonts/Montserrat/Montserrat-SemiBold.ttf")
+         format("truetype");
+   font-weight: 600;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Montserrat";
+   src: local("Montserrat-Bold"),
+      url("../../shared/assets/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+   font-weight: 700;
+   font-style: normal;
+}
+
+/* Philosopher */
+
+@font-face {
+   font-family: "Philosopher";
+   src: local("Philosopher-Regular"),
+      url("../../shared/assets/fonts/Philosopher/Philosopher-Regular.ttf")
+         format("truetype");
+   font-weight: 400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Philosopher";
+   src: local("Philosopher-Regular"),
+      url("../../shared/assets/fonts/Philosopher/Philosopher-Italic.ttf")
+         format("truetype");
+   font-weight: 400;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: "Philosopher";
+   src: local("Philosopher-Bold"),
+      url("../../shared/assets/fonts/Philosopher/Philosopher-Bold.ttf") format("truetype");
+   font-weight: 700;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Philosopher";
+   src: local("Philosopher-Bolditalic"),
+      url("../../shared/assets/fonts/Philosopher/Philosopher-BoldItalic.ttf")
+         format("truetype");
+   font-weight: 700;
+   font-style: italic;
+}

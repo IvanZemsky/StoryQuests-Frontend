@@ -1,0 +1,22 @@
+:root {
+   /* colors */
+
+   --primaryMain: #283345;
+   --primaryDark: #1A202C;
+   --primaryText: #FFFFFF;
+
+   --secondaryMain: #1B1E38;
+   --secondaryLight: #0FA9FF;
+   --secondaryText: #FFFFFF;
+
+   --thirdMain: #FFFFFF;
+   --thirdText: #000000;
+   --thirdLight: #FA00FF;
+
+   /* gradients */
+
+   --gradientMainFirst: #b14bf4;
+   --gradientMainSecond: #c82ccb;
+
+   --gradientMain: linear-gradient(90deg, var(--gradientMainFirst) 50%, var(--gradientMainSecond) 100%);
+}
