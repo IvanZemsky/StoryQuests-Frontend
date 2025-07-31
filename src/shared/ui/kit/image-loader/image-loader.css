@@ -1,0 +1,53 @@
+.ui-image-loader {
+   display: flex;
+   flex-direction: column;
+   padding: 15px;
+   border-radius: 20px;
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+}
+
+.ui-image-loader-input {
+   flex-shrink: 0;
+   margin-bottom: 15px;
+}
+
+.ui-image-loader-input input {
+   background-color: var(--primaryMain);
+}
+
+.ui-image-loader-content {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 7px;
+   flex-grow: 1;
+   width: 100%;
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.ui-image-loader-content p {
+   text-align: center;
+}
+
+.ui-image-loader-content svg {
+   width: 29px;
+   fill: var(--secondaryText);
+}
+
+.ui-image-loader-content img {
+   flex-grow: 0;
+   object-fit: contain;
+   width: auto;
+   height: 100%;
+   border-radius: 10px;
+
+   &::before,
+   &::after {
+      content: "";
+      display: none;
+   }
+}

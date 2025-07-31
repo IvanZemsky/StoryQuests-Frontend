@@ -11,7 +11,7 @@ type TextInputProps = {
    counter?: boolean
 } & ComponentProps<"input">
 
-export function TextInput(props: TextInputProps, ) {
+export function TextInput(props: TextInputProps) {
    const {
       ref,
       variant = "filled",
@@ -36,7 +36,6 @@ export function TextInput(props: TextInputProps, ) {
             className="ui-input"
             onChange={handleChange}
             ref={ref}
-            defaultValue={inputValue}
          />
          {counter && <div className="ui-input-counter">{symbolsLeft}</div>}
       </div>
