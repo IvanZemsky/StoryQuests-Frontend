@@ -1,0 +1,65 @@
+.ui-toggle-button-group {
+   display: flex;
+   flex-wrap: wrap;
+   background-color: var(--primaryMain);
+   border-radius: 20px;
+   overflow: hidden;
+}
+
+.ui-toggle-button-group.row {
+   align-items: center;
+   flex-direction: row;
+}
+
+.ui-toggle-button-group.row > * {
+   /* Select all children of .ui-toggle-button-group.row */
+}
+
+.ui-toggle-button-group.row > *:not(:first-child) .ui-button-check,
+.ui-toggle-button-group.row > *:not(:first-child) .ui-button-check > span {
+   border-radius: 0;
+}
+
+.ui-toggle-button-group.row > *:first-child .ui-button-check,
+.ui-toggle-button-group.row > *:first-child .ui-button-check > span {
+   border-radius: 20px 0 0 20px;
+}
+
+.ui-toggle-button-group.row > *:last-child .ui-button-check,
+.ui-toggle-button-group.row > *:last-child .ui-button-check > span {
+   border-radius: 0 20px 20px 0;
+}
+
+.ui-toggle-button-group.row > *:only-child .ui-button-check,
+.ui-toggle-button-group.row > *:only-child .ui-button-check > span {
+   border-radius: 20px;
+}
+
+.ui-toggle-button-group.column {
+   flex-direction: column;
+   gap: 1px;
+}
+
+.ui-toggle-button-group.column > * {
+  
+}
+
+.ui-toggle-button-group.column > *:not(:first-child) .ui-button-check,
+.ui-toggle-button-group.column > *:not(:first-child) .ui-button-check > span {
+   border-radius: 0;
+}
+
+.ui-toggle-button-group.column > *:first-child .ui-button-check,
+.ui-toggle-button-group.column > *:first-child .ui-button-check > span {
+   border-radius: 20px 20px 0 0;
+}
+
+.ui-toggle-button-group.column > *:last-child .ui-button-check,
+.ui-toggle-button-group.column > *:last-child .ui-button-check > span {
+   border-radius: 0 0 20px 20px;
+}
+
+.ui-toggle-button-group.column > *:only-child .ui-button-check,
+.ui-toggle-button-group.column > *:only-child .ui-button-check > span {
+   border-radius: 20px;
+}

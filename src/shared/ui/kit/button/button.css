@@ -1,4 +1,4 @@
-.container {
+.ui-button-container {
    display: inline-block;
    padding: 2px;
    border-radius: 20px;
@@ -6,25 +6,25 @@
    background: var(--gradientMain);
 }
 
-.container:disabled {
+.ui-button-container:disabled {
    filter: brightness(0.7);
    pointer-events: none;
 }
 
-.container.disabled {
+.ui-button-container.disabled {
    filter: brightness(0.7);
    pointer-events: none;
 }
 
-.container.minWidth {
+.ui-button-container.minWidth {
    min-width: 125px;
 }
 
-.container.uppercase {
+.ui-button-container.uppercase {
    text-transform: uppercase;
 }
 
-.content {
+.ui-button-content {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -36,109 +36,109 @@
    transition: all 0.15s linear;
 }
 
-.content.icon {
+.ui-button-content.icon {
    width: 49px;
    padding: 0;
    aspect-ratio: 1 / 1;
 }
 
-.content svg {
+.ui-button-content svg {
    flex-shrink: 1;
    width: 17px;
    height: auto;
    transition: all 0.15s linear;
 }
 
-.outlined.secondary .content {
+.ui-button-container.outlined.secondary .ui-button-content {
    background-color: var(--secondaryMain);
    color: var(--secondaryText);
 }
 
-.outlined.secondary svg {
+.ui-button-container.outlined.secondary svg {
    fill: var(--secondaryText);
    stroke: var(--secondaryText);
 }
 
-.outlined.primary .content {
+.ui-button-container.outlined.primary .ui-button-content {
    background-color: var(--secondaryMain);
    color: var(--primaryText);
 }
 
-.outlined.primary svg {
+.ui-button-container.outlined.primary svg {
    fill: var(--secondaryText);
    stroke: var(--secondaryText);
 }
 
 /* Hover Effect Implementation */
 @media (hover: hover) {
-   .outlined.defaultHover:hover:not(:disabled) .content {
+   .ui-button-container.outlined.defaultHover:hover:not(:disabled) .ui-button-content {
       background-color: rgba(0, 0, 0, 0);
    }
 }
 
 /* Active Effect (for devices without hover) */
 @media (hover: none) {
-   .outlined.defaultHover:active .content {
+   .ui-button-container.outlined.defaultHover:active .ui-button-content {
       background-color: rgba(0, 0, 0, 0);
    }
 }
 
-.gradient .content {
+.ui-button-container.gradient .ui-button-content {
    color: var(--primaryText);
 }
 
 /* Hover Effect Implementation */
 @media (hover: hover) {
-   .gradient.defaultHover:hover:not(:disabled) span {
+   .ui-button-container.gradient.defaultHover:hover:not(:disabled) span {
       background-color: var(--secondaryMain);
    }
 }
 
 /* Active Effect (for devices without hover) */
 @media (hover: none) {
-   .gradient.defaultHover:active span {
+   .ui-button-container.gradient.defaultHover:active span {
       background-color: var(--secondaryMain);
    }
 }
 
-.filled.primary {
+.ui-button-container.filled.primary {
    box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
 }
 
-.filled.primary .content {
+.ui-button-container.filled.primary .ui-button-content {
    background-color: var(--secondaryMain);
    color: var(--primaryText);
 }
 
-.filled.primary svg {
+.ui-button-container.filled.primary svg {
    fill: var(--primaryText);
    stroke: var(--primaryText);
 }
 
-.filled.secondary {
+.ui-button-container.filled.secondary {
    box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
 }
 
-.filled.secondary .content {
+.ui-button-container.filled.secondary .ui-button-content {
    background-color: var(--secondaryMain);
    color: var(--secondaryText);
 }
 
-.filled.secondary svg {
+.ui-button-container.filled.secondary svg {
    fill: var(--secondaryText);
    stroke: var(--secondaryText);
 }
 
 /* Hover Effect Implementation */
 @media (hover: hover) {
-   .filled.defaultHover:hover:not(:disabled) {
+   .ui-button-container.filled.defaultHover:hover:not(:disabled) {
       box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
    }
 }
 
 /* Active Effect (for devices without hover) */
 @media (hover: none) {
-   .filled.defaultHover:active {
+   .ui-button-container.filled.defaultHover:active {
       box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
    }
 }

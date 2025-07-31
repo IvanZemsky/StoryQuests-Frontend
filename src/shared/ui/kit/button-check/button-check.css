@@ -1,0 +1,52 @@
+.ui-button-check-wrap {
+   display: inline-block;
+}
+
+.ui-button-check-wrap.fill-container {
+   flex-grow: 1;
+}
+
+.ui-button-check-wrap.fill-container .ui-button-check-label {
+   width: 100%;
+   height: 100%;
+}
+
+.ui-button-check-wrap.fill-container .ui-button-check {
+   width: 100%;
+}
+
+.ui-button-check-wrap input {
+   display: none;
+}
+
+.ui-button-check-wrap .ui-button-check-label {
+   display: inline-block;
+   height: 100%;
+   user-select: none;
+   cursor: pointer;
+}
+
+.ui-button-check-wrap .ui-button-check-label > .ui-button-check,
+.ui-button-check-wrap .ui-button-check-label .ui-button-check span {
+   height: 100%;
+}
+
+@media (hover: hover) {
+   .ui-button-check-wrap .ui-button-check-label:hover > .ui-button-check > span {
+      color: var(--thirdLight);
+   }
+}
+
+@media (hover: none) {
+   .ui-button-check-wrap .ui-button-check-label:active > .ui-button-check > span {
+      color: var(--thirdLight);
+   }
+}
+
+.ui-button-check-wrap input:checked + .ui-button-check-label .ui-button-check {
+   box-shadow: 0 0 0 5px rgba(0, 0, 0, 0) inset;
+}
+
+.ui-button-check-wrap .ui-button-check {
+   pointer-events: none;
+}

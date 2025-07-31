@@ -1,0 +1,40 @@
+.ui-textarea-wrap{
+   display: flex;
+   align-items: center;
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+   border-radius: 20px;
+   overflow: hidden;
+
+}
+
+.ui-textarea-content{
+   flex-shrink: 1;
+   width: 100%;
+   height: 100%;
+   padding: 17px 20px;
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+   border-radius: 20px;
+   resize: none;
+}
+
+.ui-textarea-content::placeholder{
+   color: var(--secondaryText);
+   transition: color 0.15s linear;
+}
+
+.ui-textarea-content:focus::placeholder{
+   color: rgba(0,0,0,0);
+}
+
+.ui-textarea-counter{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   width: 50px;
+   height: calc(100% - 34px);
+   border-left: 1px solid var(--secondaryText);
+   color: var(--secondaryText);
+}

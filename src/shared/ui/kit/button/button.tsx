@@ -1,9 +1,9 @@
-import { Component, ComponentProps, ReactNode } from "react"
+import { ComponentProps, ReactNode } from "react"
 import "./button.css"
 import clsx from "clsx"
-import Link from "next/link"
 
 export type ButtonProps<T extends React.ElementType> = {
+   ref?: React.Ref<T>
    variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
@@ -11,11 +11,10 @@ export type ButtonProps<T extends React.ElementType> = {
    leftIcon?: ReactNode
    rightIcon?: ReactNode
    as?: React.ElementType
-   children?: React.ReactNode
-   className: string
 } & ComponentProps<T>
 
 export function Button<T extends React.ElementType>({
+   ref,
    variant = "outlined",
    color = "secondary",
    defaultHover = true,
@@ -31,8 +30,9 @@ export function Button<T extends React.ElementType>({
 
    return (
       <Component
+         ref={ref}
          className={clsx(
-            "container",
+            "ui-button-container",
             variant,
             color,
             {
@@ -45,7 +45,7 @@ export function Button<T extends React.ElementType>({
          {...attributes}
       >
          <span
-            className={clsx("content", {
+            className={clsx("ui-button-content", {
                icon: (leftIcon || rightIcon) && !children,
             })}
          >
