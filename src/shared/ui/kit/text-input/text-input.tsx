@@ -36,6 +36,7 @@ export function TextInput(props: TextInputProps) {
             className="ui-input"
             onChange={handleChange}
             ref={ref}
+            value={inputValue}
          />
          {counter && <div className="ui-input-counter">{symbolsLeft}</div>}
       </div>

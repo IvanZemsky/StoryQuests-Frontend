@@ -1,5 +1,5 @@
 "use client"
-import { ComponentProps, Ref, useState } from "react"
+import { ComponentProps, Ref, useEffect, useState } from "react"
 import { TextInput } from "../text-input/text-input"
 import clsx from "clsx"
 import "./image-loader.css"
@@ -9,32 +9,48 @@ type Props = ComponentProps<"input"> & {
    ref?: Ref<HTMLInputElement>
    label?: React.ReactNode
    value?: string
-   onError?: (...args: any) => any
+   onSuccess?: (value: string) => void
+   onError?: () => void
 }
 
 export function ImageLoader({
    ref,
    label,
-   onChange,
+   value: defaultValue,
+   onSuccess,
+   onError,
    className,
    placeholder = "Image link",
    ...attrs
 }: Props) {
-   const [value, setValue] = useState<string>("")
+   const [value, setValue] = useState<string>(defaultValue || "")
    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-   const canShowImg = status === "success" || status === "loading"
+   const canRenderImage = status === "success" || status === "loading"
 
-   const handleImageLoad = () => setStatus("success")
-   const handleImageError = () => setStatus("error")
+   const handleImageLoad = () => {
+      setStatus("success")
+      onSuccess?.(value)
+   }
+
+   const handleImageError = () => {
+      setStatus("error")
+      onError?.()
+   }
+
+   useEffect(() => handleValue(value), [])
 
    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValue(event.target.value)
-      if (event.target.value === "") {
+      handleValue(event.target.value)
+   }
+
+   const handleValue = (value: string) => {
+      setValue(value)
+      if (value === "") {
          setStatus("idle")
          return
       }
-      if (!URL.canParse(event.target.value)) {
+      if (!URL.canParse(value)) {
          setStatus("error")
          return
       }
@@ -60,7 +76,7 @@ export function ImageLoader({
                   Error occured. <br /> Please, try other link
                </p>
             )}
-            {canShowImg && (
+            {canRenderImage && (
                <Image
                   src={String(value)}
                   alt="Uploaded image"
