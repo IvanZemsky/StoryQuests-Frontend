@@ -16,7 +16,7 @@
    pointer-events: none;
 }
 
-.ui-button-container.minWidth {
+.ui-button-container.min-width {
    min-width: 125px;
 }
 
@@ -69,16 +69,20 @@
    stroke: var(--secondaryText);
 }
 
+.ui-button-container:active {
+   opacity: 0.8;
+}
+
 /* Hover Effect Implementation */
 @media (hover: hover) {
-   .ui-button-container.outlined.defaultHover:hover:not(:disabled) .ui-button-content {
+   .ui-button-container.outlined.default-hover:hover:not(:disabled) .ui-button-content {
       background-color: rgba(0, 0, 0, 0);
    }
 }
 
 /* Active Effect (for devices without hover) */
 @media (hover: none) {
-   .ui-button-container.outlined.defaultHover:active .ui-button-content {
+   .ui-button-container.outlined.default-hover:active .ui-button-content {
       background-color: rgba(0, 0, 0, 0);
    }
 }
@@ -89,14 +93,14 @@
 
 /* Hover Effect Implementation */
 @media (hover: hover) {
-   .ui-button-container.gradient.defaultHover:hover:not(:disabled) span {
+   .ui-button-container.gradient.default-hover:hover:not(:disabled) span {
       background-color: var(--secondaryMain);
    }
 }
 
 /* Active Effect (for devices without hover) */
 @media (hover: none) {
-   .ui-button-container.gradient.defaultHover:active span {
+   .ui-button-container.gradient.default-hover:active span {
       background-color: var(--secondaryMain);
    }
 }
@@ -131,14 +135,14 @@
 
 /* Hover Effect Implementation */
 @media (hover: hover) {
-   .ui-button-container.filled.defaultHover:hover:not(:disabled) {
+   .ui-button-container.filled.default-hover:hover:not(:disabled) {
       box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
    }
 }
 
 /* Active Effect (for devices without hover) */
 @media (hover: none) {
-   .ui-button-container.filled.defaultHover:active {
+   .ui-button-container.filled.default-hover:active {
       box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
    }
 }

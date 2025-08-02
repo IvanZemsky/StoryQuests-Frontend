@@ -183,45 +183,24 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         Story: {
-            /** @description Story ID */
-            id?: string;
-            /** @description Story name */
-            name?: string;
-            /** @description Story description */
-            description?: string;
-            /** @description Story image URL */
-            img?: string;
-            /** @description Story author information */
-            author?: {
-                /** @description Author ID */
-                id?: string;
-                /** @description Author login */
-                login?: string;
+            id: string;
+            name: string;
+            description: string;
+            img: string;
+            author: {
+                id: string;
+                login: string;
             };
-            /** @description Story tags */
-            tags?: string[];
-            /**
-             * Format: int32
-             * @description Number of scenes in the story
-             */
-            sceneCount?: number;
-            /**
-             * Format: int32
-             * @description Number of passes
-             */
-            passes?: number;
-            /**
-             * Format: int32
-             * @description Number of likes
-             */
-            likes?: number;
-            /** @description Whether the story is liked by the user */
-            isLiked?: boolean;
-            /**
-             * Format: date
-             * @description Story creation date
-             */
-            date?: string;
+            tags: string[];
+            /** Format: int32 */
+            sceneCount: number;
+            /** Format: int32 */
+            passes: number;
+            /** Format: int32 */
+            likes: number;
+            isLiked: boolean;
+            /** Format: date */
+            date: string;
         };
         Scene: {
             /** @description Scene ID */

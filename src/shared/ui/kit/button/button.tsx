@@ -10,7 +10,7 @@ export type ButtonProps<T extends React.ElementType> = {
    uppercase?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
-   as?: React.ElementType
+   as?: T
 } & ComponentProps<T>
 
 export function Button<T extends React.ElementType>({
@@ -28,27 +28,26 @@ export function Button<T extends React.ElementType>({
 }: ButtonProps<T>) {
    const Component = as
 
+   const styles = {
+      container: clsx(
+         "ui-button-container",
+         variant,
+         color,
+         {
+            "default-hover": defaultHover,
+            "min-width": children,
+            uppercase: uppercase,
+         },
+         className,
+      ),
+      content: clsx("ui-button-content", {
+         icon: (leftIcon || rightIcon) && !children,
+      }),
+   }
+
    return (
-      <Component
-         ref={ref}
-         className={clsx(
-            "ui-button-container",
-            variant,
-            color,
-            {
-               defaultHover: defaultHover,
-               minWidth: children,
-               uppercase: uppercase,
-            },
-            className,
-         )}
-         {...attributes}
-      >
-         <span
-            className={clsx("ui-button-content", {
-               icon: (leftIcon || rightIcon) && !children,
-            })}
-         >
+      <Component ref={ref} className={styles.container} {...attributes}>
+         <span className={styles.content}>
             {leftIcon}
             {children}
             {rightIcon}

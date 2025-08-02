@@ -1,0 +1,11 @@
+.skeleton{
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 23px;
+}
+
+.skeletonBlock{
+   height: 500px;
+   background-color: var(--secondaryMain);
+   border-radius: 15px;
+}

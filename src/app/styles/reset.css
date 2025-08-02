@@ -5,8 +5,12 @@
    -webkit-tap-highlight-color: transparent;
 }
 
-body {
+html {
    font-size: 18px;
+}
+
+body {
+   font-size: 1rem;
    font-family: "Montserrat";
    font-weight: 400;
    font-style: normal;
@@ -93,9 +97,9 @@ div.react-flow__attribution {
    background-color: var(--primaryDark);
    padding: 3px;
    opacity: 0.5;
+}
 
-   a {
-      padding-right: 4px;
-      color: var(--primaryText);
-   }
+div.react-flow__attribution a {
+   padding-right: 4px;
+   color: var(--primaryText);
 }

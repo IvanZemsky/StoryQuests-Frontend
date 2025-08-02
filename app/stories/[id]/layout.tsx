@@ -1,0 +1,1 @@
+export {StoryLayout as default} from '@/src/app'

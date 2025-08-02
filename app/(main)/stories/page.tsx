@@ -1,0 +1,1 @@
+export { StoriesPage as default } from "@/src/pages/stories/page";

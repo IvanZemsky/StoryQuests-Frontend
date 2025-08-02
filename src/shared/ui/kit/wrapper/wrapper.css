@@ -1,0 +1,32 @@
+.ui-wrapper {
+   max-width: 1480px;
+   width: 100%;
+   height: 100%;
+   margin: 0 auto;
+}
+
+.ui-wrapper.horizontal {
+   padding: 0 1rem;
+}
+
+.ui-wrapper.vertical {
+   padding: 1rem 0;
+}
+
+.ui-wrapper.both {
+   padding: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+   .ui-wrapper.horizontal {
+      padding: 0.7rem;
+   }
+
+   .ui-wrapper.vertical {
+      padding: 0.7rem0;
+   }
+
+   .ui-wrapper.both {
+      padding: 0.7rem;
+   }
+}

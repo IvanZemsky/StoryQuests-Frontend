@@ -1,0 +1,14 @@
+.link {
+   width: 48px;
+   height: 48px;
+   transition: transform 0.15s linear;
+}
+
+.link:hover {
+   transform: scale(0.95);
+}
+
+.link svg {
+   width: 100%;
+   height: auto;
+}

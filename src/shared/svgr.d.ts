@@ -5,6 +5,6 @@ declare module "*.svg" {
 }
 
 declare module "*.svg?url" {
-   const content: unknown
+   const content: StaticImport
    export default content
 }

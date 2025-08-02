@@ -1,0 +1,86 @@
+.wrap {
+   border-radius: 15px;
+   padding: 2px 2px 5px 2px;
+   background: var(--gradientMain);
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   background-color: var(--secondaryMain);
+   border-radius: 15px 15px 15px 15px;
+   overflow: hidden;
+}
+
+.imgWrap {
+   position: relative;
+   aspect-ratio: 1 / 0.7;
+   overflow: hidden;
+}
+
+.imgWrapimg {
+   width: 100%;
+   height: 100%;
+   filter: brightness(87%);
+   object-fit: cover;
+}
+
+.info {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   gap: 15px;
+   padding: 15px 15px 20px 15px;
+}
+
+.controls {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   margin-top: auto;
+}
+
+.title {
+   color: var(--thirdLight);
+   font-family: Philosopher;
+   font-weight: 700;
+   font-size: 19px;
+}
+
+.desc {
+   font-size: 14px;
+}
+
+.stats,
+.statsItem {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.stats,
+.statsItem button {
+   height: 26px;
+}
+
+.stats,
+.statsItem p {
+   min-width: 50px;
+}
+
+.stats,
+.statsItem svg {
+   width: 30px;
+   stroke: var(--secondaryText);
+}
+
+.authorLink {
+   align-self: flex-start;
+   font-size: 16px;
+   color: var(--secondaryLight);
+}
+
+.authorLink:hover {
+   text-decoration: underline;
+}

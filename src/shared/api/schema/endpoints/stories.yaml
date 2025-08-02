@@ -53,47 +53,49 @@ components:
          properties:
             id:
                type: string
-               description: "Story ID"
             name:
                type: string
-               description: "Story name"
             description:
                type: string
-               description: "Story description"
             img:
                type: string
-               description: "Story image URL"
             author:
                type: object
                properties:
                   id:
                      type: string
-                     description: "Author ID"
                   login:
                      type: string
-                     description: "Author login"
-               description: "Story author information"
+               required:
+                  - id
+                  - login
             tags:
                type: array
                items:
                   type: string
-               description: "Story tags"
             sceneCount:
                type: integer
                format: int32
-               description: "Number of scenes in the story"
             passes:
                type: integer
                format: int32
-               description: "Number of passes"
             likes:
                type: integer
                format: int32
-               description: "Number of likes"
             isLiked:
                type: boolean
-               description: "Whether the story is liked by the user"
             date:
                type: string
                format: date
-               description: "Story creation date"
+         required:
+            - id
+            - name
+            - description
+            - img
+            - author
+            - tags
+            - sceneCount
+            - passes
+            - likes
+            - isLiked
+            - date

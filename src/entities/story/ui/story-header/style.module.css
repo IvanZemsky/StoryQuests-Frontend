@@ -1,0 +1,33 @@
+.header{
+   background-color: var(--secondaryMain);
+}
+
+.content{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin: 15px 0;
+
+   h1{
+      font-size: 18px;
+      font-family: Philosopher;
+      font-weight: 700;
+   }
+
+   a{
+      color: var(--secondaryText);
+
+      &:hover{
+         text-decoration: underline;
+      }
+   }
+}
+
+@media screen and (max-width: 800px) {
+   .content {
+      .link, span{
+         display: none;
+      }
+   }
+   
+}

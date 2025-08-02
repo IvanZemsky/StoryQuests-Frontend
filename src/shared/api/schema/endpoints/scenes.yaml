@@ -1,4 +1,3 @@
-# api/endpoints/scenes.yaml
 findMany:
    summary: Get all scenes
    description: Retrieves a list of scenes.
