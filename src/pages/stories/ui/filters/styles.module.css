@@ -1,0 +1,58 @@
+.filters {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   padding: 25px 0;
+}
+
+.searchWrap {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   flex-grow: 1;
+}
+
+.searchInput {
+   max-width: 325px;
+   width: 100%;
+   height: 52px;
+}
+
+.search {
+   max-width: 325px;
+   width: 100%;
+   height: 50px;
+}
+
+.select {
+   max-width: 215px;
+   width: 100%;
+}
+
+.select :global(.ui-select-button) {
+   text-transform: uppercase;
+}
+
+button.searchBtn svg {
+   width: 28px;
+}
+
+@media screen and (max-width: 1092px) {
+   .filters {
+      flex-wrap: wrap;
+   }
+   .sort {
+      flex-grow: 1;
+   }
+   .searchInput {
+      flex-grow: 1;
+      max-width: 100%;
+   }
+}
+
+@media screen and (max-width: 695px) {
+   .filters,
+   .searchWrap {
+      gap: 0.5rem;
+   }
+}

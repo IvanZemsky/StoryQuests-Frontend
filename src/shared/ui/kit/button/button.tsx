@@ -23,6 +23,7 @@ export function Button<T extends React.ElementType>({
    children,
    className,
    as = "button",
+   type = "button",
    uppercase = false,
    ...attributes
 }: ButtonProps<T>) {
@@ -46,7 +47,7 @@ export function Button<T extends React.ElementType>({
    }
 
    return (
-      <Component ref={ref} className={styles.container} {...attributes}>
+      <Component ref={ref} className={styles.container} {...attributes} type={type}>
          <span className={styles.content}>
             {leftIcon}
             {children}

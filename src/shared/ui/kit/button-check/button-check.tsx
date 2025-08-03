@@ -8,6 +8,7 @@ export type ButtonCheckProps = ComponentProps<"input"> & {
    value?: string | number
    fillContainer?: boolean
    onDoubleClick?: MouseEventHandler<HTMLDivElement>
+   uppercase?: boolean
 }
 
 export function ButtonCheck(props: ButtonCheckProps) {
@@ -19,6 +20,7 @@ export function ButtonCheck(props: ButtonCheckProps) {
       onChange,
       onDoubleClick,
       children,
+      uppercase,
       ...attributes
    } = props
 
@@ -39,7 +41,12 @@ export function ButtonCheck(props: ButtonCheckProps) {
             {...attributes}
          />
          <label className="ui-button-check-label" htmlFor={attributes.id}>
-            <Button variant="filled" type="button" className="ui-button-check">
+            <Button
+               variant="filled"
+               type="button"
+               uppercase={uppercase}
+               className="ui-button-check"
+            >
                {children}
             </Button>
          </label>

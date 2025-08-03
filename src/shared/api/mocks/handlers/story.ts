@@ -1,13 +1,17 @@
-import { HttpResponse } from "msw"
+import { delay, HttpResponse } from "msw"
 import { ApiSchemas } from "../.."
 import { http } from "../http"
+
+const placeholderImg =
+   "https://images.unsplash.com/photo-1599587997303-86d4294c5df7?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
 const storiesMocks: ApiSchemas["Story"][] = [
    {
       id: "story-1",
       name: "The Adventure of Story 1",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 1.",
-      img: "https://example.com/story1.jpg",
+      img: placeholderImg,
       author: {
          id: "author-1",
          login: "Author1",
@@ -24,7 +28,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 2",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 2.",
-      img: "https://example.com/story2.jpg",
+      img: placeholderImg,
       author: {
          id: "author-2",
          login: "Author2",
@@ -41,7 +45,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 3",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 3.",
-      img: "https://example.com/story3.jpg",
+      img: placeholderImg,
       author: {
          id: "author-3",
          login: "Author3",
@@ -58,7 +62,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 4",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 4.",
-      img: "https://example.com/story4.jpg",
+      img: placeholderImg,
       author: {
          id: "author-4",
          login: "Author4",
@@ -75,7 +79,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 5",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 5.",
-      img: "https://example.com/story5.jpg",
+      img: placeholderImg,
       author: {
          id: "author-5",
          login: "Author5",
@@ -92,7 +96,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 6",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 6.",
-      img: "https://example.com/story6.jpg",
+      img: placeholderImg,
       author: {
          id: "author-1",
          login: "Author1",
@@ -109,7 +113,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 7",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 7.",
-      img: "https://example.com/story7.jpg",
+      img: placeholderImg,
       author: {
          id: "author-2",
          login: "Author2",
@@ -126,7 +130,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 8",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 8.",
-      img: "https://example.com/story8.jpg",
+      img: placeholderImg,
       author: {
          id: "author-3",
          login: "Author3",
@@ -143,7 +147,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 9",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 9.",
-      img: "https://example.com/story9.jpg",
+      img: placeholderImg,
       author: {
          id: "author-4",
          login: "Author4",
@@ -160,7 +164,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 10",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 10.",
-      img: "https://example.com/story10.jpg",
+      img: placeholderImg,
       author: {
          id: "author-5",
          login: "Author5",
@@ -177,7 +181,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 11",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 11.",
-      img: "https://example.com/story11.jpg",
+      img: placeholderImg,
       author: {
          id: "author-1",
          login: "Author1",
@@ -194,7 +198,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 12",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 12.",
-      img: "https://example.com/story12.jpg",
+      img: placeholderImg,
       author: {
          id: "author-2",
          login: "Author2",
@@ -211,7 +215,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 13",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 13.",
-      img: "https://example.com/story13.jpg",
+      img: placeholderImg,
       author: {
          id: "author-3",
          login: "Author3",
@@ -228,7 +232,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 14",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 14.",
-      img: "https://example.com/story14.jpg",
+      img: placeholderImg,
       author: {
          id: "author-4",
          login: "Author4",
@@ -245,7 +249,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 15",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 15.",
-      img: "https://example.com/story15.jpg",
+      img: placeholderImg,
       author: {
          id: "author-5",
          login: "Author5",
@@ -262,7 +266,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 16",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 16.",
-      img: "https://example.com/story16.jpg",
+      img: placeholderImg,
       author: {
          id: "author-1",
          login: "Author1",
@@ -279,7 +283,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 17",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 17.",
-      img: "https://example.com/story17.jpg",
+      img: placeholderImg,
       author: {
          id: "author-2",
          login: "Author2",
@@ -296,7 +300,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 18",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 18.",
-      img: "https://example.com/story18.jpg",
+      img: placeholderImg,
       author: {
          id: "author-3",
          login: "Author3",
@@ -313,7 +317,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 19",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 19.",
-      img: "https://example.com/story19.jpg",
+      img: placeholderImg,
       author: {
          id: "author-4",
          login: "Author4",
@@ -330,7 +334,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 20",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 20.",
-      img: "https://example.com/story20.jpg",
+      img: placeholderImg,
       author: {
          id: "author-5",
          login: "Author5",
@@ -347,7 +351,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 21",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 21.",
-      img: "https://example.com/story21.jpg",
+      img: placeholderImg,
       author: {
          id: "author-1",
          login: "Author1",
@@ -364,7 +368,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 22",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 22.",
-      img: "https://example.com/story22.jpg",
+      img: placeholderImg,
       author: {
          id: "author-2",
          login: "Author2",
@@ -381,7 +385,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 23",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 23.",
-      img: "https://example.com/story23.jpg",
+      img: placeholderImg,
       author: {
          id: "author-3",
          login: "Author3",
@@ -398,7 +402,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 24",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 24.",
-      img: "https://example.com/story24.jpg",
+      img: placeholderImg,
       author: {
          id: "author-4",
          login: "Author4",
@@ -415,7 +419,7 @@ const storiesMocks: ApiSchemas["Story"][] = [
       name: "The Adventure of Story 25",
       description:
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 25.",
-      img: "https://example.com/story25.jpg",
+      img: placeholderImg,
       author: {
          id: "author-5",
          login: "Author5",
@@ -430,11 +434,12 @@ const storiesMocks: ApiSchemas["Story"][] = [
 ]
 
 export const storiesHandlers = [
-   http.get("/stories", ({ request }) => {
+   http.get("/stories", async ({ request }) => {
+      await delay(1000)
       return HttpResponse.json(storiesMocks)
    }),
 
-   http.get("/stories/{storyId}", ({ params, request }) => {
+   http.get("/stories/{storyId}", async ({ params, request }) => {
       const storyId = params.storyId
 
       if (!storyId) {
@@ -443,6 +448,8 @@ export const storiesHandlers = [
             { status: 400 },
          )
       }
+
+      await delay(1000)
 
       const story = storiesMocks.find((story) => story.id === params.storyId)
 

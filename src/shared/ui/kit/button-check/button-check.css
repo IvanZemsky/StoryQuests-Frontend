@@ -26,6 +26,10 @@
    cursor: pointer;
 }
 
+.ui-button-check-label, .ui-button-check-label > .ui-button-check{
+   width: 100%;
+}
+
 .ui-button-check-wrap .ui-button-check-label > .ui-button-check,
 .ui-button-check-wrap .ui-button-check-label .ui-button-check span {
    height: 100%;

@@ -1,9 +1,13 @@
 .ui-toggle-button-group {
    display: flex;
-   flex-wrap: wrap;
    background-color: var(--primaryMain);
    border-radius: 20px;
    overflow: hidden;
+   flex-shrink: 0;
+}
+
+.ui-toggle-button-group-item{
+   flex-grow: 1;
 }
 
 .ui-toggle-button-group.row {
