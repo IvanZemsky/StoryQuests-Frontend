@@ -1,21 +1,25 @@
 import { z } from "zod"
 import { GetStoryDtoSchema } from "../model/schemas"
 import { CreateSceneDto, GetSceneDto } from "@/src/entities/scene/api/dto"
+import { Story } from "../model/types"
 
-export type GetStoryDto = z.infer<typeof GetStoryDtoSchema>
+export type GetStoriesDTO = {
+   data: Story[]
+   total: number
+}
 
-export type StoryPassesUpdateDto = {
+export type StoryPassesUpdateDTO = {
    readonly storyId: string
    readonly passes: number
 }
 
-export type StoryLikeUpdateDto = {
+export type StoryLikeUpdateDTO = {
    readonly storyId: string
    readonly isLiked: boolean
    readonly likes: number
 }
 
-export type SetStoryResultDto = {
+export type SetStoryResultDTO = {
    readonly _id: string
    readonly datetime: string
    readonly resultSceneId: string
@@ -23,7 +27,7 @@ export type SetStoryResultDto = {
    readonly userId: string
 }
 
-export type GetStoryResultDto = {
+export type GetStoryResultDTO = {
    readonly _id: string
    readonly datetime: string
    readonly resultSceneId: string
@@ -32,7 +36,7 @@ export type GetStoryResultDto = {
    readonly scene: GetSceneDto
 }
 
-export type CreateStoryMainInfoDto = {
+export type CreateStoryMainInfoDTO = {
    name: string
    description: string
    img: string

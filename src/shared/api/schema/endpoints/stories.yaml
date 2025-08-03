@@ -4,6 +4,19 @@ findMany:
    description: Retrieves a list of stories.
    tags:
       - stories
+   parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+           type: integer
+           default: 1
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
    responses:
       "200":
          description: Successful operation

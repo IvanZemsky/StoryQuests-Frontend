@@ -1,0 +1,19 @@
+.ui-pagination {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.ui-pagination-btn.min-width {
+   min-width: 0;
+}
+
+.ui-pagination-btn span {
+   min-width: 46px;
+   height: 46px;
+}
+
+.ui-pagination-btn.ui-button-container.active .ui-button-content {
+   background-color: rgba(0, 0, 0, 0);
+}

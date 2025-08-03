@@ -14,7 +14,7 @@
    transition: transform 0.15s linear;
 }
 
-.ui-select-wrap .opened button svg {
+.ui-select-wrap.opened button svg {
    transform: rotate(-180deg);
 }
 
@@ -39,23 +39,17 @@
    font: inherit;
 }
 
-.ui-select-options > *:not(:first-child) {
-   button,
-   button > span {
-      border-radius: 0;
-   }
+.ui-select-options > *:not(:first-child) button,
+.ui-select-options > *:not(:first-child) button > span {
+   border-radius: 0;
 }
 
-.ui-select-options > *:first-child {
-   button,
-   button > span {
-      border-radius: 20px 20px 0 0;
-   }
+.ui-select-options > *:first-child button,
+.ui-select-options > *:first-child button > span {
+   border-radius: 20px 20px 0 0;
 }
 
-.ui-select-options > *:last-child {
-   button,
-   button > span {
-      border-radius: 0 0 20px 20px;
-   }
+.ui-select-options > *:last-child button,
+.ui-select-options > *:last-child button > span {
+   border-radius: 0 0 20px 20px;
 }

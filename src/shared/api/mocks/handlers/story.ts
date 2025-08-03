@@ -435,8 +435,20 @@ const storiesMocks: ApiSchemas["Story"][] = [
 
 export const storiesHandlers = [
    http.get("/stories", async ({ request }) => {
+      const url = new URL(request.url)
+      const page = Number(url.searchParams.get("page")) || 1
+      const limit = Number(url.searchParams.get("limit")) || 10
+
+      const stories = storiesMocks.slice((page - 1) * limit, page * limit)
+
       await delay(1000)
-      return HttpResponse.json(storiesMocks)
+
+      return HttpResponse.json(stories, {
+         headers: {
+            "Content-Type": "application/json",
+            "X-Total-Count": String(storiesMocks.length),
+         },
+      })
    }),
 
    http.get("/stories/{storyId}", async ({ params, request }) => {
