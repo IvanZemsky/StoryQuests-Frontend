@@ -5,7 +5,7 @@ import {
    storyService,
 } from "@/src/entities/story"
 import { StoriesPageLayout } from "./ui/stories-page-layout"
-import { StoriesFilters } from "./ui/filters/stories-filters"
+import { StoriesFilters } from "@/src/features/story/filters/stories-filters"
 import { Pagination } from "@/src/shared/ui"
 
 export async function StoriesPage({
@@ -14,9 +14,9 @@ export async function StoriesPage({
    searchParams: Promise<Partial<Record<string, string>>>
 }) {
    const page = Number((await searchParams).page) || 1
-   const data = await storyService.find({ limit: STORIES_SEARCH_LIMIT, page })
 
-   const pagesCount = data?.total ? Math.ceil(data.total / STORIES_SEARCH_LIMIT) : 1
+   const data = await storyService.find({ limit: STORIES_SEARCH_LIMIT, page })
+   const pagesCount = data?.total ? countPages(data.total, STORIES_SEARCH_LIMIT) : 1
 
    return (
       <StoriesPageLayout
@@ -27,7 +27,13 @@ export async function StoriesPage({
                renderItem={(data) => <StoryListMainCard key={data.id} data={data} />}
             />
          }
-         pagination={<Pagination current={page} total={pagesCount} href="/stories" />}
+         pagination={
+            data?.data && <Pagination current={page} total={pagesCount} href="/stories" />
+         }
       />
    )
+}
+
+function countPages(total: number, limit: number) {
+   return Math.ceil(total / limit)
 }

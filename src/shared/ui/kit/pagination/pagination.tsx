@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react"
 import "./pagination.css"
 import { Button } from "../button/button"
 import clsx from "clsx"
@@ -8,13 +7,14 @@ type Props = {
    current: number
    total: number
    href: string
+   className?: string
 }
 
-export function Pagination({ current, total, href }: Props) {
+export function Pagination({ current, total, href, className }: Props) {
    const pages = Array.from({ length: total }, (_, item) => item + 1)
 
    return (
-      <div className="ui-pagination">
+      <div className={clsx("ui-pagination", className)}>
          {pages.map((page) => (
             <Button
                href={`${href}?page=${page}`}

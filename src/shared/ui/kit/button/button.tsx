@@ -1,6 +1,7 @@
 import { ComponentProps, ReactNode } from "react"
 import "./button.css"
 import clsx from "clsx"
+import { LoadingIndicator } from "./loading-indicator"
 
 export type ButtonProps<T extends React.ElementType> = {
    ref?: React.Ref<T>
@@ -48,11 +49,13 @@ export function Button<T extends React.ElementType>({
 
    return (
       <Component ref={ref} className={styles.container} {...attributes} type={type}>
-         <span className={styles.content}>
-            {leftIcon}
-            {children}
-            {rightIcon}
-         </span>
+         <LoadingIndicator>
+            <span className={styles.content}>
+               {leftIcon}
+               {children}
+               {rightIcon}
+            </span>
+         </LoadingIndicator>
       </Component>
    )
 }

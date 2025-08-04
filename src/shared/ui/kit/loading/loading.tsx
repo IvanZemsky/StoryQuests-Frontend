@@ -2,7 +2,6 @@
 
 import "./loading.css"
 import TubeSpinner from "../../../assets/animated/tube-spinner.svg"
-import Image from "next/image"
 
 export async function Loading() {
    return (

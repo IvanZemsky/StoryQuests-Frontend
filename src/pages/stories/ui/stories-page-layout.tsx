@@ -1,4 +1,5 @@
 import { Wrapper } from "@/src/shared/ui"
+import styles from "./stories-layout.module.css"
 
 type Props = {
    filters: React.ReactNode
@@ -8,10 +9,10 @@ type Props = {
 
 export function StoriesPageLayout({ filters, list, pagination }: Props) {
    return (
-      <Wrapper>
+      <Wrapper className={styles.wrap}>
          <header>{filters}</header>
          {list}
-         {pagination}
+         <div className={styles.pagination}>{pagination}</div>
       </Wrapper>
    )
 }

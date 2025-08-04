@@ -1,7 +1,7 @@
 import { server } from "../server"
 
 export function initServerSideMocks() {
-   if (process.env.NEXT_PUBLIC_ENABLE_MOCKS) {
+   if (process.env.NEXT_PUBLIC_ENABLE_MOCKS === "true") {
       server.listen()
    }
 }

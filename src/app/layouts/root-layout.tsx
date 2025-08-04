@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-// import "./globals.css"
 import "@/src/app/styles/fonts.css"
 import "@/src/app/styles/reset.css"
 import "@/src/shared/ui/styles/vars.css"

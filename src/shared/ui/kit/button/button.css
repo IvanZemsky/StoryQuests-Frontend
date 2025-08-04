@@ -1,9 +1,14 @@
 .ui-button-container {
+   position: relative;
    display: inline-block;
    padding: 2px;
    border-radius: 20px;
    transition: all 0.15s linear;
    background: var(--gradientMain);
+}
+
+.ui-button-container:has(.ui-pending-indicator) {
+   animation: half-fading 1s infinite ease-in;
 }
 
 .ui-button-container:disabled {
@@ -73,14 +78,12 @@
    opacity: 0.8;
 }
 
-/* Hover Effect Implementation */
 @media (hover: hover) {
    .ui-button-container.outlined.default-hover:hover:not(:disabled) .ui-button-content {
       background-color: rgba(0, 0, 0, 0);
    }
 }
 
-/* Active Effect (for devices without hover) */
 @media (hover: none) {
    .ui-button-container.outlined.default-hover:active .ui-button-content {
       background-color: rgba(0, 0, 0, 0);
@@ -91,14 +94,12 @@
    color: var(--primaryText);
 }
 
-/* Hover Effect Implementation */
 @media (hover: hover) {
    .ui-button-container.gradient.default-hover:hover:not(:disabled) span {
       background-color: var(--secondaryMain);
    }
 }
 
-/* Active Effect (for devices without hover) */
 @media (hover: none) {
    .ui-button-container.gradient.default-hover:active span {
       background-color: var(--secondaryMain);
@@ -133,16 +134,26 @@
    stroke: var(--secondaryText);
 }
 
-/* Hover Effect Implementation */
 @media (hover: hover) {
    .ui-button-container.filled.default-hover:hover:not(:disabled) {
       box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
    }
 }
 
-/* Active Effect (for devices without hover) */
 @media (hover: none) {
    .ui-button-container.filled.default-hover:active {
       box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
+   }
+}
+
+@keyframes half-fading {
+   0% {
+      opacity: 1;
+   }
+   50% {
+      opacity: 0.6;
+   }
+   100% {
+      opacity: 1;
    }
 }
