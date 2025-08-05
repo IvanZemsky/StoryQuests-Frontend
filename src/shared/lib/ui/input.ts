@@ -1,23 +1,26 @@
 "use client"
 
-import { useState, ChangeEvent, InputHTMLAttributes, ChangeEventHandler } from "react"
+import { useState, ChangeEvent, ChangeEventHandler } from "react"
 
 export const useInput = (
-   value: InputHTMLAttributes<HTMLInputElement>["value"],
+   inputRef: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>,
    callback?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
    maxLength?: number,
 ) => {
-   const [inputValue, setInputValue] = useState(String(value || ""))
-
-   const symbolsLeft = maxLength ? maxLength - inputValue.length : null
+   const [symbolsLeft, setSymbolsLeft] = useState(maxLength)
 
    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      if (maxLength) {
-         const newValue = event.target.value.slice(0, maxLength)
-         setInputValue(newValue)
+      if (!inputRef.current) return
+      
+      if (maxLength && event.target.value.length > maxLength) {
+         inputRef.current.value = event.target.value.slice(0, maxLength)
+         setSymbolsLeft(maxLength - event.target.value.length)
       }
+
+      inputRef.current.value = event.target.value
+
       callback?.(event)
    }
 
-   return [inputValue, handleChange, symbolsLeft] as const
+   return [handleChange, symbolsLeft] as const
 }

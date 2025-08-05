@@ -32,7 +32,7 @@
    text-transform: uppercase;
 }
 
-button.searchBtn svg {
+.searchBtn svg {
    width: 28px;
 }
 

@@ -6,7 +6,7 @@ import { useInput } from "../../../lib/ui/input"
 import clsx from "clsx"
 
 type TextInputProps = {
-   ref?: React.Ref<HTMLInputElement>
+   ref: React.RefObject<HTMLInputElement | null>
    variant?: "outlined" | "filled"
    counter?: boolean
 } & ComponentProps<"input">
@@ -19,11 +19,10 @@ export function TextInput(props: TextInputProps) {
       className,
       maxLength,
       onChange,
-      value,
       ...attributes
    } = props
 
-   const [inputValue, handleChange, symbolsLeft] = useInput(value, onChange, maxLength)
+   const [handleChange, symbolsLeft] = useInput(ref, onChange, maxLength)
 
    return (
       <div
@@ -32,11 +31,10 @@ export function TextInput(props: TextInputProps) {
          })}
       >
          <input
-            {...attributes}
-            className="ui-input"
-            onChange={handleChange}
             ref={ref}
-            value={inputValue}
+            className={clsx("ui-input", className)}
+            {...attributes}
+            onChange={handleChange}
          />
          {counter && <div className="ui-input-counter">{symbolsLeft}</div>}
       </div>

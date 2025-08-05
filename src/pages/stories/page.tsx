@@ -5,15 +5,30 @@ import {
    storyService,
 } from "@/src/entities/story"
 import { StoriesPageLayout } from "./ui/stories-page-layout"
-import { StoriesFilters } from "@/src/features/story/filters/stories-filters"
-import { Pagination } from "@/src/shared/ui"
+import { StoriesFilters } from "@/src/features/story/filters/ui/stories-filters"
+import { Pagination, Wrapper } from "@/src/shared/ui"
+import { getTypedSearchParams } from "@/src/shared/lib"
+import { storiesFiltersParamsSchema } from "@/src/features/story"
 
 export async function StoriesPage({
    searchParams,
 }: {
    searchParams: Promise<Partial<Record<string, string>>>
 }) {
-   const page = Number((await searchParams).page) || 1
+   const parsedParams = await getTypedSearchParams(
+      storiesFiltersParamsSchema,
+      searchParams,
+   )
+
+   if (parsedParams.error) {
+      return (
+         <Wrapper>
+            <p>Error: invalid search params</p>
+         </Wrapper>
+      )
+   }
+
+   const page = parsedParams.data.page
 
    const data = await storyService.find({ limit: STORIES_SEARCH_LIMIT, page })
    const pagesCount = data?.total ? countPages(data.total, STORIES_SEARCH_LIMIT) : 1

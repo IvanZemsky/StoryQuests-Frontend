@@ -6,7 +6,7 @@ import clsx from "clsx"
 import { useInput } from "../../../lib/ui/input"
 
 type TextareaProps = {
-   ref?: React.Ref<HTMLTextAreaElement>
+   ref: React.RefObject<HTMLTextAreaElement | null>
    counter?: boolean
 } & ComponentProps<"textarea">
 
@@ -16,19 +16,17 @@ export function Textarea({
    className,
    maxLength,
    onChange,
-   value,
    ...attributes
 }: TextareaProps) {
-   const [inputValue, handleChange, symbolsLeft] = useInput(value, onChange, maxLength)
+   const [handleChange, symbolsLeft] = useInput(ref, onChange, maxLength)
 
    return (
       <div className={clsx("ui-textarea-wrap", className)}>
          <textarea
             ref={ref}
+            className={clsx("ui-textarea-content", className)}
             {...attributes}
-            className="ui-textarea-content"
             onChange={handleChange}
-            defaultValue={inputValue}
          />
          {counter && <div className="ui-textarea-counter">{symbolsLeft}</div>}
       </div>
