@@ -31,7 +31,10 @@ export async function StoriesPage({
 
    const page = parsedParams.data.page
 
-   const data = await storyService.find({ limit: STORIES_SEARCH_LIMIT, page })
+   const data = await storyService.find({
+      limit: STORIES_SEARCH_LIMIT,
+      ...parsedParams.data,
+   })
    const pagesCount = data?.total ? countPages(data.total, STORIES_SEARCH_LIMIT) : 1
 
    return (

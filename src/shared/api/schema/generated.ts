@@ -20,6 +20,9 @@ export interface paths {
                 query?: {
                     page?: number;
                     limit?: number;
+                    search?: string;
+                    sort?: "best" | "popular" | "new";
+                    length?: "short" | "medium" | "long";
                 };
                 header?: never;
                 path?: never;

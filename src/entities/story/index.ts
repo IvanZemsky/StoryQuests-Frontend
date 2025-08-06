@@ -13,4 +13,4 @@ export type {
    // StoryResult,
    // StoryResultInLS,
 } from "./model/types"
-export type { CreateStoryDto } from "./api/dto"
+// export type { CreateStoryDto } from "./api/dto"

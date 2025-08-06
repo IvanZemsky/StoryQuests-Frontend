@@ -1,6 +1,3 @@
-import { z } from "zod"
-import { GetStoryDtoSchema } from "../model/schemas"
-import { CreateSceneDto, GetSceneDto } from "@/src/entities/scene/api/dto"
 import { Story } from "../model/types"
 
 export type GetStoriesDTO = {
@@ -33,7 +30,7 @@ export type GetStoryResultDTO = {
    readonly resultSceneId: string
    readonly storyId: string
    readonly userId: string
-   readonly scene: GetSceneDto
+   // readonly scene: GetSceneDto
 }
 
 export type CreateStoryMainInfoDTO = {
@@ -44,6 +41,6 @@ export type CreateStoryMainInfoDTO = {
    date: string
 }
 
-export type CreateStoryDto = CreateStoryMainInfoDto & {
-   readonly scenes: CreateSceneDto[]
-}
+// export type CreateStoryDto = CreateStoryMainInfoDto & {
+//    readonly scenes: CreateSceneDto[]
+// }

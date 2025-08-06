@@ -15,8 +15,34 @@ findMany:
         in: query
         required: false
         schema:
-          type: integer
-          default: 10
+           type: integer
+           default: 10
+      - name: search
+        in: query
+        required: false
+        schema:
+           type: string
+           default: ""
+      - name: sort
+        in: query
+        required: false
+        schema:
+           type: string
+           default: ""
+           enum:
+              - best
+              - popular
+              - new
+      - name: length
+        in: query
+        required: false
+        schema:
+           type: string
+           default: ""
+           enum:
+              - short
+              - medium
+              - long
    responses:
       "200":
          description: Successful operation

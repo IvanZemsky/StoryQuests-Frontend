@@ -438,15 +438,57 @@ export const storiesHandlers = [
       const url = new URL(request.url)
       const page = Number(url.searchParams.get("page")) || 1
       const limit = Number(url.searchParams.get("limit")) || 10
+      const sort = url.searchParams.get("sort") || ""
+      const length = url.searchParams.get("length") || ""
+      const search = url.searchParams.get("search") || ""
 
-      const stories = storiesMocks.slice((page - 1) * limit, page * limit)
+      const scenesAmountByLength: Record<"short" | "medium" | "long", number> = {
+         short: 10,
+         medium: 20,
+         long: 30,
+      }
+
+      let stories: ApiSchemas["Story"][] = storiesMocks
+
+      if (length) {
+         stories = stories.filter(
+            (story) =>
+               story.sceneCount <=
+               scenesAmountByLength[length as keyof typeof scenesAmountByLength],
+         )
+      }
+
+      if (search) {
+         stories = stories.filter(
+            (story) =>
+               story.name.toLowerCase().includes(search.toLowerCase()) ||
+               story.description.toLowerCase().includes(search.toLowerCase()),
+         )
+      }
+
+      if (sort) {
+         stories.sort((a, b) => {
+            switch (sort) {
+               case "best":
+                  return a.likes - b.likes
+               case "popular":
+                  return b.passes - a.passes
+               case "new":
+                  return new Date(a.date).getTime() - new Date(b.date).getTime()
+               default:
+                  return 0
+            }
+         })
+      }
+
+      const result = stories.slice((page - 1) * limit, page * limit)
 
       await delay(1000)
 
-      return HttpResponse.json(stories, {
+      return HttpResponse.json(result, {
          headers: {
             "Content-Type": "application/json",
-            "X-Total-Count": String(storiesMocks.length),
+            "X-Total-Count": String(stories.length),
          },
       })
    }),

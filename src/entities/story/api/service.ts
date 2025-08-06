@@ -7,6 +7,9 @@ export const storyService = {
       query: {
          page?: number
          limit?: number
+         sort?: string
+         length?: string
+         search?: string
       } = {},
    ): Promise<GetStoriesDTO | undefined> {
       const { response, data } = await fetchClient.GET("/stories", {
@@ -14,6 +17,9 @@ export const storyService = {
             query: {
                page: query.page,
                limit: query.limit,
+               sort: query.sort,
+               length: query.length,
+               search: query.search,
             },
          },
       })
