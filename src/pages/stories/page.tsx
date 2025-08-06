@@ -8,12 +8,12 @@ import { StoriesPageLayout } from "./ui/stories-page-layout"
 import { StoriesFilters } from "@/src/features/story/filters/ui/stories-filters"
 import { Pagination, Wrapper } from "@/src/shared/ui"
 import { getTypedSearchParams } from "@/src/shared/lib"
-import { storiesFiltersParamsSchema } from "@/src/features/story"
+import { StoriesFiltersParams, storiesFiltersParamsSchema } from "@/src/features/story"
 
 export async function StoriesPage({
    searchParams,
 }: {
-   searchParams: Promise<Partial<Record<string, string>>>
+   searchParams: Promise<Record<string, string>>
 }) {
    const parsedParams = await getTypedSearchParams(
       storiesFiltersParamsSchema,
@@ -21,6 +21,7 @@ export async function StoriesPage({
    )
 
    if (parsedParams.error) {
+      console.error(parsedParams.error)
       return (
          <Wrapper>
             <p>Error: invalid search params</p>
@@ -43,7 +44,14 @@ export async function StoriesPage({
             />
          }
          pagination={
-            data?.data && <Pagination current={page} total={pagesCount} href="/stories" />
+            data?.data && (
+               <Pagination
+                  current={page}
+                  total={pagesCount}
+                  previousParams={await searchParams}
+                  href="/stories"
+               />
+            )
          }
       />
    )

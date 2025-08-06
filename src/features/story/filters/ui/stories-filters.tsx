@@ -1,37 +1,18 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import styles from "./styles.module.css"
 import { Button, Select, TextInput, ToggleButtonGroup } from "@/src/shared/ui"
 import SearchIcon from "@/src/shared/assets/icons/search.svg"
 import CrossIcon from "@/src/shared/assets/icons/cross.svg"
 import { filtersLength, filtersSort } from "../model/form"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { useFilters } from "../model/use-filters"
 
 export function StoriesFilters() {
    const router = useRouter()
-   const searchParams = useSearchParams()
-
-   const [sort, setSort] = useState("")
-   const [length, setLength] = useState("")
-   const searchRef = useRef<HTMLInputElement | null>(null)
-
-   useEffect(() => {
-      setSort(searchParams?.get("sort") ?? "")
-      setLength(searchParams?.get("length") ?? "")
-      if (searchRef.current) searchRef.current.value = searchParams?.get("search") ?? ""
-   }, [searchParams])
-
-   const handleSearchClick = () => {
-      if (!searchRef.current) return
-      const query = new URLSearchParams({
-         search: searchRef.current.value,
-         sort,
-         length,
-      }).toString()
-
-      router.push(`/stories?${query}`)
-   }
+   const searchRef = useRef<HTMLInputElement>(null)
+   const { filters, setFilters, handleSearchClick } = useFilters(searchRef)
 
    const handleResetClick = () => {
       router.push(`/stories`)
@@ -41,9 +22,9 @@ export function StoriesFilters() {
       <form className={styles.filters}>
          <ToggleButtonGroup
             name="sort"
-            value={sort}
+            value={filters.sort ?? ""}
             className={styles.sort}
-            onChange={(e) => setSort(e.target.value)}
+            onChange={(e) => setFilters((prev) => ({ ...prev, sort: e.target.value }))}
          >
             {filtersSort.map((item) => (
                <ToggleButtonGroup.Button
@@ -59,8 +40,8 @@ export function StoriesFilters() {
 
          <Select
             className={styles.select}
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
+            value={filters.length}
+            onChange={(e) => setFilters((prev) => ({ ...prev, length: e.target.value }))}
             title="Length"
          >
             {filtersLength.map((item) => (
@@ -75,7 +56,7 @@ export function StoriesFilters() {
                className={styles.searchInput}
                placeholder="Search"
                ref={searchRef}
-               defaultValue={searchParams?.get("search") ?? ""}
+               defaultValue={searchRef.current?.value ?? ""}
             />
 
             <Button
