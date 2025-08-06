@@ -1,0 +1,23 @@
+.heroWrap {
+   flex-shrink: 1;
+   height: 200px;
+   padding: 3px;
+   border-radius: 1rem;
+   background-image: var(--gradientMain);
+}
+
+.heroContent {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   padding: 1rem;
+   background-color: var(--secondaryMain);
+      border-radius: 0.9rem;
+}
+
+.heroTitle {
+   font-size: 1.5rem;
+   font-weight: 700;
+}
