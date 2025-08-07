@@ -71,6 +71,9 @@ components:
                description: "Scene number within the story"
             type:
                type: string
+               enum: 
+                  - default
+                  - end
                description: "Type of the scene (e.g., 'start', 'middle', 'end')"
             answers:
                type: array

@@ -8,7 +8,7 @@ import { StoriesPageLayout } from "./ui/stories-page-layout"
 import { StoriesFilters } from "@/src/features/story/filters/ui/stories-filters"
 import { Pagination, Wrapper } from "@/src/shared/ui"
 import { getTypedSearchParams } from "@/src/shared/lib"
-import { storiesFiltersParamsSchema } from "@/src/features/story"
+import { storiesFiltersParamsSchema } from "@/src/entities/story"
 
 export async function StoriesPage({
    searchParams,

@@ -218,8 +218,11 @@ export interface components {
              * @description Scene number within the story
              */
             number: number;
-            /** @description Type of the scene (e.g., 'start', 'middle', 'end') */
-            type: string;
+            /**
+             * @description Type of the scene (e.g., 'start', 'middle', 'end')
+             * @enum {string}
+             */
+            type: "default" | "end";
             /** @description Possible answers/choices for this scene */
             answers: components["schemas"]["Answer"][];
             /** @description Title of the scene */

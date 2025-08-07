@@ -1,0 +1,9 @@
+button.button.openAnswerBtn {
+   min-width: 0;
+
+   & > span {
+      min-width: 0;
+      padding: 5px 10px;
+      font-size: 7px;
+   }
+}

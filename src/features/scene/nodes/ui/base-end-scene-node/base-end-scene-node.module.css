@@ -1,0 +1,63 @@
+.topBorder {
+   height: 12px;
+   background-color: var(--secondaryMain);
+   border-radius: 7.5px 7.5px 0 0;
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 3px;
+   width: 81px;
+   min-height: 63px;
+   max-height: 160px;
+   padding: 5px;
+   background-image: var(--gradientMain);
+   border-radius: 0 0 7.5px 7.5px;
+   background-color: var(--primaryMain);
+   cursor: pointer;
+}
+
+.imgWrap {
+   width: 100%;
+   aspect-ratio: 1 / 0.7;
+   max-height: 89px;
+   border-radius: 5px;
+   overflow: hidden;
+}
+
+.imgWrap img {
+   flex-shrink: 0;
+   flex-grow: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.title {
+   width: 100%;
+   font-size: 7px;
+   font-weight: 600;
+   text-align: center;
+   display: -webkit-box;
+   line-clamp: 2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   word-wrap: break-word;
+   overflow: hidden;
+}
+
+.title {
+   font-size: 7px;
+   font-weight: 700;
+}
+
+div.handle {
+   top: 1px;
+   width: 7px;
+   height: 7px;
+   border-color: var(--secondaryMain);
+   background-color: var(--thirdMain);
+}

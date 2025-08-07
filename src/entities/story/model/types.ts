@@ -1,4 +1,6 @@
 import type { ApiSchemas } from "@/src/shared/api"
+import z from "zod/v4"
+import { storiesFiltersParamsSchema } from "./schemas"
 
 export type StoryId = string
 
@@ -16,6 +18,8 @@ export type SetStoryResult = {
    storyId: string
    userId: string
 }
+
+export type StoriesFiltersParams = z.infer<typeof storiesFiltersParamsSchema>
 
 // export type StoryResult = {
 //    id: string

@@ -1,0 +1,22 @@
+.content {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   border: 4px solid var(--secondaryMain);
+   border-radius: 1rem;
+   overflow: hidden;
+   height: 500px;
+}
+
+.title {
+   padding: 12px;
+   font-weight: 700;
+   text-transform: uppercase;
+   text-align: center;
+   background-color: var(--secondaryMain);
+}
+
+.field {
+   position: relative;
+   height: 100%;
+}

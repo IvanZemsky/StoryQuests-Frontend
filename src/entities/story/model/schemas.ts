@@ -9,5 +9,3 @@ export const storiesFiltersParamsSchema = z.object({
    length: z.literal(["short", "medium", "long"]).optional(),
    sort: z.literal(["best", "popular", "new"]).optional(),
 })
-
-export type StoriesFiltersParams = z.infer<typeof storiesFiltersParamsSchema>
