@@ -11,7 +11,7 @@ import {
 export const useInput = (
    initialValue: InputHTMLAttributes<HTMLInputElement>["value"] = "",
    maxLength?: number,
-   onClick?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
+   onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
 ) => {
    const [inputValue, setInputValue] = useState(String(initialValue) || "")
 
@@ -23,7 +23,7 @@ export const useInput = (
 
    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setInputValue(event.target.value.slice(0, maxLength))
-      onClick?.(event)
+      onChange?.(event)
    }
 
    return [inputValue, handleChange, symbolsLeft] as const
