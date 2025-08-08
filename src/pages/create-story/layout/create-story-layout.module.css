@@ -1,0 +1,12 @@
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   max-width: 1200px;
+}
+
+.content {
+   position: relative;
+   display: flex;
+   gap: 1rem;
+}

@@ -1,26 +1,30 @@
 "use client"
 
-import { useState, ChangeEvent, ChangeEventHandler } from "react"
+import {
+   useState,
+   ChangeEvent,
+   ChangeEventHandler,
+   InputHTMLAttributes,
+   useEffect,
+} from "react"
 
 export const useInput = (
-   inputRef: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>,
-   callback?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
+   initialValue: InputHTMLAttributes<HTMLInputElement>["value"] = "",
    maxLength?: number,
+   onClick?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
 ) => {
-   const [symbolsLeft, setSymbolsLeft] = useState(maxLength)
+   const [inputValue, setInputValue] = useState(String(initialValue) || "")
+
+   useEffect(() => {
+      setInputValue(String(initialValue) || "")
+   }, [initialValue])
+
+   const symbolsLeft = maxLength ? maxLength - inputValue.length : null
 
    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      if (!inputRef.current) return
-      
-      if (maxLength && event.target.value.length > maxLength) {
-         inputRef.current.value = event.target.value.slice(0, maxLength)
-         setSymbolsLeft(maxLength - event.target.value.length)
-      }
-
-      inputRef.current.value = event.target.value
-
-      callback?.(event)
+      setInputValue(event.target.value.slice(0, maxLength))
+      onClick?.(event)
    }
 
-   return [handleChange, symbolsLeft] as const
+   return [inputValue, handleChange, symbolsLeft] as const
 }

@@ -17,6 +17,7 @@ export function ImageLoader({
    ref,
    label,
    value: defaultValue,
+   onChange,
    onSuccess,
    onError,
    className,
@@ -42,6 +43,7 @@ export function ImageLoader({
 
    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       handleValue(event.target.value)
+      onChange?.(event)
    }
 
    const handleValue = (value: string) => {
@@ -63,9 +65,9 @@ export function ImageLoader({
          <TextInput
             ref={ref}
             className="ui-image-loader-input"
+            {...attrs}
             onChange={handleInputChange}
             placeholder={placeholder}
-            {...attrs}
             value={value}
          />
          <div className="ui-image-loader-content">

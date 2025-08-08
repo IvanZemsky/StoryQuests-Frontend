@@ -3,3 +3,7 @@ export { BaseSceneNode } from "./nodes/ui/base-scene-node/base-scene-node"
 export { BaseEndSceneNode } from "./nodes/ui/base-end-scene-node/base-end-scene-node"
 
 export { BaseAnswerEdge } from "./edges/ui/base-answer-edge/base-answer-edge"
+
+export type { AnswerEdge } from "./edges/model/types"
+export type { SceneNode, SceneNodeProps } from "./nodes/model/types"
+export type { AnswerEdgeData } from "./edges/model/types"

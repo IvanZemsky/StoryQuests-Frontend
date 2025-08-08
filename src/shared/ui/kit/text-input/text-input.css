@@ -1,6 +1,6 @@
 .ui-input-wrap {
    display: flex;
-   align-items: center;
+   align-items: stretch;
    color: var(--secondaryText);
    padding: 2px;
    border-radius: 20px;
@@ -39,27 +39,13 @@
    color: rgba(0, 0, 0, 0);
 }
 
-.ui-input-counter {
-   position: relative;
+.ui-input-counter{
    display: flex;
    align-items: center;
    justify-content: center;
    flex-shrink: 0;
    width: 50px;
-   height: 100%;
-   border-radius: 0 19px 19px 0;
-   text-align: center;
-   background-color: var(--secondaryMain);
+   margin: 0.5rem 0;
+   border-left: 1px solid var(--secondaryText);
    color: var(--secondaryText);
-}
-
-.ui-input-counter::after {
-   content: "";
-   position: absolute;
-   top: 50%;
-   left: 0;
-   width: 1px;
-   height: calc(100% - 20px);
-   transform: translateY(-50%);
-   background-color: var(--secondaryText);
 }
