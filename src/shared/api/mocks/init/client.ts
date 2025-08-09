@@ -10,7 +10,16 @@ export function useInitClientSideMocks() {
          if (process.env.NEXT_PUBLIC_ENABLE_MOCKS === "true") {
             try {
                const { worker } = await import("@/src/shared/api/mocks/browser")
-               await worker.start()
+               await worker.start({
+                  onUnhandledRequest(req, print) {
+                     if (
+                        !req.url.startsWith(`${process.env.NEXT_PUBLIC_API_URL}/_next`)
+                     ) {
+                        return
+                     }
+                     return print.warning()
+                  },
+               })
                setWorkerReady(true)
                console.log("MSW Worker started successfully.")
             } catch (error) {

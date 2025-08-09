@@ -7,7 +7,7 @@ import { MocksProvider } from "./mocks"
 export function Providers({ children }: { children: React.ReactNode }) {
    return (
       <MocksProvider>
-         <QueryClientProvider client={queryClient}> {children}</QueryClientProvider>
+         <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
       </MocksProvider>
    )
 }
