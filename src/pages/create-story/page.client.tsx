@@ -1,6 +1,6 @@
 "use client"
 
-import { Field } from "@/src/widgets/creation-field"
+import { Flow, useFlow } from "@/src/widgets/flow-field"
 import { CreateStoryLayout } from "./layout/create-story-layout"
 import {
    CreateStoryFormExampleCard,
@@ -9,24 +9,14 @@ import {
    getCardData,
 } from "@/src/features/story"
 import { FormProvider, useForm, useWatch } from "react-hook-form"
-
-type FormValues = {
-   name: string
-   desc: string
-   img: string
-}
+import { AnswerEdge, SceneNode } from "@/src/features/scene"
+import { initialNodes } from "./model/flow"
+import { useCreateStoryForm } from "./model/form"
+import { nodeTypes, edgeTypes } from "@/src/widgets/flow-field"
 
 export function CreateStoryPageClient() {
-   const form = useForm<FormValues>()
-   const { control } = form
-
-   const name = useWatch({ control, name: "name" })
-   const description = useWatch({ control, name: "desc" })
-   const img = useWatch({ control, name: "img" })
-
-   const cardData = getCardData({ name, description, img, authorLogin: "Curry" })
-
-   const onSubmit = (data: FormValues) => console.log(data)
+   const flow = useFlow<SceneNode, AnswerEdge>({ initialNodes })
+   const { form, cardData, onSubmit } = useCreateStoryForm(flow.nodes, flow.edges)
 
    return (
       <CreateStoryLayout
@@ -38,7 +28,7 @@ export function CreateStoryPageClient() {
                   inputs={<CreateStoryFormInputs />}
                   exampleCard={<CreateStoryFormExampleCard data={cardData} />}
                >
-                  <Field />
+                  <Flow {...flow} nodeTypes={nodeTypes} edgeTypes={edgeTypes} fitView />
                </CreateStoryFormLayout>
             </FormProvider>
          }

@@ -1,4 +1,4 @@
-import styles from "./field-layout.module.css"
+import styles from "./flow-layout.module.css"
 
 import "@xyflow/react/dist/style.css"
 import clsx from "clsx"

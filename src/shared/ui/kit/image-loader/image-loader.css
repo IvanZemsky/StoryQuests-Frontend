@@ -9,11 +9,11 @@
 
 .ui-image-loader-input {
    flex-shrink: 0;
-   margin-bottom: 15px;
 }
 
 .ui-image-loader-input input {
    background-color: var(--primaryMain);
+   margin-bottom: 15px;
 }
 
 .ui-image-loader-content {

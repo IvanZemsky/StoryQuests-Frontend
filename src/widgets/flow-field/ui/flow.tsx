@@ -7,18 +7,18 @@ import {
    ReactFlowProvider,
    ReactFlowProps,
 } from "@xyflow/react"
-import { FieldLayout } from "./field-layout/field-layout"
-import styles from "./field.module.css"
+import { FieldLayout } from "./flow-layout/flow-layout"
+import styles from "./flow.module.css"
 
 type Props = ReactFlowProps
 
-export function Field(props: Props) {
+export function Flow(props: Props) {
    return (
       <ReactFlowProvider>
          <FieldLayout
             title="Story creation"
             field={
-               <ReactFlow {...props}>
+               <ReactFlow {...props} fitView>
                   <Controls
                      className={styles.controls}
                      showInteractive={false}

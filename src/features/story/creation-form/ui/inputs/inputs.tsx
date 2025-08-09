@@ -15,7 +15,7 @@ export function CreateStoryFormInputs() {
          <TextInput
             {...register("name", { maxLength: 50, required: true })}
             onChange={(e) => setValue("name", e.target.value.slice(0, 50))}
-            placeholder="Story name"
+            placeholder="Name"
             counter
             maxLength={50}
          />
