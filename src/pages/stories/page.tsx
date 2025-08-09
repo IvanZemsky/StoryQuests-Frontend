@@ -1,5 +1,6 @@
 import {
    STORIES_SEARCH_LIMIT,
+   StoriesFiltersParams,
    StoriesList,
    StoryListMainCard,
    storyService,
@@ -28,17 +29,16 @@ export async function StoriesPage({
       )
    }
 
-   const page = parsedParams.data.page
-
-   const stories = await storyService.find({
-      limit: STORIES_SEARCH_LIMIT,
-      ...parsedParams.data,
-   })
-   const pagesCount = stories?.total ? countPages(stories.total, STORIES_SEARCH_LIMIT) : 1
+   const { stories, totalPagesCount, currentPage } = await getPageData(parsedParams.data)
 
    return (
       <StoriesPageLayout
-         filters={<StoriesFilters />}
+         filters={
+            <StoriesFilters
+               key={JSON.stringify(parsedParams.data)}
+               params={parsedParams.data}
+            />
+         }
          list={
             <StoriesList
                data={stories?.data}
@@ -48,8 +48,8 @@ export async function StoriesPage({
          pagination={
             stories?.data && (
                <Pagination
-                  current={page}
-                  total={pagesCount}
+                  current={currentPage}
+                  total={totalPagesCount}
                   previousParams={await searchParams}
                   href="/stories"
                />
@@ -61,4 +61,23 @@ export async function StoriesPage({
 
 function countPages(total: number, limit: number) {
    return Math.ceil(total / limit)
+}
+
+async function getPageData(filters: StoriesFiltersParams) {
+   const currentPage = filters.page
+
+   const stories = await storyService.find({
+      limit: STORIES_SEARCH_LIMIT,
+      ...filters,
+   })
+
+   const totalPagesCount = stories?.total
+      ? countPages(stories.total, STORIES_SEARCH_LIMIT)
+      : 1
+
+   return {
+      stories,
+      totalPagesCount,
+      currentPage,
+   }
 }

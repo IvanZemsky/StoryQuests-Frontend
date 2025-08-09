@@ -14,7 +14,7 @@ export function ToggleButtonGroup(props: Props) {
    const { variant = "row", className, name, onChange, value, children } = props
 
    return (
-      <ToggleButtonGroupContext value={{ value, name, onChange }}>
+      <ToggleButtonGroupContext value={{ value, name, onChange }} key={String(value)}>
          <div className={clsx("ui-toggle-button-group", variant, className)}>
             {children}
          </div>

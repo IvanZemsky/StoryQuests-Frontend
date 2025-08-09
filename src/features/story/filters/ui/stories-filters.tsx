@@ -1,28 +1,25 @@
 "use client"
 
-import { useRef } from "react"
 import styles from "./styles.module.css"
-import { Button, Select, TextInput, ToggleButtonGroup } from "@/src/shared/ui"
 import SearchIcon from "@/src/shared/assets/icons/search.svg"
 import CrossIcon from "@/src/shared/assets/icons/cross.svg"
+import { Button, Select, TextInput, ToggleButtonGroup } from "@/src/shared/ui"
 import { filtersLength, filtersSort } from "../model/form"
-import { useRouter } from "next/navigation"
 import { useFilters } from "../model/use-filters"
+import { StoriesFiltersParams } from "@/src/entities/story"
 
-export function StoriesFilters() {
-   const router = useRouter()
-   const searchRef = useRef<HTMLInputElement>(null)
-   const { filters, setFilters, handleSearchClick } = useFilters(searchRef)
+type Props = {
+   params: StoriesFiltersParams
+}
 
-   const handleResetClick = () => {
-      router.push(`/stories`)
-   }
+export function StoriesFilters({ params }: Props) {
+   const { filters, setFilters, handleSearchClick, reset } = useFilters(params)
 
    return (
       <form className={styles.filters}>
          <ToggleButtonGroup
             name="sort"
-            value={filters.sort ?? ""}
+            value={filters.sort}
             className={styles.sort}
             onChange={(e) => setFilters((prev) => ({ ...prev, sort: e.target.value }))}
          >
@@ -55,8 +52,10 @@ export function StoriesFilters() {
             <TextInput
                className={styles.searchInput}
                placeholder="Search"
-               ref={searchRef}
-               defaultValue={searchRef.current?.value ?? ""}
+               defaultValue={filters.search}
+               onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, search: e.target.value }))
+               }
             />
 
             <Button
@@ -70,7 +69,7 @@ export function StoriesFilters() {
                variant="filled"
                type="button"
                rightIcon={<CrossIcon />}
-               onClick={handleResetClick}
+               onClick={reset}
             />
          </div>
       </form>
