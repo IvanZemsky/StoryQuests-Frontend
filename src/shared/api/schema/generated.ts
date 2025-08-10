@@ -97,7 +97,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/scenes": {
+    "/stories/{storyId}/scenes": {
         parameters: {
             query?: never;
             header?: never;
@@ -105,14 +105,17 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get all scenes
-         * @description Retrieves a list of scenes.
+         * Get all scenes in a story
+         * @description Retrieves a list of scenes in a story.
          */
         get: {
             parameters: {
                 query?: never;
                 header?: never;
-                path?: never;
+                path: {
+                    /** @description ID of the story to retrieve scenes from. */
+                    storyId: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -127,52 +130,6 @@ export interface paths {
                     };
                 };
                 400: components["responses"]["BadRequestError"];
-                401: components["responses"]["UnauthorizedError"];
-                404: components["responses"]["NotFoundError"];
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/scenes/{sceneId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a scene by ID
-         * @description Retrieves a single scene based on its ID.
-         */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description ID of the scene to retrieve. */
-                    sceneId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["Scene"];
-                    };
-                };
-                400: components["responses"]["BadRequestError"];
-                401: components["responses"]["UnauthorizedError"];
                 404: components["responses"]["NotFoundError"];
             };
         };
@@ -219,7 +176,7 @@ export interface components {
              */
             number: number;
             /**
-             * @description Type of the scene (e.g., 'start', 'middle', 'end')
+             * @description Type of the scene ('default', 'end')
              * @enum {string}
              */
             type: "default" | "end";
@@ -246,7 +203,7 @@ export interface components {
             /** @description The text displayed for this answer choice */
             text: string;
             /** @description ID of the next scene, or null if this is an ending choice */
-            nextSceneId: string | null;
+            nextSceneId: string;
         };
         Error: {
             message: string;

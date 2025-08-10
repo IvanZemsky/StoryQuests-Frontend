@@ -1,7 +1,7 @@
 import { createOpenApiHttp } from "openapi-msw"
-import { ApiPaths } from ".."
 import { CONFIG } from "../../model/config"
+import { paths } from "../schema/generated"
 
-export const http = createOpenApiHttp<ApiPaths>({
+export const http = createOpenApiHttp<paths>({
    baseUrl: CONFIG.API_URL,
 })

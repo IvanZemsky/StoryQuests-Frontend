@@ -13,21 +13,17 @@ paths:
       get:
          $ref: "./endpoints/stories.yaml#/findOne"
 
-   /scenes:
+   /stories/{storyId}/scenes:
       get:
-         $ref: "./endpoints/scenes.yaml#/findMany"
-
-   /scenes/{sceneId}:
-      get:
-         $ref: "./endpoints/scenes.yaml#/findOne"
+         $ref: "./endpoints/stories.yaml#/findScenes"
 
 components:
    schemas:
       Story: # ... (уже определено ранее)
       Scene: # Ссылка на общую схему Scene
-         $ref: "./endpoints/scenes.yaml#/components/schemas/Scene"
+         $ref: "./endpoints/stories.yaml#/components/schemas/Scene"
       Answer: # Ссылка на общую схему Answer
-         $ref: "./endpoints/scenes.yaml#/components/schemas/Answer"
+         $ref: "./endpoints/stories.yaml#/components/schemas/Answer"
       Error: # ... (определение ошибки из responses.yaml)
          type: object
          required:

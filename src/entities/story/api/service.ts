@@ -1,16 +1,12 @@
 import { fetchClient } from "@/src/shared/api"
-import { Story } from "../model/types"
+import { StoriesFiltersParams, Story } from "../model/types"
 import { GetStoriesDTO } from "./dto"
 
 export const storyService = {
    async find(
-      query: {
-         page?: number
-         limit?: number
-         sort?: string
-         length?: string
-         search?: string
-      } = {},
+      query: StoriesFiltersParams & { limit?: number } = {
+         page: 1,
+      },
    ): Promise<GetStoriesDTO | undefined> {
       const { response, data } = await fetchClient.GET("/stories", {
          params: {
@@ -30,5 +26,17 @@ export const storyService = {
          data: data as Story[],
          total,
       }
+   },
+
+   async findByID(storyID: string): Promise<Story | undefined> {
+      const { data } = await fetchClient.GET(`/stories/{storyId}`, {
+         params: {
+            path: {
+               storyId: storyID,
+            },
+         },
+      })
+
+      return data as Story
    },
 }
