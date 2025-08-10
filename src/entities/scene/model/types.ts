@@ -1,3 +1,5 @@
-import { ApiSchemas } from "@/src/shared/api";
+import { ApiSchemas } from "@/src/shared/api"
 
 export type Scene = ApiSchemas["Scene"]
+
+export type SceneAnswer = ApiSchemas["Answer"]

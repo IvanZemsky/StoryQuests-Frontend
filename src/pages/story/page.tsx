@@ -1,5 +1,5 @@
 import { sceneService } from "@/src/entities/scene"
-import { storyService } from "@/src/entities/story"
+import { Scene } from "@/src/widgets/scene"
 
 type Props = {
    params: Promise<{
@@ -7,13 +7,15 @@ type Props = {
    }>
 }
 
-export async function StoryPage({params}: Props) {
-   const {id} = await params
-   const story = await storyService.findByID(id)
+export async function StoryPage({ params }: Props) {
+   const { id } = await params
    const scenes = await sceneService.findByStoryID(id)
 
-   console.log(story)
    console.log(scenes)
 
-   return <div></div>
+   if (!scenes) {
+      return <div>Story not found</div>
+   }
+
+   return <Scene data={scenes} />
 }

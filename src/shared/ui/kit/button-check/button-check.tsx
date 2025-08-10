@@ -5,7 +5,6 @@ import clsx from "clsx"
 
 export type ButtonCheckProps = ComponentProps<"input"> & {
    ref?: Ref<HTMLInputElement>
-   value?: string | number
    fillContainer?: boolean
    onDoubleClick?: MouseEventHandler<HTMLDivElement>
    uppercase?: boolean

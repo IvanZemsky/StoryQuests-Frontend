@@ -23,3 +23,7 @@ export const useOutsideClick = <T extends HTMLElement>(callback: () => void) => 
 
    return ref
 }
+
+export function scrollToTop() {
+   window.scrollTo({top: 0, behavior: "smooth"})
+}

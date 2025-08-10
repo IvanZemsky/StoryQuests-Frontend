@@ -1,0 +1,45 @@
+.wrap {
+   display: contents;
+}
+
+.select {
+   width: 30%;
+   flex-grow: 1;
+}
+
+button.nextSceneBtn {
+   align-self: stretch;
+   opacity: 0.5;
+}
+
+button.nextSceneBtn svg {
+   width: 10px;
+   transition: 0.15s stroke linear;
+}
+
+.select:has(input:checked) + button.nextSceneBtn {
+   opacity: 1;
+}
+
+@media screen and (max-width: 820px) {
+   .select button {
+      font-size: 16px;
+   }
+}
+
+@media screen and (max-width: 700px) {
+   .select {
+      width: 100%;
+   }
+
+   .select .answer span {
+      height: 55px;
+      border-radius: 14px;
+   }
+
+   .wrap button.nextSceneBtn span {
+      width: 100%;
+      height: 50px;
+      aspect-ratio: unset;
+   }
+}
