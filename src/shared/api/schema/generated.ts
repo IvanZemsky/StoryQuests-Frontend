@@ -203,7 +203,7 @@ export interface components {
             /** @description The text displayed for this answer choice */
             text: string;
             /** @description ID of the next scene, or null if this is an ending choice */
-            nextSceneId: string;
+            nextSceneNumber: number;
         };
         Error: {
             message: string;

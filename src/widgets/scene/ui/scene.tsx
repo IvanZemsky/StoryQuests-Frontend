@@ -6,18 +6,21 @@ import { useState } from "react"
 
 type Props = {
    data: Scene[]
+   firstSceneNumber: number
    disableEndLink?: boolean
 }
 
-export function Scene({ data, disableEndLink = false }: Props) {
-   const [scene, setScene] = useState<Scene | null>(() => findFirstScene(data))
+export function Scene({ data, firstSceneNumber, disableEndLink = false }: Props) {
+   const [scene, setScene] = useState<Scene | null>(() =>
+      findFirstScene(data, firstSceneNumber),
+   )
 
    if (!scene) {
       return <p>Error: Scene not found</p>
    }
 
-   const setNextScene = (nextSceneNumber: string) => {
-      setScene(data.find((scene) => scene.id === nextSceneNumber) || null)
+   const setNextScene = (nextSceneNumber: number) => {
+      setScene(data.find((scene) => scene.number === nextSceneNumber) || null)
    }
 
    return (
@@ -26,7 +29,10 @@ export function Scene({ data, disableEndLink = false }: Props) {
             scene.answers?.length ? (
                <SelectAnswer answers={scene.answers} onSelect={setNextScene} />
             ) : (
-               <EndSceneLink href={`/stories/${scene.storyId}/results`} disabled={disableEndLink} />
+               <EndSceneLink
+                  href={`/stories/${scene.storyId}/results`}
+                  disabled={disableEndLink}
+               />
             )
          }
          data={scene}
@@ -34,6 +40,6 @@ export function Scene({ data, disableEndLink = false }: Props) {
    )
 }
 
-function findFirstScene(data: Scene[]) {
-   return data.find((scene) => scene.id === "scene-1") || null
+function findFirstScene(data: Scene[], sceneNumber: number) {
+   return data.find((scene) => scene.number === sceneNumber) || null
 }

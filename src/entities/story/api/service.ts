@@ -37,6 +37,8 @@ export const storyService = {
          },
       })
 
+      console.log("data fetched")
+
       return data as Story
    },
 }

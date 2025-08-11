@@ -4,6 +4,7 @@ import "@/src/app/styles/reset.css"
 import "@/src/shared/ui/styles/vars.css"
 import { Providers } from "@/src/app"
 import { initServerSideMocks } from "@/src/shared/api/index.server"
+import styles from "./root-layout.module.css"
 
 initServerSideMocks()
 
@@ -19,7 +20,7 @@ export function RootLayout({
 }>) {
    return (
       <html lang="en">
-         <body>
+         <body className={styles.app}>
             <Providers>{children}</Providers>
          </body>
       </html>

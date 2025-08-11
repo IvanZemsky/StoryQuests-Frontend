@@ -7,20 +7,20 @@ import { SelectAnswerBtn } from "./select-answer-btn"
 
 type Props = {
    answers: SceneAnswer[] | null
-   onSelect: (nextSceneId: string) => void
+   onSelect: (nextSceneNumber: number) => void
 }
 
 export function SelectAnswer({ answers, onSelect }: Props) {
-   const [nextSceneId, setNextSceneId] = useState<string | undefined>(undefined)
+   const [nextSceneNumber, setNextSceneNumber] = useState<number | undefined>(undefined)
 
    const handleSetSceneCLick = () => {
-      if (nextSceneId) {
-         onSelect(nextSceneId)
+      if (nextSceneNumber) {
+         onSelect(nextSceneNumber)
       }
    }
 
    const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setNextSceneId(event.target.value)
+      setNextSceneNumber(Number(event.target.value))
    }
 
    return (
@@ -29,11 +29,11 @@ export function SelectAnswer({ answers, onSelect }: Props) {
             variant="column"
             className={styles.select}
             onChange={handleAnswerChange}
-            value={nextSceneId}
+            value={nextSceneNumber}
          >
             {answers?.map((answer) => (
                <SelectAnswerBtn
-                  key={answer.id + answer.nextSceneId}
+                  key={answer.id + answer.nextSceneNumber}
                   className={styles.answer}
                   onDoubleClick={handleSetSceneCLick}
                   data={answer}

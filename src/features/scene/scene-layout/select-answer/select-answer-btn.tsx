@@ -13,13 +13,13 @@ export function SelectAnswerBtn({
    onDoubleClick,
    ...attributes
 }: Props) {
-   const { text, nextSceneId, id } = data
+   const { text, nextSceneNumber, id } = data
 
    return (
       <ToggleButtonGroup.Button
          fillContainer
-         value={nextSceneId}
-         id={id + nextSceneId}
+         value={nextSceneNumber}
+         id={id + nextSceneNumber}
          className={className}
          onDoubleClick={onDoubleClick}
          {...attributes}

@@ -8,7 +8,7 @@ type Props = {
 }
 
 export function SceneLayout({ data, selectAnswer }: Props) {
-   const { title, description, type, img, storyId } = data
+   const { title, description, type, img } = data
 
    return (
       <div className={styles.content}>
