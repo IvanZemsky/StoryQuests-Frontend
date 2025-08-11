@@ -3,13 +3,13 @@ import { Wrapper } from "@/src/shared/ui"
 import { Scene } from "@/src/widgets/scene"
 import styles from "./page.module.css"
 
-type Props = {
+export type StoryPageProps = {
    params: Promise<{
       id: string
    }>
 }
 
-export async function StoryPage({ params }: Props) {
+export async function StoryPage({ params }: StoryPageProps) {
    const { id } = await params
    const scenes = await sceneService.findByStoryID(id)
 
