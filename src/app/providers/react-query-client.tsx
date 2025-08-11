@@ -1,4 +1,4 @@
-"ues client"
+"use client"
 
 import { initQueryClient } from "@/src/shared/api";
 import { QueryClientProvider } from "@tanstack/react-query";
