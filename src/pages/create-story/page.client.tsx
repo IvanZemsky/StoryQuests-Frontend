@@ -6,9 +6,8 @@ import {
    CreateStoryFormExampleCard,
    CreateStoryFormInputs,
    CreateStoryFormLayout,
-   getCardData,
 } from "@/src/features/story"
-import { FormProvider, useForm, useWatch } from "react-hook-form"
+import { FormProvider } from "react-hook-form"
 import { AnswerEdge, SceneNode } from "@/src/features/scene"
 import { initialNodes } from "./model/flow"
 import { useCreateStoryForm } from "./model/form"

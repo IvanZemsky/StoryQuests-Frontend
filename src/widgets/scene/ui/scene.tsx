@@ -2,6 +2,7 @@
 
 import type { Scene } from "@/src/entities/scene"
 import { EndSceneLink, SceneLayout, SelectAnswer } from "@/src/features/scene"
+import { SwitchFade } from "@/src/shared/ui"
 import { useState } from "react"
 
 type Props = {
@@ -24,19 +25,21 @@ export function Scene({ data, firstSceneNumber, disableEndLink = false }: Props)
    }
 
    return (
-      <SceneLayout
-         selectAnswer={
-            scene.answers?.length ? (
-               <SelectAnswer answers={scene.answers} onSelect={setNextScene} />
-            ) : (
-               <EndSceneLink
-                  href={`/stories/${scene.storyId}/results`}
-                  disabled={disableEndLink}
-               />
-            )
-         }
-         data={scene}
-      />
+      <SwitchFade timeout={500} switchKey={scene.id}>
+         <SceneLayout
+            selectAnswer={
+               scene.answers?.length ? (
+                  <SelectAnswer answers={scene.answers} onSelect={setNextScene} />
+               ) : (
+                  <EndSceneLink
+                     href={`/stories/${scene.storyId}/results`}
+                     disabled={disableEndLink}
+                  />
+               )
+            }
+            data={scene}
+         />
+      </SwitchFade>
    )
 }
 
