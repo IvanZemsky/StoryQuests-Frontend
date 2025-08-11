@@ -7,7 +7,7 @@
    background: var(--gradientMain);
 }
 
-.ui-pending-indicator{
+.ui-pending-indicator {
    display: contents;
 }
 
@@ -20,7 +20,8 @@
    pointer-events: none;
 }
 
-.ui-button-container.disabled {
+.ui-button-container.disabled,
+.ui-button-container:has(.ui-pending-indicator) {
    filter: brightness(0.7);
    pointer-events: none;
 }
