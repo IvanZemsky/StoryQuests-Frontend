@@ -7,6 +7,10 @@
    background: var(--gradientMain);
 }
 
+.ui-pending-indicator{
+   display: contents;
+}
+
 .ui-button-container:has(.ui-pending-indicator) {
    animation: half-fading 1s infinite ease-in;
 }

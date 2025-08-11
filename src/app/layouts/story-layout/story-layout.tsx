@@ -1,25 +1,22 @@
-import { ReactNode } from "react"
-import styles from './styles.module.css'
-// import { StoryHeader } from "@/entities/Story"
-// import { fetchStory } from "@/pages/Story"
+import { storyService } from "@/src/entities/story"
+import { StoryHeader } from "./header/story-header"
+import styles from "./story-layout.module.css"
 
 type Props = {
-   children: ReactNode,
+   children: React.ReactNode
    params: Promise<{
       id: string
    }>
 }
 
-export const StoryLayout = async ({ children, params }: Props) => {
-   // const {id} = await params
-   // const story = await fetchStory(id)
+export async function StoryLayout({ children, params }: Props) {
+   const { id } = await params
+   const story = await storyService.findByID(id)
 
    return (
       <div className={styles.app}>
-         {/* <StoryHeader storyName={story?.name}/> */}
-         <main>
-            {children}
-         </main>
+         <StoryHeader storyName={story?.name} />
+         <main>{children}</main>
       </div>
    )
 }

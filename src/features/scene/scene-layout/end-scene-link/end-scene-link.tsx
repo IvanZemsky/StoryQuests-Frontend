@@ -5,9 +5,10 @@ import Link from "next/link"
 
 type Props = {
    href: string
+   disabled?: boolean
 }
 
-export function EndSceneLink({ href }: Props) {
+export function EndSceneLink({ href, disabled = false }: Props) {
    return (
       <Button
          as={Link}
@@ -16,6 +17,7 @@ export function EndSceneLink({ href }: Props) {
          className={styles.endLink}
          leftIcon={<ArrowRightIcon />}
          defaultHover={false}
+         style={{ pointerEvents: disabled ? "none" : "auto" }}
       />
    )
 }

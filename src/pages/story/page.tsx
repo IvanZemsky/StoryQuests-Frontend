@@ -1,5 +1,7 @@
 import { sceneService } from "@/src/entities/scene"
+import { Wrapper } from "@/src/shared/ui"
 import { Scene } from "@/src/widgets/scene"
+import styles from "./page.module.css"
 
 type Props = {
    params: Promise<{
@@ -17,5 +19,9 @@ export async function StoryPage({ params }: Props) {
       return <div>Story not found</div>
    }
 
-   return <Scene data={scenes} />
+   return (
+      <Wrapper variant="both" className={styles.wrapper}>
+         <Scene data={scenes} />
+      </Wrapper>
+   )
 }

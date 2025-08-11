@@ -2,6 +2,10 @@
    align-self: stretch;
 }
 
+.endLink span {
+   height: 100%;
+}
+
 .endLink svg {
    width: 10px;
    transition: 0.15s stroke linear;

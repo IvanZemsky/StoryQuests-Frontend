@@ -6,9 +6,10 @@ import { useState } from "react"
 
 type Props = {
    data: Scene[]
+   disableEndLink?: boolean
 }
 
-export function Scene({ data }: Props) {
+export function Scene({ data, disableEndLink = false }: Props) {
    const [scene, setScene] = useState<Scene | null>(() => findFirstScene(data))
 
    if (!scene) {
@@ -25,7 +26,7 @@ export function Scene({ data }: Props) {
             scene.answers?.length ? (
                <SelectAnswer answers={scene.answers} onSelect={setNextScene} />
             ) : (
-               <EndSceneLink href={`/stories/${scene.storyId}/results`} />
+               <EndSceneLink href={`/stories/${scene.storyId}/results`} disabled={disableEndLink} />
             )
          }
          data={scene}
