@@ -5,7 +5,6 @@ import {
    ChangeEvent,
    ChangeEventHandler,
    InputHTMLAttributes,
-   useEffect,
 } from "react"
 
 export const useInput = (
@@ -14,10 +13,6 @@ export const useInput = (
    onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
 ) => {
    const [inputValue, setInputValue] = useState(String(initialValue) || "")
-
-   useEffect(() => {
-      setInputValue(String(initialValue) || "")
-   }, [initialValue])
 
    const symbolsLeft = maxLength ? maxLength - inputValue.length : null
 
