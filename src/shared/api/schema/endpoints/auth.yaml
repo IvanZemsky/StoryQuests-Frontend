@@ -1,0 +1,72 @@
+login:
+   summary: Login user
+   requestBody:
+      required: true
+      content:
+         application/json:
+            schema:
+               $ref: "#/components/schemas/LoginRequest"
+   responses:
+      "200":
+         description: Login successful
+         content:
+            application/json:
+               schema:
+                  $ref: "#/components/schemas/AuthResponse"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+
+session:
+   summary: Get session
+   responses:
+      "200":
+         description: Login successful
+         content:
+            application/json:
+               schema:
+                  $ref: "#/components/schemas/AuthResponse"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+
+components:
+   schemas:
+      User:
+         type: object
+         required:
+            - id
+            - login
+         properties:
+            id:
+               type: string
+            login:
+               type: string
+      Session:
+         type: object
+         required:
+            - id
+            - login
+         properties:
+            id:
+               type: string
+            login:
+               type: string
+
+      LoginRequest:
+         type: object
+         required:
+            - login
+            - password
+         properties:
+            login:
+               type: string
+            password:
+               type: string
+               format: password
+      AuthResponse:
+         type: object
+         required:
+            - accessToken
+            - user
+         properties:
+            session:
+               $ref: "#/components/schemas/Session"

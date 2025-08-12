@@ -18,6 +18,7 @@ export function RootLayout({
 }: Readonly<{
    children: React.ReactNode
 }>) {
+
    return (
       <html lang="en">
          <body className={styles.app}>
