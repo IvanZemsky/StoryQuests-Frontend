@@ -5,6 +5,7 @@
    border-radius: 20px;
    transition: all 0.15s linear;
    background: var(--gradientMain);
+   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0);
 }
 
 .ui-pending-indicator {
@@ -12,7 +13,7 @@
 }
 
 .ui-button-container:has(.ui-pending-indicator) {
-   animation: half-fading 1s infinite ease-in;
+   animation: wave 3s infinite linear;
 }
 
 .ui-button-container:disabled {
@@ -151,14 +152,14 @@
    }
 }
 
-@keyframes half-fading {
+@keyframes wave {
    0% {
-      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0);
    }
    50% {
-      opacity: 0.6;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
    }
    100% {
-      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0);
    }
 }
