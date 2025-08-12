@@ -1,0 +1,105 @@
+.content {
+   display: flex;
+   min-height: 100vh;
+   width: 100%;
+}
+
+.leftWrap {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: stretch;
+   width: 514px;
+   padding: 40px;
+   background-color: var(--secondaryMain);
+}
+
+.authWrap{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 1rem;
+   flex-grow: 1;
+}
+
+.rightWrap {
+   flex-grow: 1;
+   padding-right: 20px;
+}
+
+.title {
+   text-align: center;
+   font-size: 25px;
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+.rightContent {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 83%;
+   height: 100%;
+   padding-left: 20px;
+}
+
+.titleWrap {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 20px;
+   max-width: 505px;
+   text-align: center;
+}
+
+.titleWrap h2,
+.titleWrap p {
+   font-size: 35px;
+   font-family: "Philosopher";
+   font-weight: 600;
+}
+
+.homeLink {
+   align-self: flex-start;
+}
+
+.titleWrap hr {
+   width: 149px;
+   height: 4px;
+   margin: 0 auto;
+   background-image: var(--gradientMain);
+}
+
+@media screen and (max-width: 1135px) {
+   .rightContent {
+      width: 100%;
+   }
+}
+
+@media screen and (max-width: 870px) {
+   .titleWrap h2,
+   .titleWrap p {
+      font-size: 25px;
+   }
+   .titleWrap hr {
+      width: 90px;
+   }
+}
+
+@media screen and (max-width: 800px) {
+   .rightWrap {
+      display: none;
+   }
+   .leftWrap{
+      flex-grow: 1;
+   }
+}
+
+@media screen and (max-width: 370px) {
+   .leftWrap{
+      padding: 1rem;
+   }
+   .title {
+      font-size: 21px;
+   }
+}

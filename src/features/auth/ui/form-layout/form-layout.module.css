@@ -1,0 +1,30 @@
+.form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 20px;
+   margin: auto 0;
+}
+
+.form input {
+   height: 50px;
+}
+
+.form a {
+   text-align: center;
+   color: var(--primaryText);
+}
+
+.form a:hover {
+   text-decoration: underline;
+}
+
+.error {
+   position: absolute;
+   bottom: 15px;
+   left: 15px;
+   padding: 15px;
+   border-radius: 15px;
+   background-color: rgb(208, 18, 18);
+   z-index: 1;
+}

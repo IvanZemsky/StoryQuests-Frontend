@@ -1,3 +1,9 @@
-export function SignInPage() {
-   return ( <div></div> );
+import { AuthPageLayout, SignInForm } from "@/src/features/auth"
+
+export const SignInPage = () => {
+   return (
+      <AuthPageLayout title="Login">
+         <SignInForm />
+      </AuthPageLayout>
+   )
 }
