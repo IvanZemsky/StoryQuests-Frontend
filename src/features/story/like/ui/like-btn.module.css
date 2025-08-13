@@ -1,0 +1,22 @@
+.wrap {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.btn {
+   height: 26px;
+}
+
+.btn svg {
+   width: 30px;
+   stroke: var(--secondaryText);
+}
+
+.btn.liked svg {
+   fill: var(--secondaryText);
+}
+
+.countp {
+   min-width: 50px;
+}

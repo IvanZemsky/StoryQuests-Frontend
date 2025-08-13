@@ -7,8 +7,13 @@ import { SignInLink } from "../sign-in-link"
 import { NavigationLink } from "@/src/shared/ui"
 import clsx from "clsx"
 import { useState } from "react"
+import { ProfileLink } from "../profile-link"
 
-export function HeaderMenu() {
+type Props = {
+   isAuth: boolean
+}
+
+export function HeaderMenu({ isAuth }: Props) {
    const [isMenuOpened, setIsMenuOpened] = useState(false)
 
    const handleBurgerClick = () => {
@@ -21,7 +26,7 @@ export function HeaderMenu() {
             <NavigationLink href="/">Home</NavigationLink>
             <NavigationLink href="/stories">Stories</NavigationLink>
             <NavigationLink href="/create">Create</NavigationLink>
-            <SignInLink />
+            {isAuth ? <ProfileLink /> : <SignInLink />}
 
             <button className={styles.closeBtn} onClick={handleBurgerClick}>
                <CrossIcon />

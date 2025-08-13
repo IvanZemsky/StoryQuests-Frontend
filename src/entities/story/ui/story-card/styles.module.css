@@ -74,13 +74,3 @@
    width: 30px;
    stroke: var(--secondaryText);
 }
-
-.authorLink {
-   align-self: flex-start;
-   font-size: 16px;
-   color: var(--secondaryLight);
-}
-
-.authorLink:hover {
-   text-decoration: underline;
-}

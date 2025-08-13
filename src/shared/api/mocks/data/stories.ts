@@ -12,8 +12,8 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 1.",
       img: placeholderImg,
       author: {
-         id: "author-1",
-         login: "Author1",
+         id: "1",
+         login: "User1",
       },
       tags: ["adventure", "fantasy", "story-1"],
       sceneCount: 20,
@@ -29,8 +29,8 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 2.",
       img: placeholderImg,
       author: {
-         id: "author-2",
-         login: "Author2",
+         id: "2",
+         login: "User2",
       },
       tags: ["adventure", "fantasy", "story-2"],
       sceneCount: 22,
@@ -46,7 +46,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 3.",
       img: placeholderImg,
       author: {
-         id: "author-3",
+         id: "3",
          login: "Author3",
       },
       tags: ["adventure", "fantasy", "story-3"],
@@ -63,7 +63,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 4.",
       img: placeholderImg,
       author: {
-         id: "author-4",
+         id: "4",
          login: "Author4",
       },
       tags: ["adventure", "fantasy", "story-4"],
@@ -80,7 +80,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 5.",
       img: placeholderImg,
       author: {
-         id: "author-5",
+         id: "5",
          login: "Author5",
       },
       tags: ["adventure", "fantasy", "story-5"],
@@ -97,7 +97,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 6.",
       img: placeholderImg,
       author: {
-         id: "author-1",
+         id: "1",
          login: "Author1",
       },
       tags: ["adventure", "fantasy", "story-6"],
@@ -114,7 +114,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 7.",
       img: placeholderImg,
       author: {
-         id: "author-2",
+         id: "2",
          login: "Author2",
       },
       tags: ["adventure", "fantasy", "story-7"],
@@ -131,7 +131,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 8.",
       img: placeholderImg,
       author: {
-         id: "author-3",
+         id: "3",
          login: "Author3",
       },
       tags: ["adventure", "fantasy", "story-8"],
@@ -148,7 +148,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 9.",
       img: placeholderImg,
       author: {
-         id: "author-4",
+         id: "4",
          login: "Author4",
       },
       tags: ["adventure", "fantasy", "story-9"],
@@ -165,7 +165,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 10.",
       img: placeholderImg,
       author: {
-         id: "author-5",
+         id: "5",
          login: "Author5",
       },
       tags: ["adventure", "fantasy", "story-10"],
@@ -182,7 +182,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 11.",
       img: placeholderImg,
       author: {
-         id: "author-1",
+         id: "1",
          login: "Author1",
       },
       tags: ["adventure", "fantasy", "story-11"],
@@ -199,7 +199,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 12.",
       img: placeholderImg,
       author: {
-         id: "author-2",
+         id: "2",
          login: "Author2",
       },
       tags: ["adventure", "fantasy", "story-12"],
@@ -216,7 +216,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 13.",
       img: placeholderImg,
       author: {
-         id: "author-3",
+         id: "3",
          login: "Author3",
       },
       tags: ["adventure", "fantasy", "story-13"],
@@ -233,7 +233,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 14.",
       img: placeholderImg,
       author: {
-         id: "author-4",
+         id: "4",
          login: "Author4",
       },
       tags: ["adventure", "fantasy", "story-14"],
@@ -250,7 +250,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 15.",
       img: placeholderImg,
       author: {
-         id: "author-5",
+         id: "5",
          login: "Author5",
       },
       tags: ["adventure", "fantasy", "story-15"],
@@ -267,7 +267,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 16.",
       img: placeholderImg,
       author: {
-         id: "author-1",
+         id: "1",
          login: "Author1",
       },
       tags: ["adventure", "fantasy", "story-16"],
@@ -284,7 +284,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 17.",
       img: placeholderImg,
       author: {
-         id: "author-2",
+         id: "2",
          login: "Author2",
       },
       tags: ["adventure", "fantasy", "story-17"],
@@ -301,7 +301,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 18.",
       img: placeholderImg,
       author: {
-         id: "author-3",
+         id: "3",
          login: "Author3",
       },
       tags: ["adventure", "fantasy", "story-18"],
@@ -318,7 +318,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 19.",
       img: placeholderImg,
       author: {
-         id: "author-4",
+         id: "4",
          login: "Author4",
       },
       tags: ["adventure", "fantasy", "story-19"],
@@ -335,7 +335,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 20.",
       img: placeholderImg,
       author: {
-         id: "author-5",
+         id: "5",
          login: "Author5",
       },
       tags: ["adventure", "fantasy", "story-20"],
@@ -352,7 +352,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 21.",
       img: placeholderImg,
       author: {
-         id: "author-1",
+         id: "1",
          login: "Author1",
       },
       tags: ["adventure", "fantasy", "story-21"],
@@ -369,7 +369,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 22.",
       img: placeholderImg,
       author: {
-         id: "author-2",
+         id: "2",
          login: "Author2",
       },
       tags: ["adventure", "fantasy", "story-22"],
@@ -386,7 +386,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 23.",
       img: placeholderImg,
       author: {
-         id: "author-3",
+         id: "3",
          login: "Author3",
       },
       tags: ["adventure", "fantasy", "story-23"],
@@ -403,7 +403,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 24.",
       img: placeholderImg,
       author: {
-         id: "author-4",
+         id: "4",
          login: "Author4",
       },
       tags: ["adventure", "fantasy", "story-24"],
@@ -420,7 +420,7 @@ export const storiesMocks: components["schemas"]["Story"][] = [
          "A thrilling tale of adventure and intrigue, where you, the reader, decide the fate of Story 25.",
       img: placeholderImg,
       author: {
-         id: "author-5",
+         id: "5",
          login: "Author5",
       },
       tags: ["adventure", "fantasy", "story-25"],

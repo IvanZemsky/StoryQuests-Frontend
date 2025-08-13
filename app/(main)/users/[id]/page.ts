@@ -1,1 +1,1 @@
-export { UserPage as default } from "@/src/pages/user/page"
+export { UserPage as default } from "@/src/pages_/user/page"

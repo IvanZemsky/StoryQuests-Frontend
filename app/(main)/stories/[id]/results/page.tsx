@@ -1,1 +1,1 @@
-export { ResultsPage as default } from "@/src/pages/results/page"
+export { ResultsPage as default } from "@/src/pages_/results/page"

@@ -1,2 +1,2 @@
-export { StoryPage as default } from "@/src/pages/story/page"
-export {generateMetadata} from "@/src/pages/story/metadata"
+export { StoryPage as default } from "@/src/pages_/story/page"
+export {generateMetadata} from "@/src/pages_/story/metadata"

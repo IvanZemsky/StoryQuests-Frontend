@@ -7,3 +7,4 @@ export { fetchClient, rqClient } from "./instance"
 export { initQueryClient } from "./query-client"
 
 export { useInitClientSideMocks } from "./mocks/init/client"
+export {mockMiddleware} from "./mocks/test-middleware"

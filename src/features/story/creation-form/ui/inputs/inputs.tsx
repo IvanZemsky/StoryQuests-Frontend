@@ -1,6 +1,6 @@
 "use client"
 import { ImageLoader, TextInput, Textarea } from "@/src/shared/ui"
-import { useFormContext, Controller } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
 import styles from "./inputs.module.css"
 
 export function CreateStoryFormInputs() {
@@ -26,17 +26,13 @@ export function CreateStoryFormInputs() {
             counter
             maxLength={200}
          />
-         <Controller
-            control={control}
+
+         <ImageLoader
+            label="Cover"
             name="img"
-            render={({ field }) => (
-               <ImageLoader
-                  label="Cover"
-                  onError={handleImgError}
-                  className={styles.imageLoad}
-                  {...field}
-               />
-            )}
+            onError={handleImgError}
+            onSuccess={(value) => setValue("img", value)}
+            className={styles.imageLoad}
          />
       </>
    )

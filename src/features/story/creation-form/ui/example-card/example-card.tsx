@@ -1,6 +1,7 @@
 import { Story, StoryCard } from "@/src/entities/story"
 import styles from "./example-card.module.css"
 import Image from "next/image"
+import { Button } from "@/src/shared/ui"
 
 type Props = {
    data: Story
@@ -11,7 +12,6 @@ export function CreateStoryFormExampleCard({ data }: Props) {
       <StoryCard
          className={styles.card}
          data={data}
-         likeBtn={undefined}
          image={
             data.img && (
                <Image
@@ -22,6 +22,9 @@ export function CreateStoryFormExampleCard({ data }: Props) {
                />
             )
          }
+         likeBtn={undefined}
+         mainBtn={<Button color="primary">Start</Button>}
+         authorLink={<p className={styles.authorLink}>@{data.author.login}</p>}
       />
    )
 }
