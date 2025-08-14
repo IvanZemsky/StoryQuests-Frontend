@@ -35,7 +35,7 @@ export async function verifyTokenOrThrow(request: Request): Promise<Session> {
    return session
 }
 
-function getToken(request: Request) {
+export function getToken(request: Request) {
    const cookieHeader = request.headers.get("Cookie")
    console.log("COOKIE", cookieHeader)
    let token: string | undefined
@@ -55,8 +55,17 @@ function getToken(request: Request) {
 }
 
 export async function verifyToken(token: string): Promise<Session> {
-   const { payload } = await jwtVerify(token, JWT_SECRET)
-   return payload as Session
+   const { payload } = await jwtVerify<Session>(token, JWT_SECRET)
+   return {
+      id: payload.id,
+      login: payload.login,
+   }
+}
+
+export async function verifyTokenWithoutThrow(request: Request): Promise<Session | null> {
+   const token = getToken(request)
+   const session = token ? await verifyToken(token).catch(() => null) : null
+   return session
 }
 
 export function createAccessTokenCookie(token: string) {

@@ -2,7 +2,6 @@ import {
    STORIES_SEARCH_LIMIT,
    StoriesFiltersParams,
    StoriesList,
-   StoryListMainCard,
    storyService,
 } from "@/src/entities/story"
 import { StoriesPageLayout } from "./ui/stories-page-layout"
@@ -10,6 +9,8 @@ import { StoriesFilters } from "@/src/features/story/filters/ui/stories-filters"
 import { Pagination, Wrapper } from "@/src/shared/ui"
 import { getTypedSearchParams } from "@/src/shared/lib"
 import { storiesFiltersParamsSchema } from "@/src/entities/story"
+import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
+import { headers } from "next/headers"
 
 export async function StoriesPage({
    searchParams,
@@ -64,12 +65,18 @@ function countPages(total: number, limit: number) {
 }
 
 async function getPageData(filters: StoriesFiltersParams) {
+   const headersList = await headers()
+   const cookieHeader = headersList.get("cookie") ?? ""
+
    const currentPage = filters.page
 
-   const stories = await storyService.find({
-      limit: STORIES_SEARCH_LIMIT,
-      ...filters,
-   })
+   const stories = await storyService.find(
+      {
+         limit: STORIES_SEARCH_LIMIT,
+         ...filters,
+      },
+      { Cookie: cookieHeader },
+   )
 
    const totalPagesCount = stories?.total
       ? countPages(stories.total, STORIES_SEARCH_LIMIT)

@@ -19,7 +19,9 @@ export async function mockMiddleware(fetchClient: Client<paths, `${string}/${str
          Cookie: cookieHeader,
       },
    })
-   if (!data) {
-      return redirect("sign-in")
+   if (!data?.session) {
+      return null
    }
+
+   return data.session
 }

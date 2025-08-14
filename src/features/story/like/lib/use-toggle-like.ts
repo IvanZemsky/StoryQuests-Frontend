@@ -19,8 +19,9 @@ export function useToggleLike(storyId: string, initialState: LikeBtnState) {
    }
 
    const toggleLikeMutation = useMutation({
-      // mutationFn: () => storyService.toggleLike(storyId),
+      mutationFn: () => storyService.toggleLike({ storyID: storyId, isLiked: !likeBtnState.isLiked }),
       onMutate: () => {
+         toggleLikeState()
          queryClient.cancelQueries({ queryKey: ["stories", "byId", storyId] })
       },
       onError: () => {
@@ -31,6 +32,6 @@ export function useToggleLike(storyId: string, initialState: LikeBtnState) {
    return {
       likeBtnState,
       toggleLikeMutation,
-      toggleLikeState,
    }
 }
+

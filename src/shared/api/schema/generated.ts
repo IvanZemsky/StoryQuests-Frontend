@@ -23,6 +23,7 @@ export interface paths {
                     search?: string;
                     sort?: "best" | "popular" | "new";
                     length?: "short" | "medium" | "long";
+                    userId?: string;
                 };
                 header?: never;
                 path?: never;
@@ -141,6 +142,53 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/stories/{storyId}/like": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Like a story
+         * @description Likes a story.
+         */
+        patch: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description ID of the story to like. */
+                    storyId: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["StoryLikeDTO"];
+                };
+            };
+            responses: {
+                /** @description Successful operation */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Story"];
+                    };
+                };
+                401: components["responses"]["UnauthorizedError"];
+            };
+        };
+        trace?: never;
+    };
     "/auth/login": {
         parameters: {
             query?: never;
@@ -243,6 +291,11 @@ export interface components {
             /** Format: date */
             date: string;
         };
+        StoryLike: {
+            id?: string;
+            storyId?: string;
+            userId?: string;
+        };
         Scene: {
             /** @description Scene ID */
             id: string;
@@ -295,6 +348,9 @@ export interface components {
         Error: {
             message: string;
             code: string;
+        };
+        StoryLikeDTO: {
+            isLiked?: boolean;
         };
         Session: {
             id: string;

@@ -16,6 +16,10 @@ paths:
       get:
          $ref: "./endpoints/stories.yaml#/findScenes"
 
+   /stories/{storyId}/like:
+      patch:
+         $ref: "./endpoints/stories.yaml#/like"
+
    /auth/login:
       post:
          $ref: "./endpoints/auth.yaml#/login"
@@ -27,6 +31,8 @@ paths:
 components:
    schemas:
       Story:
+      StoryLike:
+         $ref: "./endpoints/stories.yaml#/components/schemas/StoryLike"
       Scene:
          $ref: "./endpoints/stories.yaml#/components/schemas/Scene"
       Answer:

@@ -1,9 +1,9 @@
-import { StoriesFiltersParams } from "@/src/features/story"
 import styles from "./home-page-stories-list.module.css"
-import { StoriesList, StoryListMainCard, storyService } from "@/src/entities/story"
+import { StoriesFiltersParams, StoriesList, storyService } from "@/src/entities/story"
 import { Button } from "@/src/shared/ui"
 import Link from "next/link"
 import ArrowRightLongIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
+import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
 
 type Props = {
    filters: Partial<StoriesFiltersParams & { limit: number }>

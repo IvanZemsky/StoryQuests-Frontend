@@ -43,6 +43,12 @@ findMany:
               - short
               - medium
               - long
+      - name: userId
+        in: query
+        required: false
+        schema:
+           type: string
+           default: ""
    responses:
       "200":
          description: Successful operation
@@ -111,6 +117,34 @@ findScenes:
       "404":
          $ref: "../responses.yaml#/NotFoundError"
 
+like:
+   summary: Like a story
+   description: Likes a story.
+   tags:
+      - stories
+   parameters:
+      - in: path
+        name: storyId
+        schema:
+           type: string
+        required: true
+        description: ID of the story to like.
+   requestBody:
+      required: true
+      content:
+         application/json:
+            schema:
+               $ref: "#/components/schemas/StoryLikeDTO"
+   responses:
+      "200":
+         description: Successful operation
+         content:
+            application/json:
+               schema:
+                  $ref: "#/components/schemas/Story"
+      "401":
+         $ref: "../responses.yaml#/UnauthorizedError"
+
 components:
    schemas:
       Story:
@@ -164,6 +198,20 @@ components:
             - likes
             - isLiked
             - date
+      StoryLikeDTO:
+         type: object
+         properties:
+            isLiked:
+               type: boolean
+      StoryLike:
+         type: object
+         properties:
+            id: 
+               type: string
+            storyId: 
+               type: string
+            userId: 
+               type: string
       Scene:
          type: object
          required:

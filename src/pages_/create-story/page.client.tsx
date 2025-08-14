@@ -3,7 +3,6 @@
 import { Flow, useFlow } from "@/src/widgets/flow-field"
 import { CreateStoryLayout } from "./layout/create-story-layout"
 import {
-   CreateStoryFormExampleCard,
    CreateStoryFormInputs,
    CreateStoryFormLayout,
 } from "@/src/features/story"
@@ -12,6 +11,7 @@ import { AnswerEdge, SceneNode } from "@/src/features/scene"
 import { initialNodes } from "./model/flow"
 import { useCreateStoryForm } from "./model/form"
 import { nodeTypes, edgeTypes } from "@/src/widgets/flow-field"
+import { CreateStoryFormExampleCard } from "./layout/example-card/example-card"
 
 export function CreateStoryPageClient() {
    const flow = useFlow<SceneNode, AnswerEdge>({ initialNodes })

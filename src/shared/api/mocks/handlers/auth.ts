@@ -6,21 +6,7 @@ import {
    generateAccessToken,
    verifyTokenOrThrow,
 } from "../session"
-
-const mockUsers: components["schemas"]["User"][] = [
-   {
-      id: "1",
-      login: "User1",
-   },
-   {
-      id: "2",
-      login: "User2",
-   },
-]
-
-const userPasswords = new Map<string, string>()
-userPasswords.set("User1", "1234")
-userPasswords.set("User2", "1234")
+import { mockUsers, userPasswords } from "../data/users"
 
 export const authHandlers = [
    http.post("/auth/login", async ({ request }) => {

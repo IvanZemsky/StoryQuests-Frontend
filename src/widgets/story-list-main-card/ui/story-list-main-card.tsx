@@ -1,9 +1,10 @@
 import { Button } from "@/src/shared/ui"
-import { Story } from "../../model/types"
-import { StoryCard } from "../story-card/story-card"
+import { Story } from "@/src/entities/story"
+import { StoryCard } from "@/src/entities/story"
 import Image from "next/image"
 import Link from "next/link"
 import styles from "./story-list-main-card.module.css"
+import { StoryLikeBtn } from "@/src/features/story"
 
 type Props = {
    data: Story
@@ -23,7 +24,9 @@ export function StoryListMainCard({ data }: Props) {
                @{data.author.login}
             </Link>
          }
-         likeBtn={undefined}
+         likeBtn={
+            <StoryLikeBtn storyId={data.id} likes={data.likes} isLiked={data.isLiked} />
+         }
          image={
             <Image
                src={data.img}

@@ -1,5 +1,5 @@
 export { StoriesFilters } from "./filters/ui/stories-filters"
 export { CreateStoryFormLayout } from "./creation-form/ui/form/form"
 export { CreateStoryFormInputs } from "./creation-form/ui/inputs/inputs"
-export { CreateStoryFormExampleCard } from "./creation-form/ui/example-card/example-card"
 export { getCardData } from "./creation-form/model/card"
+export { StoryLikeBtn } from "./like/ui/like-btn"

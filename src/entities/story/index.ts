@@ -5,7 +5,6 @@ export { StoriesSkeleton } from "./ui/story-skeleton/story-skeleton"
 export { BaseStoryField } from "./ui/base-field"
 export { StoryCard } from "./ui/story-card/story-card"
 export { StoriesList } from "./ui/stories-list/stories-list"
-export { StoryListMainCard } from "./ui/compose/story-list-main-card"
 export {storiesFiltersParamsSchema} from "./model/schemas"
 export type {
    Story,
