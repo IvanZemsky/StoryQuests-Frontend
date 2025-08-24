@@ -1,0 +1,1 @@
+export {PRIVATE_ROUTES, ONLY_PUBLIC_ROUTES} from "./routes"

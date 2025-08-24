@@ -15,9 +15,6 @@ type SignInForm = {
 export const SignInForm = () => {
    const loginMutation = useMutation({
       mutationFn: userService.login,
-      onSuccess: (res) => {
-         console.log(res)
-      },
    })
    const { register, handleSubmit } = useForm<SignInForm>()
 
