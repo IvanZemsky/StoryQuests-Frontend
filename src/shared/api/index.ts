@@ -1,10 +1,12 @@
-import type { components, paths } from "./schema/generated"
+import type { components, paths } from "./mocks/schema/generated"
 
 export type ApiPaths = paths
 export type ApiSchemas = components["schemas"]
 
-export { fetchClient, rqClient } from "./instance"
-export { initQueryClient } from "./query-client"
+export { API } from "./client/axios-client"
+
+export { fetchClient } from "./mocks/instance"
+export { initQueryClient } from "./mocks/query-client"
 
 export { useInitClientSideMocks } from "./mocks/init/client"
 export {mockMiddleware} from "./mocks/test-middleware"

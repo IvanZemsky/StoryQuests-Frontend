@@ -21,6 +21,12 @@ export type SetStoryResult = {
 
 export type StoriesFiltersParams = z.infer<typeof storiesFiltersParamsSchema>
 
+export type StoriesFilters = StoriesFiltersParams & {
+   limit: number
+   page: number
+   me?: string
+}
+
 // export type StoryResult = {
 //    id: string
 //    datetime: string

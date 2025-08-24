@@ -1,7 +1,7 @@
 import { delay, HttpResponse } from "msw"
 import { http } from "../http"
 import { storiesMocks } from "../data/stories"
-import { components } from "../../schema/generated"
+import { components } from "../schema/generated"
 import { scenesMocks } from "../data/scenes"
 import { verifyTokenOrThrow, verifyTokenWithoutThrow } from "../session"
 import { mockStoriesLikes } from "../data/stories-likes"

@@ -3,10 +3,9 @@ import "@/src/app/styles/fonts.css"
 import "@/src/app/styles/reset.css"
 import "@/src/shared/ui/styles/vars.css"
 import { Providers } from "@/src/app"
-import { initServerSideMocks } from "@/src/shared/api/index.server"
 import styles from "./root-layout.module.css"
 
-initServerSideMocks()
+// initServerSideMocks()
 
 export const metadata: Metadata = {
    title: "Create Next App",

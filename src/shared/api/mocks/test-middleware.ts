@@ -7,7 +7,7 @@
 
 import { headers } from "next/headers"
 import { Client } from "openapi-fetch"
-import { paths } from "../schema/generated"
+import { paths } from "./schema/generated"
 import { redirect } from "next/navigation"
 
 export async function mockMiddleware(fetchClient: Client<paths, `${string}/${string}`>) {

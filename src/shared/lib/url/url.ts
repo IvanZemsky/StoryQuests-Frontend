@@ -10,3 +10,9 @@ export async function getTypedSearchParams<T extends z.ZodTypeAny>(
 
    return parsed
 }
+
+export function stringifyObjectValues(obj: Record<string, unknown>) {
+   return Object.fromEntries(
+      Object.entries(obj).map(([key, value]) => [key, String(value)]),
+   )
+}

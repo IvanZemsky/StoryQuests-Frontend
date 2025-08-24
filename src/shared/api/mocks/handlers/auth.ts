@@ -1,5 +1,5 @@
 import { delay, HttpResponse } from "msw"
-import { components } from "../../schema/generated"
+import { components } from "../schema/generated"
 import { http } from "../http"
 import {
    createAccessTokenCookie,

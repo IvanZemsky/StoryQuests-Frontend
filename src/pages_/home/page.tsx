@@ -8,7 +8,10 @@ export async function HomePage() {
          hero={<Hero />}
          storiesSections={
             <>
-               <HomePageStoriesList filters={{ sort: "popular", limit: 4 }} title="Popular" />
+               <HomePageStoriesList
+                  filters={{ sort: "popular", limit: 4, page: 1 }}
+                  title="Popular"
+               />
             </>
          }
          storyCreationExample={undefined}

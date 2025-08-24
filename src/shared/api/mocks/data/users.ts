@@ -1,4 +1,4 @@
-import { components } from "../../schema/generated"
+import { components } from "../schema/generated"
 
 export const mockUsers: components["schemas"]["User"][] = [
    {

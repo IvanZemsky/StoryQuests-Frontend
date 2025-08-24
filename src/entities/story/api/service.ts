@@ -1,36 +1,24 @@
-import { fetchClient } from "@/src/shared/api"
-import { StoriesFiltersParams, Story } from "../model/types"
+import { API, fetchClient } from "@/src/shared/api"
+import { StoriesFilters, Story } from "../model/types"
 import { GetStoriesDTO } from "./dto"
 
 export const storyService = {
    async find(
-      query: StoriesFiltersParams & { limit?: number; userId?: string } = {
-         page: 1,
-      },
+      query: StoriesFilters,
       headers: Record<string, string> = {},
-   ): Promise<GetStoriesDTO | undefined> {
-      const { response, data } = await fetchClient.GET("/stories", {
+   ): Promise<GetStoriesDTO> {
+      const response = await API.get<Story[]>("stories", {
          params: {
-            query: {
-               page: query.page,
-               limit: query.limit,
-               sort: query.sort,
-               length: query.length,
-               search: query.search,
-               userId: query.userId,
-            },
+            ...query,
+            page: query.page ?? 1,
          },
-         next: {
-            tags: ["stories"],
-         },
-         credentials: "include",
          headers,
       })
 
-      const total = Number(response.headers.get("X-Total-Count"))
+      const total = Number(response.headers["x-total-count"])
 
       return {
-         data: data as Story[],
+         data: response.data as Story[],
          total,
       }
    },
@@ -39,19 +27,11 @@ export const storyService = {
       storyID: string,
       headers: Record<string, string>,
    ): Promise<Story | undefined> {
-      const { data } = await fetchClient.GET(`/stories/{storyId}`, {
-         params: {
-            path: {
-               storyId: storyID,
-            },
-         },
-         credentials: "include",
+      const response = await API.get<Story>(`stories/${storyID}`, {
          headers,
       })
 
-      console.log("data fetched")
-
-      return data as Story
+      return response.data
    },
 
    async toggleLike(
@@ -64,16 +44,8 @@ export const storyService = {
       },
       headers: Record<string, string> = {},
    ): Promise<Story | undefined> {
-      const { data } = await fetchClient.PATCH(`/stories/{storyId}/like`, {
-         params: {
-            path: {
-               storyId: storyID,
-            },
-         },
-         body: {
-            isLiked,
-         },
-         credentials: "include",
+      const { data } = await API.patch(`stories/${storyID}/like`, {
+         isLiked,
          headers,
       })
 

@@ -6,6 +6,7 @@ export { BaseStoryField } from "./ui/base-field"
 export { StoryCard } from "./ui/story-card/story-card"
 export { StoriesList } from "./ui/stories-list/stories-list"
 export {storiesFiltersParamsSchema} from "./model/schemas"
+export type {StoriesFilters} from "./model/types"
 export type {
    Story,
    StoryId,
