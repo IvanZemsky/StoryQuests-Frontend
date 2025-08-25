@@ -1,4 +1,4 @@
-import { API, fetchClient } from "@/src/shared/api"
+import { API } from "@/src/shared/api"
 import { StoriesFilters, Story } from "../model/types"
 import { GetStoriesDTO } from "./dto"
 

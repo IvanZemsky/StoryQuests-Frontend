@@ -1,16 +1,15 @@
-import {
-   STORIES_SEARCH_LIMIT,
-   StoriesFiltersParams,
-   StoriesList,
-   storyService,
-} from "@/src/entities/story"
-import { StoriesPageLayout } from "./ui/stories-page-layout"
+import { StoriesPageLayout } from "./ui/layout/stories-page-layout"
 import { StoriesFilters } from "@/src/features/story/filters/ui/stories-filters"
 import { Pagination, Wrapper } from "@/src/shared/ui"
 import { getTypedSearchParams } from "@/src/shared/lib"
-import { storiesFiltersParamsSchema } from "@/src/entities/story"
-import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
-import { headers } from "next/headers"
+import {
+   STORIES_SEARCH_LIMIT,
+   storiesFiltersParamsSchema,
+   StoriesSkeleton,
+} from "@/src/entities/story"
+import { StoriesPageList } from "./ui/list/stories-page-list"
+import { Suspense } from "react"
+import styles from "./page.module.css"
 
 export async function StoriesPage({
    searchParams,
@@ -30,8 +29,6 @@ export async function StoriesPage({
       )
    }
 
-   const { stories, totalPagesCount, currentPage } = await getPageData(parsedParams.data)
-
    return (
       <StoriesPageLayout
          filters={
@@ -41,50 +38,26 @@ export async function StoriesPage({
             />
          }
          list={
-            <StoriesList
-               data={stories?.data}
-               renderItem={(data) => <StoryListMainCard key={data.id} data={data} />}
-            />
-         }
-         pagination={
-            stories?.data && (
-               <Pagination
-                  current={currentPage}
-                  total={totalPagesCount}
-                  previousParams={await searchParams}
-                  href="/stories"
+            <Suspense
+               fallback={<StoriesSkeleton limit={STORIES_SEARCH_LIMIT} />}
+               key={JSON.stringify(parsedParams.data)}
+            >
+               <StoriesPageList
+                  filters={parsedParams.data}
+                  pagination={async (totalPagesCount) =>
+                     !!totalPagesCount && (
+                        <Pagination
+                           className={styles.pagination}
+                           current={parsedParams.data.page}
+                           total={totalPagesCount}
+                           previousParams={await searchParams}
+                           href="/stories"
+                        />
+                     )
+                  }
                />
-            )
+            </Suspense>
          }
       />
    )
-}
-
-function countPages(total: number, limit: number) {
-   return Math.ceil(total / limit)
-}
-
-async function getPageData(filters: StoriesFiltersParams) {
-   const headersList = await headers()
-   const cookieHeader = headersList.get("cookie") ?? ""
-
-   const currentPage = filters.page
-
-   const stories = await storyService.find(
-      {
-         limit: STORIES_SEARCH_LIMIT,
-         ...filters,
-      },
-      { Cookie: cookieHeader },
-   )
-
-   const totalPagesCount = stories?.total
-      ? countPages(stories.total, STORIES_SEARCH_LIMIT)
-      : 1
-
-   return {
-      stories,
-      totalPagesCount,
-      currentPage,
-   }
 }
