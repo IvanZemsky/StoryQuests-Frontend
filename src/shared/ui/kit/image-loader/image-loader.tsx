@@ -26,7 +26,9 @@ export function ImageLoader({
    ...attrs
 }: Props) {
    const [value, setValue] = useState<string>(defaultValue || "")
-   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+   const [status, setStatus] = useState<
+      "idle" | "loading" | "success" | "error" | "no-https"
+   >("idle")
 
    const canRenderImage = status === "success" || status === "loading"
 
@@ -40,8 +42,6 @@ export function ImageLoader({
       onError?.()
    }
 
-   useEffect(() => handleValue(value), [])
-
    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       handleValue(event.target.value)
       onChange?.(event)
@@ -53,6 +53,10 @@ export function ImageLoader({
          setStatus("idle")
          return
       }
+      if (!value.startsWith("https://")) {
+         setStatus("no-https")
+         return
+      }
       if (!URL.canParse(value)) {
          setStatus("error")
          return
@@ -60,6 +64,8 @@ export function ImageLoader({
 
       setStatus("loading")
    }
+
+   useEffect(() => handleValue(value), [])
 
    return (
       <div className={clsx("ui-image-loader", className)}>
@@ -79,6 +85,7 @@ export function ImageLoader({
                   Error occured. <br /> Please, try other link
                </p>
             )}
+            {status === "no-https" && <p>Link must start with https://</p>}
             {canRenderImage && (
                <Image
                   src={String(value)}

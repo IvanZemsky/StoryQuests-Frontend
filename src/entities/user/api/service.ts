@@ -1,6 +1,5 @@
 import { API } from "@/src/shared/api"
-import { LoginDTO } from "../model/types"
-import { Session } from "inspector/promises"
+import { LoginDTO, RegisterDTO, Session } from "../model/types"
 
 export const userService = {
    async login(dto: LoginDTO) {
@@ -14,7 +13,7 @@ export const userService = {
       await API.post("auth/logout")
    },
 
-   async register(dto: LoginDTO) {
+   async register(dto: RegisterDTO) {
       await API.post("auth/register", {
          login: dto.login,
          password: dto.password,

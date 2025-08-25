@@ -4,16 +4,12 @@ import { useForm } from "react-hook-form"
 import Link from "next/link"
 import { TextInput, Button } from "@/src/shared/ui"
 import { AuthFormLayout } from "../form-layout/form-layout"
-
-type SignUpForm = {
-   login: string
-   password: string
-}
+import { SignUpFormData } from "../../model/types"
+import { useSignUpForm } from "../../model/use-sign-up-form"
 
 export const SignUpForm = () => {
-   const { register, handleSubmit } = useForm<SignUpForm>()
-
-   const onSubmit = (data: SignUpForm) => {}
+   const { register, handleSubmit } = useForm<SignUpFormData>()
+   const { loginMutation, onSubmit } = useSignUpForm()
 
    return (
       <AuthFormLayout
@@ -27,7 +23,12 @@ export const SignUpForm = () => {
                   placeholder="Password"
                   {...register("password")}
                />
-               <Button type="submit">Sign in</Button>
+               <Button
+                  type="submit"
+                  disabled={loginMutation.isPending || loginMutation.isSuccess}
+               >
+                  Sign in
+               </Button>
             </>
          }
          link={<Link href="/sign-in">Already have an account? Sign in!</Link>}

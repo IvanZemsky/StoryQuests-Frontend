@@ -47,8 +47,15 @@ export function Button<T extends React.ElementType>({
       }),
    }
 
+   const componentProps = {
+      ref,
+      className: styles.container,
+      ...attributes,
+      ...(as === "button" && { type }),
+   }
+
    return (
-      <Component ref={ref} className={styles.container} {...attributes} type={type}>
+      <Component {...componentProps}>
          <LoadingIndicator>
             <span className={styles.content}>
                {leftIcon}

@@ -5,6 +5,7 @@ import Link from "next/link"
 import ArrowRightLongIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
 import { stringifyObjectValues } from "@/src/shared/lib"
+import { headers } from "next/headers"
 
 type Props = {
    filters: StoriesFilters
@@ -12,7 +13,9 @@ type Props = {
 }
 
 export async function HomePageStoriesList({ filters, title }: Props) {
-   const stories = await storyService.find(filters)
+   const headersList = await headers()
+   const cookieHeader = headersList.get("cookie") ?? ""
+   const stories = await storyService.find(filters, { Cookie: cookieHeader })
 
    const { limit: _, ...rest } = filters
 

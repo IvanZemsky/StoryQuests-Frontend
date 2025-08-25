@@ -25,7 +25,7 @@ export function HeaderMenu({ isAuth }: Props) {
          <ul className={clsx({ [styles.opened]: isMenuOpened })}>
             <NavigationLink href="/">Home</NavigationLink>
             <NavigationLink href="/stories">Stories</NavigationLink>
-            <NavigationLink href="/create">Create</NavigationLink>
+            {isAuth && <NavigationLink href="/create">Create</NavigationLink>}
             {isAuth ? <ProfileLink /> : <SignInLink />}
 
             <button className={styles.closeBtn} onClick={handleBurgerClick}>

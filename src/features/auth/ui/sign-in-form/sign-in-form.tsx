@@ -4,23 +4,12 @@ import { useForm } from "react-hook-form"
 import Link from "next/link"
 import { TextInput, Button } from "@/src/shared/ui"
 import { AuthFormLayout } from "../form-layout/form-layout"
-import { useMutation } from "@tanstack/react-query"
-import { userService } from "@/src/entities/user"
-
-type SignInForm = {
-   login: string
-   password: string
-}
+import { SignInFormData } from "../../model/types"
+import { useSignInForm } from "../../model/use-sign-in-form"
 
 export const SignInForm = () => {
-   const loginMutation = useMutation({
-      mutationFn: userService.login,
-   })
-   const { register, handleSubmit } = useForm<SignInForm>()
-
-   const onSubmit = (data: SignInForm) => {
-      loginMutation.mutate(data)
-   }
+   const { register, handleSubmit } = useForm<SignInFormData>()
+   const { loginMutation, onSubmit } = useSignInForm()
 
    return (
       <AuthFormLayout
@@ -34,7 +23,10 @@ export const SignInForm = () => {
                   placeholder="Password"
                   {...register("password")}
                />
-               <Button type="submit" disabled={loginMutation.isPending}>
+               <Button
+                  type="submit"
+                  disabled={loginMutation.isPending || loginMutation.isSuccess}
+               >
                   Sign in
                </Button>
             </>
