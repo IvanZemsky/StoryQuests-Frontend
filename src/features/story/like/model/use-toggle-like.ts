@@ -1,6 +1,7 @@
 import { storyService } from "@/src/entities/story"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
+import { revalidateStories } from "./action"
 
 type LikeBtnState = {
    likes: number
@@ -29,7 +30,8 @@ export function useToggleLike(storyId: string, initialState: LikeBtnState) {
       onError: () => {
          setLikeBtnState(initialState)
       },
-      onSettled: () => {
+      onSettled: async () => {
+         await revalidateStories(storyId)
          queryClient.invalidateQueries({ queryKey: ["stories"] })
          queryClient.invalidateQueries({ queryKey: ["story", "byID", storyId] })
       },

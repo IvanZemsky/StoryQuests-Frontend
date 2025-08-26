@@ -5,7 +5,7 @@ import { userService, type Session } from "@/src/entities/user"
 import { getTokenFromCookie } from "@/src/features/auth"
 
 export async function Header() {
-   const [isAuth, session] = await getSession()
+   const [isAuth] = await getSession()
 
    return (
       <header className={styles.header}>

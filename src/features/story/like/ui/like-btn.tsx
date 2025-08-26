@@ -3,7 +3,7 @@
 import HeartIcon from "@/src/shared/assets/icons/heart.svg"
 import styles from "./like-btn.module.css"
 import clsx from "clsx"
-import { useToggleLike } from "../lib/use-toggle-like"
+import { useToggleLike } from "../model/use-toggle-like"
 
 type Props = {
    storyId: string
