@@ -1,6 +1,6 @@
 import { API } from "@/src/shared/api"
 import { StoriesFilters, Story } from "../model/types"
-import { GetStoriesDTO } from "./dto"
+import { GetStoriesDTO, StoryLikeUpdateDTO } from "./dto"
 
 export const storyService = {
    async find(
@@ -43,7 +43,7 @@ export const storyService = {
          isLiked: boolean
       },
       headers: Record<string, string> = {},
-   ): Promise<Story | undefined> {
+   ): Promise<StoryLikeUpdateDTO | undefined> {
       const { data } = await API.patch(`stories/${storyID}/like`, {
          isLiked,
          headers,

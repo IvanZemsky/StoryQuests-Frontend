@@ -19,13 +19,19 @@ export function useToggleLike(storyId: string, initialState: LikeBtnState) {
    }
 
    const toggleLikeMutation = useMutation({
-      mutationFn: () => storyService.toggleLike({ storyID: storyId, isLiked: !likeBtnState.isLiked }),
+      mutationFn: () =>
+         storyService.toggleLike({ storyID: storyId, isLiked: !likeBtnState.isLiked }),
       onMutate: () => {
          toggleLikeState()
-         queryClient.cancelQueries({ queryKey: ["stories", "byId", storyId] })
+         queryClient.cancelQueries({ queryKey: ["stories"] })
+         queryClient.cancelQueries({ queryKey: ["story", "byID", storyId] })
       },
       onError: () => {
          setLikeBtnState(initialState)
+      },
+      onSettled: () => {
+         queryClient.invalidateQueries({ queryKey: ["stories"] })
+         queryClient.invalidateQueries({ queryKey: ["story", "byID", storyId] })
       },
    })
 
@@ -34,4 +40,3 @@ export function useToggleLike(storyId: string, initialState: LikeBtnState) {
       toggleLikeMutation,
    }
 }
-
