@@ -1,9 +1,7 @@
 "use client"
 
-import HeartIcon from "@/src/shared/assets/icons/heart.svg"
-import styles from "./like-btn.module.css"
-import clsx from "clsx"
 import { useToggleLike } from "../model/use-toggle-like"
+import { StoryLikeBtnLayout } from "./like-btn-layout"
 
 type Props = {
    storyId: string
@@ -24,18 +22,12 @@ export function StoryLikeBtn({ storyId, likes, isLiked = false, className }: Pro
    }
 
    return (
-      <div className={clsx(styles.wrap, className)}>
-         <button
-            className={clsx(styles.btn, { [styles.liked]: likeBtnState.isLiked })}
-            disabled={toggleLikeMutation.isPending}
-            onClick={handleLikeBtnClick}
-         >
-            <HeartIcon />
-         </button>
-
-         <p className={styles.count}>{likeBtnState.likes}</p>
-
-         {/* <AuthModal id={storyId} /> */}
-      </div>
+      <StoryLikeBtnLayout
+         likes={likes}
+         isLiked={likeBtnState.isLiked}
+         isPending={toggleLikeMutation.isPending}
+         onClick={handleLikeBtnClick}
+         className={className}
+      />
    )
 }

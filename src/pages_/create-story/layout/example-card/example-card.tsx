@@ -2,7 +2,7 @@ import { Story, StoryCard } from "@/src/entities/story"
 import styles from "./example-card.module.css"
 import Image from "next/image"
 import { Button } from "@/src/shared/ui"
-import { StoryLikeBtn } from "@/src/features/story"
+import { StoryLikeBtnLayout } from "@/src/features/story"
 
 type Props = {
    data: Story
@@ -23,7 +23,7 @@ export function CreateStoryFormExampleCard({ data }: Props) {
                />
             )
          }
-         likeBtn={<StoryLikeBtn storyId={data.id} likes={data.likes} />}
+         likeBtn={<StoryLikeBtnLayout likes={data.likes} />}
          mainBtn={<Button color="primary">Start</Button>}
          authorLink={<p className={styles.authorLink}>@{data.author.login}</p>}
       />
