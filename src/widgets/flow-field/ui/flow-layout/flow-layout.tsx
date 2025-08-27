@@ -5,13 +5,13 @@ import clsx from "clsx"
 
 type Props = React.ComponentProps<"div"> & {
    title: string
-   scenePanel?: React.ReactNode
+   panel?: React.ReactNode
    field?: React.ReactNode
 }
 
 export const FieldLayout = ({
    title,
-   scenePanel,
+   panel,
    field,
    className,
    ...attrs
@@ -20,7 +20,7 @@ export const FieldLayout = ({
       <div className={clsx(styles.content, className)} {...attrs}>
          <h2 className={styles.title}>{title}</h2>
          <div className={styles.field}>
-            {scenePanel}
+            {panel}
             {field}
          </div>
       </div>

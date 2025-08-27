@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function CreateStoryLayout({ form, title }: Props) {
-   useOnBeforeUnload()
+   // useOnBeforeUnload()
 
    return (
       <Wrapper className={styles.wrapper}>

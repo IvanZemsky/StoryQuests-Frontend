@@ -6,7 +6,7 @@ export type SceneNodeData = {
   description: string
   img: string
   type: "default" | "end"
-  number: string
+  number: number
 }
 
 export type SceneNode = Node<SceneNodeData>

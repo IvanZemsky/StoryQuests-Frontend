@@ -1,0 +1,24 @@
+.panel{
+   position: absolute;
+   top: 0;
+   left: 0;
+   padding: 9px 9px 9px 5px;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   background-color: var(--secondaryMain);
+   border-radius: 0px 0px 15px 0;
+   text-align: center;
+   overflow: hidden;
+   z-index: 1;
+}
+
+.scene{
+   padding: 5px;
+   border: 2px solid var(--thirdLight);
+   border-radius: 5px;
+   font-size: 15px;
+   cursor: grab;
+   user-select: none;
+}
+
