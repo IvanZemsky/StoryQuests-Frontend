@@ -6,5 +6,5 @@ export const config = {
 }
 
 export async function middleware(req: NextRequest) {
-   await authMiddleware(req)
+   // await authMiddleware(req)
 }

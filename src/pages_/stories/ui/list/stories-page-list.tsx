@@ -16,7 +16,7 @@ type Props = {
 export async function StoriesPageList({ filters, pagination }: Props) {
    const stories = await getStories(filters)
 
-   const totalPagesCount = countPages(stories.total, STORIES_SEARCH_LIMIT)
+   const totalPagesCount = countPages(stories?.total ?? 0, STORIES_SEARCH_LIMIT)
 
    return (
       <>
@@ -33,13 +33,17 @@ async function getStories(filters: StoriesFiltersParams) {
    const headersList = await headers()
    const cookieHeader = headersList.get("cookie") ?? ""
 
-   const stories = await storyService.find(
-      {
-         limit: STORIES_SEARCH_LIMIT,
-         ...filters,
-      },
-      { Cookie: cookieHeader },
-   )
+   try {
+      const stories = await storyService.find(
+         {
+            limit: STORIES_SEARCH_LIMIT,
+            ...filters,
+         },
+         { Cookie: cookieHeader },
+      )
 
-   return stories
+      return stories
+   } catch (error) {
+      return undefined
+   }
 }
