@@ -1,6 +1,7 @@
 import { storyService } from "@/src/entities/story"
 import { StoryHeader } from "./header/story-header"
 import styles from "./story-layout.module.css"
+import { Wrapper } from "@/src/shared/ui"
 
 type Props = {
    children: React.ReactNode
@@ -16,7 +17,11 @@ export async function StoryLayout({ children, params }: Props) {
    return (
       <div className={styles.app}>
          <StoryHeader storyName={story?.name} />
-         <main>{children}</main>
+         <main>
+            <Wrapper variant="both" className={styles.wrapper}>
+               {children}
+            </Wrapper>
+         </main>
       </div>
    )
 }

@@ -1,25 +1,27 @@
-import { sceneService } from "@/src/entities/scene"
-import { Wrapper } from "@/src/shared/ui"
-import { Scene } from "@/src/widgets/scene"
-import styles from "./page.module.css"
+import { storyService } from "@/src/entities/story"
+import { StoryPreviewCard } from "./ui/preview-card/preview-card"
+import { PageScene } from "./ui/scene/scene"
 
 export type StoryPageProps = {
    params: Promise<{
       id: string
    }>
+   searchParams: Promise<{ play?: "" }>
 }
 
-export async function StoryPage({ params }: StoryPageProps) {
+export async function StoryPage({ params, searchParams }: StoryPageProps) {
    const { id } = await params
-   const scenes = await sceneService.findByStoryID(id)
+   const { play } = await searchParams
 
-   if (!scenes) {
+   const story = await storyService.findByID(id)
+
+   if (!story) {
       return <div>Story not found</div>
    }
 
-   return (
-      <Wrapper variant="both" className={styles.wrapper}>
-         <Scene data={scenes} firstSceneNumber={1} />
-      </Wrapper>
-   )
+   if (play !== undefined) {
+      return <PageScene storyId={id} />
+   }
+
+   return <StoryPreviewCard data={story} />
 }

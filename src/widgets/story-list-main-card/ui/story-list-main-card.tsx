@@ -14,10 +14,13 @@ export function StoryListMainCard({ data }: Props) {
    return (
       <StoryCard
          data={data}
-         mainBtn={
-            <Button as={Link} href={`/stories/${data.id}`} color="primary">
-               Start
-            </Button>
+         image={
+            <Image
+               src={data.img}
+               fill
+               sizes="auto"
+               alt={`Cover of the story "${data.name}"`}
+            />
          }
          authorLink={
             <Link className={styles.authorLink} href={`/users/${data.author.id}`}>
@@ -27,13 +30,10 @@ export function StoryListMainCard({ data }: Props) {
          likeBtn={
             <StoryLikeBtn storyId={data.id} likes={data.likes} isLiked={data.isLiked} />
          }
-         image={
-            <Image
-               src={data.img}
-               fill
-               sizes="auto"
-               alt={`Cover of the story "${data.name}"`}
-            />
+         mainBtn={
+            <Button as={Link} href={`/stories/${data.id}`} color="primary">
+               Start
+            </Button>
          }
       />
    )

@@ -25,7 +25,7 @@ export const storyService = {
 
    async findByID(
       storyID: string,
-      headers: Record<string, string>,
+      headers: Record<string, string> = {},
    ): Promise<Story | undefined> {
       const response = await API.get<Story>(`stories/${storyID}`, {
          headers,

@@ -12,8 +12,7 @@
 }
 
 .searchInput {
-   max-width: 325px;
-   width: 100%;
+   flex-grow: 1;
    height: 52px;
 }
 
