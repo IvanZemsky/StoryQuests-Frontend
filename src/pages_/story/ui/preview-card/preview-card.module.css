@@ -1,4 +1,5 @@
 .card {
+   position: relative;
    max-width: 500px;
    width: 100%;
    padding: 2px;
@@ -32,6 +33,29 @@
    text-align: center;
 }
 
+.isLiked {
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 2.5rem;
+   height: 2.5rem;
+   padding: 0.6rem;
+   top: 0.5rem;
+   left: 50%;
+   transform: translateX(-50%);
+   background-color: var(--secondaryMain);
+   border-radius: 50%;
+   z-index: 2;
+}
+
+.isLiked svg{
+   stroke: rgb(93, 255, 93);
+   stroke-width: 2px;
+   width: 100%;
+   height: auto;
+}
+
 .title {
    color: var(--thirdLight);
    font-family: Philosopher;
@@ -47,6 +71,6 @@
    font-size: 0.9rem;
 }
 
-.startBtn{
+.startBtn {
    width: 100%;
 }

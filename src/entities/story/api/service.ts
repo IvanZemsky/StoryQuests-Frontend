@@ -31,6 +31,8 @@ export const storyService = {
          headers,
       })
 
+      console.log(response)
+
       return response.data
    },
 
