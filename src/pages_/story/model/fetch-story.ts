@@ -10,7 +10,5 @@ export async function fetchStory(id: string) {
       { Cookie: cookieHeader },
    )
 
-   console.log(story)
-
    return story
 }

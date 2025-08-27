@@ -1,11 +1,11 @@
 import styles from "./home-page-stories-list.module.css"
-import { StoriesList, storyService, StoriesFilters } from "@/src/entities/story"
+import { StoriesList, StoriesFilters } from "@/src/entities/story"
 import { Button } from "@/src/shared/ui"
 import Link from "next/link"
 import ArrowRightLongIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
 import { stringifyObjectValues } from "@/src/shared/lib"
-import { headers } from "next/headers"
+import { fetchStories } from "../../model/fetch-stories"
 
 type Props = {
    filters: StoriesFilters
@@ -13,9 +13,11 @@ type Props = {
 }
 
 export async function HomePageStoriesList({ filters, title }: Props) {
-   const headersList = await headers()
-   const cookieHeader = headersList.get("cookie") ?? ""
-   const stories = await storyService.find(filters, { Cookie: cookieHeader })
+   const stories = await fetchStories(filters)
+
+   if (!stories) {
+      return <p>Error</p>
+   }
 
    const { limit: _, ...rest } = filters
 
