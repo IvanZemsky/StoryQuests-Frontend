@@ -6,7 +6,7 @@ import clsx from "clsx"
 import { useInput } from "../../../lib/ui/input"
 
 type TextareaProps = {
-   ref: React.Ref<HTMLTextAreaElement | null>
+   ref?: React.Ref<HTMLTextAreaElement | null>
    counter?: boolean
 } & ComponentProps<"textarea">
 

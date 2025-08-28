@@ -1,5 +1,5 @@
 import { useReactFlow } from "@xyflow/react"
-import { SceneNode, SceneNodeData } from "../../nodes/model/types"
+import { SceneNode } from "../../nodes/model/types"
 import { AnswerEdge } from "../../edges/model/types"
 
 export function useEditScene(nodeId: string) {
@@ -9,7 +9,11 @@ export function useEditScene(nodeId: string) {
       deleteElements({ nodes: [{ id: nodeId }] })
    }
 
-   const handleSaveChanges = (data: SceneNodeData) => {
+   const handleSaveChanges = (data: {
+      title: string
+      description: string
+      img: string
+   }) => {
       updateNodeData(nodeId, data)
    }
 

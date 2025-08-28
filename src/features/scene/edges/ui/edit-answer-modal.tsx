@@ -24,7 +24,7 @@ export function EditAnswerModal({ edgeId, handleModalClose }: Props) {
             handleModalClose={handleModalClose}
          />
 
-         <EditAnswerForm handleSaveClick={handleSaveClick} />
+         <EditAnswerForm edgeId={edgeId} handleSaveClick={handleSaveClick} />
       </EditSceneModalLayout>
    )
 }

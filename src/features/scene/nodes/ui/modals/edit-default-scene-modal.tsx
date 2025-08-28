@@ -2,6 +2,7 @@ import { EditSceneModalHeader } from "../../../edit-modal/ui/header/edit-scene-m
 import { EditSceneModalLayout } from "../../../edit-modal/ui/layout/edit-scene-modal-layout"
 import { SceneNodeData } from "../../model/types"
 import { useEditScene } from "../../model/use-edit-answer"
+import { EditSceneForm } from "../edit-scene-form/edit-scene-form"
 
 type Props = {
    nodeId: string
@@ -11,7 +12,11 @@ type Props = {
 export function EditDefaultSceneModal({ nodeId, handleModalClose }: Props) {
    const { handleDelete, handleSaveChanges } = useEditScene(nodeId)
 
-   const handleSaveClick = (data: SceneNodeData) => {
+   const handleSaveClick = (data: {
+      title: string
+      description: string
+      img: string
+   }) => {
       handleSaveChanges(data)
       handleModalClose()
    }
@@ -24,7 +29,7 @@ export function EditDefaultSceneModal({ nodeId, handleModalClose }: Props) {
             handleModalClose={handleModalClose}
          />
 
-         
+         <EditSceneForm nodeId={nodeId} handleSaveClick={handleSaveClick} />
       </EditSceneModalLayout>
    )
 }

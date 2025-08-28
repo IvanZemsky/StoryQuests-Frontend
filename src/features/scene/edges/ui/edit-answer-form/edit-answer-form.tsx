@@ -1,28 +1,24 @@
 import { Button, TextInput } from "@/src/shared/ui"
-import { FormEventHandler, useState } from "react"
 import styles from "./edit-answer-form.module.css"
+import { useEditAnswerForm } from "../../model/use-edit-answer-form"
 
 type Props = {
+   edgeId: string
    handleSaveClick: (text: string) => void
 }
 
-export function EditAnswerForm({ handleSaveClick }: Props) {
-   const [input, setInput] = useState("")
-
-   const handleSave = () => {
-      handleSaveClick(input)
-   }
-
-   const handleInputChange: FormEventHandler<HTMLInputElement> = (event) => {
-      setInput(event.currentTarget.value)
-   }
+export function EditAnswerForm({ edgeId, handleSaveClick }: Props) {
+   const { input, handleInputChange, handleSave } = useEditAnswerForm(
+      edgeId,
+      handleSaveClick,
+   )
 
    return (
       <form className={styles.form}>
          <TextInput
             counter
             maxLength={35}
-            value={input}
+            defaultValue={input}
             onChange={handleInputChange}
             placeholder="Text of answer"
             name="answer-name"

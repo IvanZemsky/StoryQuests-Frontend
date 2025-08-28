@@ -75,7 +75,7 @@ export function ImageLoader({
             {...attrs}
             onChange={handleInputChange}
             placeholder={placeholder}
-            value={value}
+            defaultValue={value}
          />
          <div className="ui-image-loader-content">
             {status === "idle" && label}

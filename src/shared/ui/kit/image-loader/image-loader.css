@@ -1,6 +1,7 @@
 .ui-image-loader {
    display: flex;
    flex-direction: column;
+   gap: 0.5rem;
    padding: 15px;
    border-radius: 20px;
    background-color: var(--secondaryMain);
