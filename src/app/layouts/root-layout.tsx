@@ -19,9 +19,12 @@ export function RootLayout({
 }>) {
    return (
       <html lang="en">
-         <body className={styles.app}>
-            <Providers>{children}</Providers>
-         </body>
+         <Providers>
+            <body className={styles.app}>
+               {children}
+               <div id="modal"></div>
+            </body>
+         </Providers>
       </html>
    )
 }

@@ -3,13 +3,13 @@
 import { Button } from "@/src/shared/ui"
 import { BaseEdge, EdgeLabelRenderer, getBezierPath } from "@xyflow/react"
 import styles from "./base-answer-edge.module.css"
-import { MouseEventHandler, ReactNode } from "react"
 import { AnswerEdgeProps } from "../../model/types"
 import clsx from "clsx"
+import { MouseEventHandler } from "react"
 
 type Props = AnswerEdgeProps & {
-   modal?: ReactNode
-   onClick?: MouseEventHandler<HTMLButtonElement>
+   modal?: React.ReactNode
+   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
 export const BaseAnswerEdge = ({

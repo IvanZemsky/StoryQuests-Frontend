@@ -1,22 +1,21 @@
 "use client"
 
 import { Handle, Position } from "@xyflow/react"
-import styles from "./base-scene-node.module.css"
-import { ReactNode } from "react"
-import { SceneNodeProps } from "../../model/types"
+import styles from "./base-start-scene-node.module.css"
+import { MouseEventHandler, ReactNode } from "react"
+import { SceneNodeProps } from "../../../model/types"
 
 type Props = SceneNodeProps & {
    modal?: ReactNode
+   onClick: MouseEventHandler<HTMLDivElement>
 }
 
-export const BaseSceneNode = ({ data, modal }: Props) => {
+export const BaseStartSceneNode = ({ data, modal, onClick }: Props) => {
    const title = data.title || "Title of scene"
 
    return (
       <>
-         <Handle type="target" position={Position.Top} className={styles.targetHandle} />
-
-         <div className={styles.content}>
+         <div className={styles.content} onClick={onClick}>
             {data.img && (
                <div className={styles.imgWrap}>
                   <img src={data.img} alt="illustration" />
@@ -24,11 +23,7 @@ export const BaseSceneNode = ({ data, modal }: Props) => {
             )}
             <p className={styles.title}>{title}</p>
          </div>
-         <Handle
-            type="source"
-            position={Position.Bottom}
-            className={styles.sourceHandle}
-         />
+         <Handle type="source" position={Position.Bottom} className={styles.handle} />
 
          {modal}
       </>

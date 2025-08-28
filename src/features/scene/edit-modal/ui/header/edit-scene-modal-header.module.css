@@ -1,0 +1,29 @@
+.header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.title {
+   text-transform: uppercase;
+   font-weight: 600;
+}
+
+.buttons {
+   display: flex;
+   align-items: center;
+   gap: 14px;
+}
+
+.buttons :global(.ui-button-container) span {
+   max-width: 30px;
+   height: 30px;
+}
+.buttons :global(.ui-button-container).removeBtn svg {
+   width: 20px;
+   fill: none;
+}
+
+.buttons :global(.ui-button-container).closeBtn svg {
+   width: 14px;
+}

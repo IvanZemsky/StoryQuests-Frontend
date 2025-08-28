@@ -1,0 +1,17 @@
+.ui-modal-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: auto;
+   animation: fadeIn 0.15s linear forwards;
+   z-index: 999;
+}
+
+.ui-modal-wrap {
+   width: fit-content;
+}
