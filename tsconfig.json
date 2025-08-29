@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src/shared/next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/providers/mocks.tsx"],
+  "include": ["src/shared/next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/providers/mocks.tsx", "src/features/scene/create-scenes/use-create-from-flow-data.ts"],
   "exclude": ["node_modules"]
 }

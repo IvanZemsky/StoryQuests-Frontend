@@ -1,12 +1,13 @@
 "use client"
 
 import styles from "./form.module.css"
-import { Button, } from "@/src/shared/ui"
+import { Button } from "@/src/shared/ui"
 
 type Props = {
    onSubmit: React.FormEventHandler<HTMLFormElement>
    inputs: React.ReactNode
    exampleCard: React.ReactNode
+   previewBtn?: React.ReactNode
    children?: React.ReactNode
 }
 
@@ -14,6 +15,7 @@ export function CreateStoryFormLayout({
    onSubmit,
    inputs,
    exampleCard,
+   previewBtn,
    children,
 }: Props) {
    return (
@@ -24,6 +26,8 @@ export function CreateStoryFormLayout({
          </div>
 
          {children}
+
+         {previewBtn}
 
          <Button className={styles.submitBtn} type="submit" variant="gradient">
             Create
