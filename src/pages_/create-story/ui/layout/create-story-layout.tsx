@@ -7,17 +7,17 @@ import { useOnBeforeUnload } from "@/src/shared/lib"
 type Props = {
    title: string
    form: React.ReactNode
-   previewModal: React.ReactNode
+   modals: React.ReactNode
 }
 
-export function CreateStoryLayout({ form, title, previewModal }: Props) {
+export function CreateStoryLayout({ form, title, modals }: Props) {
    // useOnBeforeUnload()
 
    return (
       <Wrapper className={styles.wrapper}>
          <h1 className={styles.title}>{title}</h1>
          {form}
-         {previewModal}
+         {modals}
       </Wrapper>
    )
 }

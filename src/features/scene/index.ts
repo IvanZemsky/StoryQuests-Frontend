@@ -1,5 +1,8 @@
-export { useCreateScenesFromFlowData } from "./create-scenes/use-create-from-flow-data"
-export { useValidateSceneNodesData } from "./create-scenes/use-validate-nodes-data"
+export { createScenes } from "./create-scenes/create"
+
+export { validateSceneFlowData } from "./create-scenes/validation"
+
+export { useCreateScenesFromFlowData } from "./create-scenes/create"
 
 export { EditStartSceneNode } from "./nodes/ui/start-scene-node"
 export { EditEndSceneNode } from "./nodes/ui/end-scene-node"

@@ -12,7 +12,7 @@ export function useCreateScenesFromFlowData(nodes: SceneNode[], edges: AnswerEdg
    return { scenes, handleCreateScenes }
 }
 
-const createScenes = (nodes: SceneNode[], edges: AnswerEdge[]): Scene[] => {
+export function createScenes(nodes: SceneNode[], edges: AnswerEdge[]): Scene[] {
    return nodes.map((node) => ({
       id: node.id,
       title: node.data.title,

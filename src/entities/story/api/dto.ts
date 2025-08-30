@@ -1,3 +1,4 @@
+import { CreateSceneDTO } from "@/src/entities/scene"
 import { Story } from "../model/types"
 
 export type GetStoriesDTO = {
@@ -6,41 +7,42 @@ export type GetStoriesDTO = {
 }
 
 export type StoryPassesUpdateDTO = {
-   readonly storyId: string
-   readonly passes: number
+   storyId: string
+   passes: number
 }
 
 export type StoryLikeUpdateDTO = {
-   readonly storyId: string
-   readonly isLiked: boolean
-   readonly likes: number
+   storyId: string
+   isLiked: boolean
+   likes: number
 }
 
 export type SetStoryResultDTO = {
-   readonly _id: string
-   readonly datetime: string
-   readonly resultSceneId: string
-   readonly storyId: string
-   readonly userId: string
+   _id: string
+   datetime: string
+   resultSceneId: string
+   storyId: string
+   userId: string
 }
 
 export type GetStoryResultDTO = {
-   readonly _id: string
-   readonly datetime: string
-   readonly resultSceneId: string
-   readonly storyId: string
-   readonly userId: string
-   // readonly scene: GetSceneDto
+   _id: string
+   datetime: string
+   resultSceneId: string
+   storyId: string
+   userId: string
+   //  scene: GetSceneDto
 }
 
-export type CreateStoryMainInfoDTO = {
+export type CreateStoryInfoDTO = {
    name: string
    description: string
    img: string
    tags: string[]
-   date: string
+   sceneCount: number
 }
 
-// export type CreateStoryDto = CreateStoryMainInfoDto & {
-//    readonly scenes: CreateSceneDto[]
-// }
+export type CreateStoryDTO = {
+   storyInfo: CreateStoryInfoDTO
+   scenes: CreateSceneDTO[]
+}

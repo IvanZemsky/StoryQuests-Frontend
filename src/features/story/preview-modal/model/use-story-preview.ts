@@ -1,20 +1,25 @@
 "use client"
 
 import { AnswerEdge, SceneNode } from "@/src/features/scene"
-import { validateSceneFlowData } from "@/src/features/scene/create-scenes/use-validate-nodes-data"
+import { validateSceneFlowData } from "@/src/features/scene/create-scenes/validation"
 import { useState } from "react"
 
-export function useStoryPreview(
-   nodes: SceneNode[],
-   edges: AnswerEdge[],
-   handleCreateScenes: () => void,
-) {
-   const [isValid, setIsValid] = useState(true)
+export function useStoryPreview({
+   nodes,
+   edges,
+   handleCreateScenes,
+   onInvalidScenes,
+}: {
+   nodes: SceneNode[]
+   edges: AnswerEdge[]
+   handleCreateScenes: () => void
+   onInvalidScenes: () => void
+}) {
    const [isPreviewOpen, setIsPreviewOpen] = useState(false)
 
-   const openPreview = () => {
+   const open = () => {
       if (!validateSceneFlowData(nodes, edges)) {
-         setIsValid(false)
+         onInvalidScenes()
          return
       }
 
@@ -22,9 +27,9 @@ export function useStoryPreview(
       setIsPreviewOpen(true)
    }
 
-   const closePreview = () => {
+   const close = () => {
       setIsPreviewOpen(false)
    }
 
-   return { isValid, isPreviewOpen, openPreview, closePreview }
+   return { isOpen: isPreviewOpen, open, close }
 }

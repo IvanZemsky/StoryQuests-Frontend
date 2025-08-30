@@ -1,6 +1,6 @@
 import { API } from "@/src/shared/api"
 import { StoriesFilters, Story } from "../model/types"
-import { GetStoriesDTO, StoryLikeUpdateDTO } from "./dto"
+import { CreateStoryDTO, GetStoriesDTO, StoryLikeUpdateDTO } from "./dto"
 
 export const storyService = {
    async find(
@@ -48,6 +48,12 @@ export const storyService = {
          isLiked,
          headers,
       })
+
+      return data
+   },
+
+   async create(DTO: CreateStoryDTO) {
+      const { data } = await API.post<{ storyId: string }>("stories/create", DTO)
 
       return data
    },

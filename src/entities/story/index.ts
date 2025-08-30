@@ -5,14 +5,15 @@ export { StoriesSkeleton } from "./ui/story-skeleton/story-skeleton"
 export { BaseStoryField } from "./ui/base-field"
 export { StoryCard } from "./ui/story-card/story-card"
 export { StoriesList } from "./ui/stories-list/stories-list"
-export {storiesFiltersParamsSchema} from "./model/schemas"
-export type {StoriesFilters} from "./model/types"
+export { storiesFiltersParamsSchema } from "./model/schemas"
+export type { StoriesFilters } from "./model/types"
 export type {
    Story,
    StoryId,
    SetStoryResult,
-   StoriesFiltersParams
+   StoriesFiltersParams,
    // StoryResult,
    // StoryResultInLS,
 } from "./model/types"
-// export type { CreateStoryDto } from "./api/dto"
+export type { CreateStoryInfoDTO } from "./api/dto"
+export type { CreateStoryDTO } from "./api/dto"
