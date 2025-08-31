@@ -9,7 +9,7 @@ type Props = {
    isError?: boolean
    isPending?: boolean
    errorMessage?: string
-   notFoundMessage?: string
+   notFoundMessage?: React.ReactNode
    append?: React.ReactNode
 }
 

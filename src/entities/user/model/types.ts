@@ -3,6 +3,11 @@ export type LoginDTO = {
     password: string
 }
 
+export type User = {
+    id: string
+    login: string
+}
+
 export type RegisterDTO = {
     login: string
     password: string

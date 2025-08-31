@@ -1,5 +1,5 @@
 import { API } from "@/src/shared/api"
-import { LoginDTO, RegisterDTO, Session } from "../model/types"
+import { LoginDTO, RegisterDTO, Session, User } from "../model/types"
 
 export const userService = {
    async login(dto: LoginDTO) {
@@ -18,6 +18,11 @@ export const userService = {
          login: dto.login,
          password: dto.password,
       })
+   },
+
+   async findByID(id: string) {
+      const { data } = await API.get<User>(`users/${id}`)
+      return data
    },
 
    async getSession(token?: string): Promise<Session | null> {

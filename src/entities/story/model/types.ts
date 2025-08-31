@@ -25,6 +25,7 @@ export type StoriesFilters = StoriesFiltersParams & {
    limit: number
    page: number
    me?: string
+   byUserId?: string
 }
 
 // export type StoryResult = {

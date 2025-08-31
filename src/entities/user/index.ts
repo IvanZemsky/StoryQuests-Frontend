@@ -1,2 +1,2 @@
-export {userService} from "./api/service"
-export type {Session} from "./model/types"
+export { userService } from "./api/service"
+export type { Session, User } from "./model/types"

@@ -1,3 +1,6 @@
+export { useInfiniteStories } from "./list/model/use-infinite-stories"
+export { InfiniteStoriesList } from "./list/ui/infinite-list/infinite-stories-list"
+
 export { CreateStoryFormSubmitBtn } from "./creation-form/ui/submit-btn/submit-btn"
 
 export { CreateStoryValidationModal } from "./creation-form/ui/validation-modal/validation-modal"

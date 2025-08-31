@@ -1,0 +1,10 @@
+.wrap {
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.notFoundMessage {
+   text-align: center;
+   font-size: 24px;
+}

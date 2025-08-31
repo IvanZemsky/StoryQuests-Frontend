@@ -1,0 +1,10 @@
+div.wrapper {
+   max-width: 1150px;
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   padding: 1rem 0;
+}

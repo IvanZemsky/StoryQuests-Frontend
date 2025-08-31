@@ -7,6 +7,7 @@ export const storyService = {
       query: StoriesFilters,
       headers: Record<string, string> = {},
    ): Promise<GetStoriesDTO> {
+      console.log(query)
       const response = await API.get<Story[]>("stories", {
          params: {
             ...query,
@@ -15,11 +16,30 @@ export const storyService = {
          headers,
       })
 
+      const stories: Story[] = response.data
+
       const total = Number(response.headers["x-total-count"])
 
-      return {
-         data: response.data as Story[],
+      let next: number | null = null
+      if (stories.length > 0 && query.limit) {
+         if (query.page === undefined) {
+            next = 2
+         } else if (total > query.limit * query.page) {
+            next = query.page + 1
+         } else {
+            next = null
+         }
+      }
+      console.log({
+         data: response.data,
          total,
+         next,
+      })
+
+      return {
+         data: response.data,
+         total,
+         next,
       }
    },
 

@@ -1,3 +1,34 @@
-export function UserPage() {
-   return ( <div></div> );
+import { userService } from "@/src/entities/user"
+import { ProfileCard, ProfileHeader, UserPagelayout } from "@/src/features/user"
+import { UserPageStoriesList } from "./list"
+
+export type UserPageProps = {
+   params: Promise<{
+      id: string
+   }>
+}
+
+export async function UserPage({ params }: UserPageProps) {
+   const { id } = await params
+   const user = await fetchUser(id)
+
+   if (!user) {
+      return <p>User not found</p>
+   }
+
+   return (
+      <UserPagelayout
+         header={<ProfileHeader title={"User profile"} />}
+         userCard={<ProfileCard data={user} />}
+         storiesList={<UserPageStoriesList userId={user.id} />}
+      />
+   )
+}
+
+async function fetchUser(id: string) {
+   try {
+      return await userService.findByID(id)
+   } catch (error) {
+      return null
+   }
 }

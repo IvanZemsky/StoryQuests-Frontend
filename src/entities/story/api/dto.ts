@@ -4,6 +4,7 @@ import { Story } from "../model/types"
 export type GetStoriesDTO = {
    data: Story[]
    total: number
+   next: number | null
 }
 
 export type StoryPassesUpdateDTO = {

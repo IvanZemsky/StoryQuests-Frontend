@@ -1,0 +1,14 @@
+.finalBlock {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 25px;
+   padding: 45px 20px;
+   background-color: var(--secondaryMain);
+   border-radius: 25px;
+}
+
+.finalBlock p {
+   text-align: center;
+   font-weight: 500;
+}

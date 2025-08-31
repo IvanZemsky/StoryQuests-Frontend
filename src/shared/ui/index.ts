@@ -1,4 +1,5 @@
 export { Loading } from "./kit/loading/loading"
+export { ClientLoading } from "./kit/loading/loading.client"
 export { Button } from "./kit/button/button"
 export { TextInput } from "./kit/text-input/text-input"
 export { Textarea } from "./kit/textarea/textarea"
