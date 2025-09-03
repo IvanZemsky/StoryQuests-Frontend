@@ -6,4 +6,8 @@ export const sceneService = {
       const { data } = await API.get<Scene[]>(`stories/${storyID}/scenes`)
       return data
    },
+
+   async incrementScenePasses(storyID: string, sceneID: string) {
+      await API.patch(`/stories/${storyID}/scenes/${sceneID}/passes`)
+   },
 }

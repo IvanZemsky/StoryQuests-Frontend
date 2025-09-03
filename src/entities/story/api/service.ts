@@ -7,7 +7,6 @@ export const storyService = {
       query: StoriesFilters,
       headers: Record<string, string> = {},
    ): Promise<GetStoriesDTO> {
-      console.log(query)
       const response = await API.get<Story[]>("stories", {
          params: {
             ...query,
@@ -30,11 +29,6 @@ export const storyService = {
             next = null
          }
       }
-      console.log({
-         data: response.data,
-         total,
-         next,
-      })
 
       return {
          data: response.data,
@@ -76,5 +70,9 @@ export const storyService = {
       const { data } = await API.post<{ storyId: string }>("stories/create", DTO)
 
       return data
+   },
+
+   async incrementStoryPasses(storyID: string) {
+      await API.patch(`stories/${storyID}/passes`)
    },
 }

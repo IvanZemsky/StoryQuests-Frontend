@@ -1,16 +1,35 @@
-import { sceneService } from "@/src/entities/scene"
+"use client"
+
+import { type Scene as SceneType } from "@/src/entities/scene"
 import { Scene } from "@/src/widgets/scene"
+import { useIncrementStoryPasses } from "../../model/use-increment-story-passes"
+import { useIncrementEndScenePasses } from "../../model/use-increment-end-scene-passes"
 
 type Props = {
    storyId: string
+   data: SceneType[]
 }
 
-export async function PageScene({ storyId }: Props) {
-   const scenes = await sceneService.findByStoryID(storyId)
+export function PageScene({ storyId, data }: Props) {
+   const incrementStoryPassesMutation = useIncrementStoryPasses(storyId)
+   const incrementEndScenePassesMutation = useIncrementEndScenePasses(storyId)
 
-   if (!scenes) {
-      return <p>Scenes not found</p>
+   const isDisabledEndLink = incrementStoryPassesMutation.isPending
+
+   const onSceneChange = (scene: SceneType | null) => {
+      if (!scene) return
+      if (scene.type === "end") {
+         incrementStoryPassesMutation.mutate()
+         incrementEndScenePassesMutation.mutate(scene.id)
+      }
    }
 
-   return <Scene data={scenes} firstSceneNumber={1} />
+   return (
+      <Scene
+         data={data}
+         firstSceneNumber={1}
+         onSceneChange={onSceneChange}
+         disableEndLink={isDisabledEndLink}
+      />
+   )
 }

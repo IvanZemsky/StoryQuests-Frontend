@@ -6,7 +6,6 @@ export async function fetchStory(id: string) {
    const cookieHeader = headersList.get("cookie") ?? ""
 
    const story = await storyService.findByID(id,
-     
       { Cookie: cookieHeader },
    )
 

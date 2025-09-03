@@ -3,30 +3,31 @@
 import type { Scene } from "@/src/entities/scene"
 import { EndSceneLink, SceneLayout, SelectAnswer } from "@/src/features/scene"
 import { SwitchFade } from "@/src/shared/ui"
-import { useState } from "react"
+import { useScene } from "../model/use-scene"
 
 type Props = {
    data: Scene[]
    firstSceneNumber: number
+   onSceneChange?: (scene: Scene | null) => void
    disableEndLink?: boolean
 }
 
-export function Scene({ data, firstSceneNumber, disableEndLink = false }: Props) {
-   const [scene, setScene] = useState<Scene | null>(() =>
-      findFirstScene(data, firstSceneNumber),
-   )
+export function Scene({
+   data,
+   firstSceneNumber,
+   onSceneChange,
+   disableEndLink = false,
+}: Props) {
+   const { scene, setNextScene } = useScene(data, firstSceneNumber, onSceneChange)
 
    if (!scene) {
       return <p>Error: Scene not found</p>
    }
 
-   const setNextScene = (nextSceneNumber: number) => {
-      setScene(data.find((scene) => scene.number === nextSceneNumber) || null)
-   }
-
    return (
       <SwitchFade timeout={500} switchKey={scene.id}>
          <SceneLayout
+            data={scene}
             selectAnswer={
                scene.answers?.length ? (
                   <SelectAnswer answers={scene.answers} onSelect={setNextScene} />
@@ -37,12 +38,7 @@ export function Scene({ data, firstSceneNumber, disableEndLink = false }: Props)
                   />
                )
             }
-            data={scene}
          />
       </SwitchFade>
    )
-}
-
-function findFirstScene(data: Scene[], sceneNumber: number) {
-   return data.find((scene) => scene.number === sceneNumber) || null
 }

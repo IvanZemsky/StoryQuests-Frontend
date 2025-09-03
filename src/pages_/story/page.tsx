@@ -1,7 +1,6 @@
-import { storyService } from "@/src/entities/story"
 import { StoryPreviewCard } from "./ui/preview-card/preview-card"
-import { PageScene } from "./ui/scene/scene"
 import { fetchStory } from "./model/fetch-story"
+import { PageSceneWrap } from "./ui/scene/wrap"
 
 export type StoryPageProps = {
    params: Promise<{
@@ -21,7 +20,7 @@ export async function StoryPage({ params, searchParams }: StoryPageProps) {
    }
 
    if (play !== undefined) {
-      return <PageScene storyId={id} />
+      return <PageSceneWrap storyId={id} />
    }
 
    return <StoryPreviewCard data={story} />
