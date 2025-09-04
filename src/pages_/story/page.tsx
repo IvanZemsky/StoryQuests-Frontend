@@ -1,8 +1,6 @@
 import { StoryPreviewCard } from "./ui/preview-card/preview-card"
 import { fetchStory } from "./model/fetch-story"
 import { PageSceneWrap } from "./ui/scene/wrap"
-import { userService } from "@/src/entities/user"
-import { getTokenFromCookie } from "@/src/features/auth"
 import { fetchSession } from "./model/fetch-session"
 
 export type StoryPageProps = {

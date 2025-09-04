@@ -1,5 +1,10 @@
 import { userService } from "@/src/entities/user"
-import { ProfileCard, ProfileHeader, UserPagelayout } from "@/src/features/user"
+import {
+   ProfileCard,
+   ProfileHeader,
+   SignOutBtn,
+   UserPagelayout,
+} from "@/src/features/user"
 import { ProfilePageStoriesList } from "./ui/list"
 import { getTokenFromCookie } from "@/src/features/auth"
 import { redirect } from "next/navigation"
@@ -14,7 +19,7 @@ export async function ProfilePage() {
 
    return (
       <UserPagelayout
-         header={<ProfileHeader title={"User profile"} />}
+         header={<ProfileHeader title={"User profile"} signOutBtn={<SignOutBtn />} />}
          userCard={<ProfileCard data={user} />}
          storiesList={<ProfilePageStoriesList userId={user.id} />}
       />
