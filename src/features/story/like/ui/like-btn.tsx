@@ -23,7 +23,7 @@ export function StoryLikeBtn({ storyId, likes, isLiked = false, className }: Pro
 
    return (
       <StoryLikeBtnLayout
-         likes={likes}
+         likes={likeBtnState.likes}
          isLiked={likeBtnState.isLiked}
          isPending={toggleLikeMutation.isPending}
          onClick={handleLikeBtnClick}
