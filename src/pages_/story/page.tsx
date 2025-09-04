@@ -1,6 +1,9 @@
 import { StoryPreviewCard } from "./ui/preview-card/preview-card"
 import { fetchStory } from "./model/fetch-story"
 import { PageSceneWrap } from "./ui/scene/wrap"
+import { userService } from "@/src/entities/user"
+import { getTokenFromCookie } from "@/src/features/auth"
+import { fetchSession } from "./model/fetch-session"
 
 export type StoryPageProps = {
    params: Promise<{
@@ -14,13 +17,14 @@ export async function StoryPage({ params, searchParams }: StoryPageProps) {
    const { play } = await searchParams
 
    const story = await fetchStory(id)
+   const session = await fetchSession()
 
    if (!story) {
       return <div>Story not found</div>
    }
 
    if (play !== undefined) {
-      return <PageSceneWrap storyId={id} />
+      return <PageSceneWrap storyId={id} isAuth={!!session} />
    }
 
    return <StoryPreviewCard data={story} />

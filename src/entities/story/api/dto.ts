@@ -18,21 +18,17 @@ export type StoryLikeUpdateDTO = {
    likes: number
 }
 
-export type SetStoryResultDTO = {
+export type GetStoryResultDTO = {
    _id: string
    datetime: string
-   resultSceneId: string
+   sceneId: string
    storyId: string
    userId: string
 }
 
-export type GetStoryResultDTO = {
-   _id: string
-   datetime: string
-   resultSceneId: string
+export type SetStoryResultDTO = {
    storyId: string
-   userId: string
-   //  scene: GetSceneDto
+   sceneId: string
 }
 
 export type CreateStoryInfoDTO = {

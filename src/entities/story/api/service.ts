@@ -1,6 +1,12 @@
 import { API } from "@/src/shared/api"
 import { StoriesFilters, Story } from "../model/types"
-import { CreateStoryDTO, GetStoriesDTO, StoryLikeUpdateDTO } from "./dto"
+import {
+   CreateStoryDTO,
+   GetStoriesDTO,
+   GetStoryResultDTO,
+   SetStoryResultDTO,
+   StoryLikeUpdateDTO,
+} from "./dto"
 
 export const storyService = {
    async find(
@@ -74,5 +80,13 @@ export const storyService = {
 
    async incrementStoryPasses(storyID: string) {
       await API.patch(`stories/${storyID}/passes`)
+   },
+
+   async setStoryResult(dto: SetStoryResultDTO) {
+      const { data } = await API.put<GetStoryResultDTO>(
+         `stories/${dto.storyId}/results`,
+         dto,
+      )
+      return data
    },
 }
