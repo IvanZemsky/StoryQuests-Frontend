@@ -1,0 +1,9 @@
+.author {
+   font-weight: 500;
+   color: var(--secondaryContrast);
+}
+
+.author a {
+   color: var(--secondaryContrast);
+   font-weight: 600;
+}

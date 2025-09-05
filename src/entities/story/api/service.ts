@@ -89,4 +89,11 @@ export const storyService = {
       )
       return data
    },
+
+   async findResultByUserID(storyID: string, userID: string) {
+      const { data } = await API.get<GetStoryResultDTO>(
+         `stories/${storyID}/results/${userID}`,
+      )
+      return data
+   },
 }

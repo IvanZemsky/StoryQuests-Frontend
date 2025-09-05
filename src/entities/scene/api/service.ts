@@ -10,4 +10,10 @@ export const sceneService = {
    async incrementScenePasses(storyID: string, sceneID: string) {
       await API.patch(`/stories/${storyID}/scenes/${sceneID}/passes`)
    },
+
+   async findEndScenesByStoryID(storyID: string): Promise<Scene[]> {
+      const { data } = await API.get<Scene[]>(`stories/${storyID}/results/scenes`)
+
+      return data
+   },
 }
