@@ -4,24 +4,17 @@ import { useState } from "react"
 import { BaseDefaultSceneNode } from "./base-nodes/base-scene-node/base-scene-node"
 import { SceneNodeProps } from "../model/types"
 import { EditDefaultSceneModal } from "./modals/edit-default-scene-modal"
+import { useModal } from "@/src/shared/lib"
 
 export function EditDefaultSceneNode(props: SceneNodeProps) {
-   const [isModalOpen, setIsModalOpen] = useState(false)
-
-   const handleModalOpen = () => setIsModalOpen(true)
-   const handleModalClose = () => setIsModalOpen(false)
+   const { isOpen, open, close } = useModal()
 
    return (
       <BaseDefaultSceneNode
          {...props}
-         onClick={handleModalOpen}
+         onClick={open}
          modal={
-            isModalOpen && (
-               <EditDefaultSceneModal
-                  nodeId={props.id}
-                  handleModalClose={handleModalClose}
-               />
-            )
+            isOpen && <EditDefaultSceneModal nodeId={props.id} handleModalClose={close} />
          }
       />
    )

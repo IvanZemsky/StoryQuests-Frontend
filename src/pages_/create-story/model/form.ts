@@ -1,12 +1,8 @@
 import { SceneNode, AnswerEdge } from "@/src/features/scene"
-import { validateSceneFlowData } from "@/src/features/scene/create-scenes/validation"
 import { CreateStoryFormValues, getCardData } from "@/src/features/story"
-import { useState } from "react"
 import { useForm, useWatch } from "react-hook-form"
 
 export function useCreateStoryForm(nodes: SceneNode[], edges: AnswerEdge[]) {
-   const [isValid, setIsValid] = useState(true)
-
    const form = useForm<CreateStoryFormValues>()
    const { control } = form
 

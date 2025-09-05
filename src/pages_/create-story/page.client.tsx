@@ -6,10 +6,8 @@ import {
    CreateStoryFormInputs,
    CreateStoryFormLayout,
    CreateStoryFormSubmitBtn,
-   CreateStoryFormValues,
    CreateStoryValidationModal,
    PreviewBtn,
-   StoryPreviewModal,
    useStoryPreview,
 } from "@/src/features/story"
 import { FormProvider } from "react-hook-form"
@@ -24,14 +22,9 @@ import { useCreateStoryForm } from "./model/form"
 import { CreateStoryFormExampleCard } from "./ui/example-card/example-card"
 import { ReactFlowProvider } from "@xyflow/react"
 import { CreationField } from "./ui/creation-field"
-import { Scene } from "@/src/widgets/scene"
-import { useState } from "react"
-import { validateSceneFlowData } from "@/src/features/scene/create-scenes/validation"
 import { StoryPreview } from "./ui/preview"
-import { createScenes } from "@/src/features/scene/create-scenes/create"
-import { CreateStoryDTO, CreateStoryInfoDTO } from "@/src/entities/story"
-import { CreateSceneDTO } from "@/src/entities/scene"
 import { useCreateStory } from "./model/create"
+import { useModal } from "@/src/shared/lib"
 
 export function CreateStoryPageClient() {
    const { setNodes, ...flow } = useFlow<SceneNode, AnswerEdge>({
@@ -43,7 +36,7 @@ export function CreateStoryPageClient() {
       flow.edges,
    )
 
-   const validationModal = useValidationModal()
+   const validationModal = useModal()
 
    const preview = useStoryPreview({
       nodes: flow.nodes,
@@ -91,13 +84,4 @@ export function CreateStoryPageClient() {
          }
       />
    )
-}
-
-function useValidationModal() {
-   const [isValidModalOpen, setIsValidModalOpen] = useState(false)
-
-   const open = () => setIsValidModalOpen(true)
-   const close = () => setIsValidModalOpen(false)
-
-   return { open, close, isOpen: isValidModalOpen }
 }
