@@ -1,9 +1,9 @@
-import { Scene } from "@/src/entities/scene"
+import { EndScene } from "@/src/entities/scene"
 import styles from "./result-card.module.css"
 import Image from "next/image"
 
 type Props = {
-   data: Scene
+   data: EndScene
 }
 
 export function ResultCard({ data }: Props) {

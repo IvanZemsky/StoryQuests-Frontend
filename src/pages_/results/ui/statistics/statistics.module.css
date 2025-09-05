@@ -1,0 +1,10 @@
+.wrap {
+   display: flex;
+   gap: 0.7rem;
+}
+
+.cards {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}

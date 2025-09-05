@@ -1,5 +1,5 @@
 import { API } from "@/src/shared/api"
-import { Scene } from "../model/types"
+import { EndScene, Scene } from "../model/types"
 
 export const sceneService = {
    async findByStoryID(storyID: string): Promise<Scene[]> {
@@ -11,8 +11,8 @@ export const sceneService = {
       await API.patch(`/stories/${storyID}/scenes/${sceneID}/passes`)
    },
 
-   async findEndScenesByStoryID(storyID: string): Promise<Scene[]> {
-      const { data } = await API.get<Scene[]>(`stories/${storyID}/results/scenes`)
+   async findEndScenesByStoryID(storyID: string): Promise<EndScene[]> {
+      const { data } = await API.get<EndScene[]>(`stories/${storyID}/results/scenes`)
 
       return data
    },

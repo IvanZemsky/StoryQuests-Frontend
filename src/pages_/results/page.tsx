@@ -1,12 +1,11 @@
-import { userService } from "@/src/entities/user"
-import { ResultsAuthor } from "./author/author"
-import { ResultsHeader } from "./header/results-header"
-import { ResultsLayout } from "./layout/layout"
-import { fetchResults } from "./model/fetch-results"
-import { fetchStory } from "./model/fetch-story"
-import { getTokenFromCookie } from "@/src/features/auth"
-import { fetchUserResult } from "./model/fetch-user-result"
-import { ResultCard } from "./result-card/result-card"
+import { ResultsAuthor } from "./ui/author/author"
+import { ResultsHeader } from "./ui/header/results-header"
+import { ResultsLayout } from "./ui/layout/layout"
+import { fetchResults } from "./ui/model/fetch-results"
+import { fetchStory } from "./ui/model/fetch-story"
+import { fetchUserResult } from "./ui/model/fetch-user-result"
+import { ResultCard } from "./ui/result-card/result-card"
+import { Statistics } from "./ui/statistics/statistics"
 
 export type ResultsPageProps = {
    params: Promise<{
@@ -16,17 +15,20 @@ export type ResultsPageProps = {
 
 export async function ResultsPage({ params }: ResultsPageProps) {
    const { id } = await params
-   const story = await fetchStory(id)
 
-   const userResult = await fetchUserResult(id)
+   const story = await fetchStory(id)
    if (!story) {
       return <div>Story not found</div>
    }
+
+   const userResult = await fetchUserResult(id)
 
    const results = await fetchResults(id)
    if (!results) {
       return <div>Results not found</div>
    }
+
+   const resultsSortedByPasses = results.sort((a, b) => b.passes - a.passes)
 
    const result = results.find((result) => result.id === userResult?.sceneId)
 
@@ -35,6 +37,7 @@ export async function ResultsPage({ params }: ResultsPageProps) {
          header={<ResultsHeader storyName={story.name} />}
          author={<ResultsAuthor author={story.author} />}
          resultCard={result && <ResultCard data={result} />}
+         results={<Statistics data={resultsSortedByPasses} total={story.passes} />}
       />
    )
 }
