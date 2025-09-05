@@ -15,6 +15,10 @@ export async function StoryPage({ params, searchParams }: StoryPageProps) {
    const { play } = await searchParams
 
    const story = await fetchStory(id)
+   if (!story) {
+      return <div>Story not found</div>
+   }
+   
    const session = await fetchSession()
 
    if (!story) {

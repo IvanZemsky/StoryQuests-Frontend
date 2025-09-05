@@ -1,7 +1,7 @@
-import { storyService } from "@/src/entities/story"
 import { StoryHeader } from "./header/story-header"
 import styles from "./story-layout.module.css"
 import { Wrapper } from "@/src/shared/ui"
+import { fetchStory } from "./model/fetch-story"
 
 type Props = {
    children: React.ReactNode
@@ -12,7 +12,7 @@ type Props = {
 
 export async function StoryLayout({ children, params }: Props) {
    const { id } = await params
-   const story = await storyService.findByID(id)
+   const story = await fetchStory(id)
 
    return (
       <div className={styles.app}>
