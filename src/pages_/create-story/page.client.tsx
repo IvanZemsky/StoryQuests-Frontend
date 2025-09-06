@@ -24,9 +24,11 @@ import { ReactFlowProvider } from "@xyflow/react"
 import { CreationField } from "./ui/creation-field"
 import { StoryPreview } from "./ui/preview"
 import { useCreateStory } from "./model/create"
-import { useModal } from "@/src/shared/lib"
+import { useModal, useOnBeforeUnload } from "@/src/shared/lib"
 
 export function CreateStoryPageClient() {
+   useOnBeforeUnload()
+
    const { setNodes, ...flow } = useFlow<SceneNode, AnswerEdge>({
       edgeFactory: createAnswerEdge,
       initialNodes,

@@ -2,7 +2,7 @@
 
 import { AnswerEdge, SceneNode } from "@/src/features/scene"
 import { validateSceneFlowData } from "@/src/features/scene/create-scenes/validation"
-import { useState } from "react"
+import { useModal } from "@/src/shared/lib"
 
 export function useStoryPreview({
    nodes,
@@ -15,21 +15,18 @@ export function useStoryPreview({
    handleCreateScenes: () => void
    onInvalidScenes: () => void
 }) {
-   const [isPreviewOpen, setIsPreviewOpen] = useState(false)
+   const { isOpen, open, close } = useModal(false, {
+      onOpen: () => {
+         const isValid = validateSceneFlowData(nodes, edges)
+         if (!isValid) {
+            onInvalidScenes()
+            return false
+         }
 
-   const open = () => {
-      if (!validateSceneFlowData(nodes, edges)) {
-         onInvalidScenes()
-         return
-      }
+         handleCreateScenes()
+         return true
+      },
+   })
 
-      handleCreateScenes()
-      setIsPreviewOpen(true)
-   }
-
-   const close = () => {
-      setIsPreviewOpen(false)
-   }
-
-   return { isOpen: isPreviewOpen, open, close }
+   return { isOpen, open, close }
 }
