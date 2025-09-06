@@ -37,20 +37,20 @@ Backend (Golang): https://github.com/IvanZemsky/StoryQuests-Backend
 
 Версия Node.js: 22.17.0 и выше
 
-1) Установите и запустите проект API по инструкции: https://github.com/IvanZemsky/StoryQuests-Backend
+1. Установите и запустите проект API по инструкции: https://github.com/IvanZemsky/StoryQuests-Backend
 
-1. Склонируйте репозиторий:
+2. Склонируйте репозиторий:
 ```git clone https://github.com/IvanZemsky/StoryQuests-Frontend [директория]```
-2. Выполните установку пакетов:
+3. Выполните установку пакетов:
 ```npm install ```
 
-3. Создайте файл ```.end.development```:
+4. Создайте файл ```.end.development```:
 
     ```
     NEXT_PUBLIC_API_URL=http://localhost:8080
     NEXT_PUBLIC_ENABLE_MOCKS=false # разрешены ли моки
     ```
 
-4. Запустите проект: ```npm run dev```
+5. Запустите проект: ```npm run dev```
 
 Сайт будет доступен по адресу: http://localhost:3000
