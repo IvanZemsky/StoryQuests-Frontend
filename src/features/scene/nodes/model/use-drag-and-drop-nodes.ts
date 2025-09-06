@@ -2,7 +2,9 @@ import { useReactFlow } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"
 import { useLatestSceneNumber } from "./use-latest-scene-number"
-import { SceneNode } from "./types"
+import { DNDNode, SceneNode } from "./types"
+
+export const DND_XYFLOW_ID = "application/xyflow"
 
 export const useDragAndDropNodes = (setNodes: Dispatch<SetStateAction<SceneNode[]>>) => {
    const { screenToFlowPosition } = useReactFlow()
@@ -17,7 +19,7 @@ export const useDragAndDropNodes = (setNodes: Dispatch<SetStateAction<SceneNode[
       (event: DragEvent<HTMLDivElement>) => {
          event.preventDefault()
 
-         const type = event.dataTransfer.getData("application/xyflow")
+         const type = event.dataTransfer.getData(DND_XYFLOW_ID) as DNDNode
 
          if (!type) {
             return
@@ -37,8 +39,6 @@ export const useDragAndDropNodes = (setNodes: Dispatch<SetStateAction<SceneNode[
             position,
          })
 
-         console.log(newNode)
-
          setNodes((nds: SceneNode[]) => nds.concat(newNode))
       },
       [screenToFlowPosition],
@@ -53,7 +53,7 @@ function getNewNode({
    position,
 }: {
    sceneNodeId: number
-   type: string
+   type: DNDNode
    position: { x: number; y: number }
 }): SceneNode {
    return {

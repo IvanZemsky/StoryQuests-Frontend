@@ -30,8 +30,6 @@ export function useCreateStory({
    const createStory = (data: CreateStoryFormValues) => {
       const storyInfo = createStoryInfoDTO(data, nodes.length)
 
-      console.log(storyInfo)
-
       if (!validateSceneFlowData(nodes, edges)) {
          onInvalidScenes()
          return

@@ -31,8 +31,6 @@ export function useFlow<N extends Node, E extends Edge>({
       [setEdges, edgeFactory],
    )
 
-   console.log(edges)
-
    return {
       nodes,
       edges,

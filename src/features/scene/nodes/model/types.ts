@@ -11,3 +11,8 @@ export type SceneNodeData = {
 
 export type SceneNode = Node<SceneNodeData>
 export type SceneNodeProps = NodeProps<SceneNode>
+
+export type DNDNodeBase= "base"
+export type DNDNodeEnd = "end"
+
+export type DNDNode = DNDNodeBase | DNDNodeEnd

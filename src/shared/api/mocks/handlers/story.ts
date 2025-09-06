@@ -3,7 +3,7 @@ import { http } from "../http"
 import { storiesMocks } from "../data/stories"
 import { components } from "../schema/generated"
 import { scenesMocks } from "../data/scenes"
-import { verifyTokenOrThrow, verifyTokenWithoutThrow } from "../session"
+import { verifyTokenWithoutThrow } from "../session"
 import { mockStoriesLikes } from "../data/stories-likes"
 
 export const storiesHandlers = [
@@ -20,8 +20,6 @@ export const storiesHandlers = [
       const session = await verifyTokenWithoutThrow(request)
 
       userId = session?.id ?? url.searchParams.get("userId") ?? ""
-
-      console.log(userId)
 
       const scenesAmountByLength: Record<"short" | "medium" | "long", number> = {
          short: 10,

@@ -21,7 +21,6 @@ export async function generateAccessToken(dto: Session) {
 
 export async function verifyTokenOrThrow(request: Request): Promise<Session> {
    const token = getToken(request)
-   console.log(token)
    const session = token ? await verifyToken(token).catch(() => null) : null
    if (!session) {
       throw HttpResponse.json(
@@ -37,7 +36,6 @@ export async function verifyTokenOrThrow(request: Request): Promise<Session> {
 
 export function getToken(request: Request) {
    const cookieHeader = request.headers.get("Cookie")
-   console.log("COOKIE", cookieHeader)
    let token: string | undefined
 
    if (cookieHeader) {

@@ -8,7 +8,7 @@ export const storyMockService = {
          page: 1,
       },
       headers: Record<string, string> = {},
-   ): Promise<GetStoriesDTO | undefined> {
+   ): Promise<GetStoriesDTO> {
       const { response, data } = await fetchClient.GET("/stories", {
          params: {
             query: {
@@ -29,9 +29,23 @@ export const storyMockService = {
 
       const total = Number(response.headers.get("X-Total-Count"))
 
+      if (!data) return { data: [], total: 0, next: null }
+
+      let next: number | null = null
+      if (data.length > 0 && query.limit) {
+         if (query.page === undefined) {
+            next = 2
+         } else if (total > query.limit * query.page) {
+            next = query.page + 1
+         } else {
+            next = null
+         }
+      }
+
       return {
-         data: data as Story[],
+         data,
          total,
+         next,
       }
    },
 
@@ -48,8 +62,6 @@ export const storyMockService = {
          credentials: "include",
          headers,
       })
-
-      console.log("data fetched")
 
       return data as Story
    },
