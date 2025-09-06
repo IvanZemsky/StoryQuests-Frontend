@@ -27,6 +27,7 @@ Backend (Golang): https://github.com/IvanZemsky/StoryQuests-Backend
 + React Hook Form
 + React Transition Group
 + Zod
+
 **Моки**:
 + Mock Service Worker
 + OpenAPI Fetch
