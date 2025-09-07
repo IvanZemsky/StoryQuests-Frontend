@@ -43,15 +43,22 @@ export const storyService = {
       }
    },
 
-   async findByID(
-      storyID: string,
-      headers: Record<string, string> = {},
-   ): Promise<Story | undefined> {
-      const response = await API.get<Story>(`stories/${storyID}`, {
-         headers,
+   // fetch for deduplication
+   async findByID(storyID: string, headers: Record<string, string> = {}): Promise<Story> {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/stories/${storyID}`, {
+         method: "GET",
+         headers: {
+            "Content-Type": "application/json",
+            ...headers,
+         },
+         next: { tags: [`story-${storyID}`] },
       })
 
-      return response.data
+      if (!res.ok) {
+         throw new Error(`Failed to fetch story ${storyID}: ${res.statusText}`)
+      }
+
+      return res.json()
    },
 
    async toggleLike(
@@ -94,6 +101,15 @@ export const storyService = {
       const { data } = await API.get<GetStoryResultDTO>(
          `stories/${storyID}/results/${userID}`,
       )
+      return data
+   },
+
+   async findMyResult(storyID: string, token?: string) {
+      const { data } = await API.get<GetStoryResultDTO>(`stories/${storyID}/myresult`, {
+         headers: {
+            Cookie: `token=${token}`,
+         },
+      })
       return data
    },
 }
