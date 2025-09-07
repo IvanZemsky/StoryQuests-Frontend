@@ -1,17 +1,16 @@
-import { StoryPageProps } from "./page"
 import { Metadata } from "next"
-import { fetchStory } from "./model/fetch-story"
+import { ResultsPageProps } from "./page"
+import { fetchStory } from "./ui/model/fetch-story"
 import { Story } from "@/src/entities/story"
 
-export async function generateMetadata({ params }: StoryPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ResultsPageProps): Promise<Metadata> {
    const { id } = await params
    const story = await fetchStory(id)
 
-   const title = story?.name || "Story Not Found"
-   const description = story?.description || "Description not found"
+   const description = story?.description
 
    return {
-      title,
+      title: generateTitle(story?.name),
       description,
       openGraph: generateOpenGraphTag(story),
    }
@@ -19,8 +18,8 @@ export async function generateMetadata({ params }: StoryPageProps): Promise<Meta
 
 function generateOpenGraphTag(story: Story | null) {
    return {
-      title: story?.name || "Story Not Found",
-      description: story?.description || "Description not found",
+      title: generateTitle(story?.name),
+      description: story?.description,
       authors: story?.author.login,
       images: [
          {
@@ -31,4 +30,8 @@ function generateOpenGraphTag(story: Story | null) {
       ],
       tags: story?.tags,
    }
+}
+
+function generateTitle(name: string | undefined) {
+   return !!name ? `Statistics for ${name}` : "Statistics for story not found"
 }
