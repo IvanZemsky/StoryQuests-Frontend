@@ -12,21 +12,17 @@ type Props = {
 }
 
 export function StoryLikeBtn({ storyId, likes, isLiked = false, className }: Props) {
-   const { toggleLikeMutation, likeBtnState } = useToggleLike(storyId, {
+   const { mutation, likeBtnState, like } = useToggleLike(storyId, {
       likes,
       isLiked,
    })
-
-   const handleLikeBtnClick = () => {
-      toggleLikeMutation.mutate()
-   }
 
    return (
       <StoryLikeBtnLayout
          likes={likeBtnState.likes}
          isLiked={likeBtnState.isLiked}
-         isPending={toggleLikeMutation.isPending}
-         onClick={handleLikeBtnClick}
+         isPending={mutation.isPending}
+         onClick={like}
          className={className}
       />
    )

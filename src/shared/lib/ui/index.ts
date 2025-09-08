@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 
 export const useOutsideClick = <T extends HTMLElement>(callback: () => void) => {
    const ref = useRef<T>(null)
@@ -25,5 +25,30 @@ export const useOutsideClick = <T extends HTMLElement>(callback: () => void) => 
 }
 
 export function scrollToTop() {
-   window.scrollTo({top: 0, behavior: "smooth"})
+   window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
+export function useDebounce<T extends (...args: any[]) => void>(
+   callback: T,
+   delay: number = 1000,
+   deps: any[] = [],
+) {
+   const timeout = useRef<NodeJS.Timeout>(null)
+
+   useEffect(
+      () => () => {
+         if (timeout.current) clearTimeout(timeout.current)
+      },
+      [],
+   )
+
+   return useCallback(
+      (...args: Parameters<T>) => {
+         if (timeout.current) clearTimeout(timeout.current)
+         timeout.current = setTimeout(() => {
+            callback(...args)
+         }, delay)
+      },
+      [delay, ...deps],
+   )
 }
