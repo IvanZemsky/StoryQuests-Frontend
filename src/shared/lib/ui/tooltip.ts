@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, MouseEvent } from "react"
-import { useEventListener } from "."
+import { useEventListener } from "./events"
 
 export function useTooltip() {
    const [isVisible, setIsVisible] = useState(false)
@@ -31,7 +31,7 @@ export function useTooltip() {
       }
    }
 
-   useEventListener(window, ["scroll", "resize"], updatePosition)
+   useEventListener("window", ["scroll", "resize"], updatePosition)
 
    return {
       isVisible,
