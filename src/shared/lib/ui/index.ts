@@ -31,7 +31,6 @@ export function scrollToTop() {
 export function useDebounce<T extends (...args: any[]) => void>(
    callback: T,
    delay: number = 1000,
-   deps: any[] = [],
 ) {
    const timeout = useRef<NodeJS.Timeout>(null)
 
@@ -42,13 +41,19 @@ export function useDebounce<T extends (...args: any[]) => void>(
       [],
    )
 
-   return useCallback(
+   const debouncedCallback = useCallback(
       (...args: Parameters<T>) => {
          if (timeout.current) clearTimeout(timeout.current)
          timeout.current = setTimeout(() => {
             callback(...args)
          }, delay)
       },
-      [delay, ...deps],
+      [delay],
    )
+
+   const clear = () => {
+      if (timeout.current) clearTimeout(timeout.current)
+   }
+
+   return [debouncedCallback, clear] as const
 }
