@@ -32,18 +32,13 @@ export function useDebounce<T extends (...args: any[]) => void>(
    callback: T,
    delay: number = 1000,
 ) {
-   const timeout = useRef<NodeJS.Timeout>(null)
+   const timeout = useRef<NodeJS.Timeout>(undefined)
 
-   useEffect(
-      () => () => {
-         if (timeout.current) clearTimeout(timeout.current)
-      },
-      [],
-   )
+   useEffect(() => () => clearTimeout(timeout.current), [])
 
    const debouncedCallback = useCallback(
       (...args: Parameters<T>) => {
-         if (timeout.current) clearTimeout(timeout.current)
+         clearTimeout(timeout.current)
          timeout.current = setTimeout(() => {
             callback(...args)
          }, delay)
@@ -52,7 +47,7 @@ export function useDebounce<T extends (...args: any[]) => void>(
    )
 
    const clear = () => {
-      if (timeout.current) clearTimeout(timeout.current)
+      clearTimeout(timeout.current)
    }
 
    return [debouncedCallback, clear] as const
