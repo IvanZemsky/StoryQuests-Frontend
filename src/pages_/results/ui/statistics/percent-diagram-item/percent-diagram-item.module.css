@@ -21,11 +21,11 @@
    overflow: hidden;
 }
 
-.wrap:first-child {
+:global(.ui-tooltip):first-child .wrap {
    border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.wrap:last-child {
+:global(.ui-tooltip):last-child .wrap {
    border-radius: 0 0 0.5rem 0.5rem;
 }
 

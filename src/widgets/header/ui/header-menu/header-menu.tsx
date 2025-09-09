@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 import BurgerIcon from "@/src/shared/assets/icons/burger.svg"
 import CrossIcon from "@/src/shared/assets/icons/cross.svg"
 import { SignInLink } from "../sign-in-link"
-import { NavigationLink } from "@/src/shared/ui"
+import { NavigationLink, Tooltip } from "@/src/shared/ui"
 import clsx from "clsx"
 import { useState } from "react"
 import { ProfileLink } from "../profile-link"
@@ -26,7 +26,13 @@ export function HeaderMenu({ isAuth }: Props) {
             <NavigationLink href="/">Home</NavigationLink>
             <NavigationLink href="/stories">Stories</NavigationLink>
             {isAuth && <NavigationLink href="/create">Create</NavigationLink>}
-            {isAuth ? <ProfileLink /> : <SignInLink />}
+            {isAuth ? (
+               <Tooltip content="Profile">
+                  <ProfileLink />
+               </Tooltip>
+            ) : (
+               <SignInLink />
+            )}
 
             <button className={styles.closeBtn} onClick={handleBurgerClick}>
                <CrossIcon />

@@ -1,3 +1,4 @@
+import { Tooltip } from "@/src/shared/ui"
 import styles from "./percent-diagram-item.module.css"
 
 type Props = {
@@ -14,10 +15,12 @@ export function PercentDiagramItem({ total, passes, index, text }: Props) {
    const height = percent === 0 ? "auto" : `${percent}%`
 
    return (
-      <div className={styles.wrap} style={{ height }}>
-         <div className={styles.item} style={{ filter: `brightness(${brightness})` }}>
-            {percent}%
+      <Tooltip content={text}>
+         <div className={styles.wrap} style={{ height }}>
+            <div className={styles.item} style={{ filter: `brightness(${brightness})` }}>
+               {percent}%
+            </div>
          </div>
-      </div>
+      </Tooltip>
    )
 }
