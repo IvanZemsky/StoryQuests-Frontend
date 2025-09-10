@@ -1,6 +1,7 @@
 "use client"
 
-import { useTooltip } from "@/src/shared/lib/ui/tooltip"
+import { useRef } from "react"
+import { useTooltip } from "../../../lib/ui/tooltip"
 import "./tooltip.css"
 import clsx from "clsx"
 
@@ -11,8 +12,9 @@ type Props = {
 }
 
 export function Tooltip({ content, children, className }: Props) {
+   const tooltipRef = useRef<HTMLDivElement>(null)
    const { isVisible, position, handleMouseEnter, handleMouseLeave, handleMouseMove } =
-      useTooltip()
+      useTooltip(tooltipRef)
 
    return (
       <div
@@ -24,10 +26,11 @@ export function Tooltip({ content, children, className }: Props) {
          {children}
          {isVisible && (
             <div
-               className={"ui-tooltip-content"}
+               ref={tooltipRef}
+               className={clsx("ui-tooltip-content", { visible: isVisible })}
                style={{
-                  left: `${position.x}px`,
-                  top: `${position.y}px`,
+                  left: position ? `${position.x}px` : -9999,
+                  top: position ? `${position.y}px` : -9999,
                }}
             >
                {content}

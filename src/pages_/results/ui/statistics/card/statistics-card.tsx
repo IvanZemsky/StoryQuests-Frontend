@@ -1,4 +1,4 @@
-import { EndScene, Scene } from "@/src/entities/scene"
+import { EndScene } from "@/src/entities/scene"
 import styles from "./statistics-card.module.css"
 import Image from "next/image"
 

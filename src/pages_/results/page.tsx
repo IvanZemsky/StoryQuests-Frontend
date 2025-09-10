@@ -1,9 +1,9 @@
 import { ResultsAuthor } from "./ui/author/author"
 import { ResultsHeader } from "./ui/header/results-header"
 import { ResultsLayout } from "./ui/layout/layout"
-import { fetchResults } from "./ui/model/fetch-results"
-import { fetchStory } from "./ui/model/fetch-story"
-import { fetchUserResult } from "./ui/model/fetch-user-result"
+import { fetchResults } from "./model/fetch-results"
+import { fetchStory } from "./model/fetch-story"
+import { fetchUserResult } from "./model/fetch-user-result"
 import { ResultCard } from "./ui/result-card/result-card"
 import { Statistics } from "./ui/statistics/statistics"
 

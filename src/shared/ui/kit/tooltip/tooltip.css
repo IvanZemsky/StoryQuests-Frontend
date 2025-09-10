@@ -8,15 +8,20 @@
    z-index: 900;
    background-color: #000000;
    color: white;
-   opacity: 0.8;
+   opacity: 0;
    padding: 6px 8px;
    border-radius: 4px;
    font-size: 14px;
    pointer-events: none;
    transform: translate(calc(-50% + 5px), 95%);
    white-space: nowrap;
+   transition: 0.15s opacity linear;
 }
 
-.ui-tooltip-content-wrap{
-   display: contents;
+.ui-tooltip-content.visible {
+   opacity: 0.8;
 }
+
+
+
+
