@@ -1,4 +1,4 @@
-import { userService } from "@/src/entities/user"
+import { getSession } from "@/src/entities/user"
 import {
    ProfileCard,
    ProfileHeader,
@@ -6,7 +6,6 @@ import {
    UserPagelayout,
 } from "@/src/features/user"
 import { ProfilePageStoriesList } from "./ui/list"
-import { getTokenFromCookie } from "@/src/features/auth"
 import { redirect } from "next/navigation"
 redirect
 
@@ -24,14 +23,4 @@ export async function ProfilePage() {
          storiesList={<ProfilePageStoriesList userId={user.id} />}
       />
    )
-}
-
-async function getSession() {
-   const token = await getTokenFromCookie()
-
-   try {
-      return await userService.getSession(token)
-   } catch (error) {
-      return null
-   }
 }

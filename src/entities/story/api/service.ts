@@ -104,11 +104,9 @@ export const storyService = {
       return data
    },
 
-   async findMyResult(storyID: string, token?: string) {
+   async findMyResult(storyID: string, headers: Record<string, string> = {}) {
       const { data } = await API.get<GetStoryResultDTO>(`stories/${storyID}/myresult`, {
-         headers: {
-            Cookie: `token=${token}`,
-         },
+         headers,
       })
       return data
    },

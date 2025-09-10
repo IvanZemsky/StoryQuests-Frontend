@@ -17,3 +17,4 @@ export type { CreateStoryDTO, GetStoriesDTO, CreateStoryInfoDTO } from "./api/dt
 
 export { fetchStories } from "./api/server/fetch-stories"
 export { fetchStory } from "./api/server/fetch-story"
+export { fetchMyResult } from "./api/server/fetch-my-result"

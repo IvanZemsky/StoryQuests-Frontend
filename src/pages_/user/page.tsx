@@ -1,4 +1,4 @@
-import { userService } from "@/src/entities/user"
+import { fetchUser } from "@/src/entities/user"
 import { ProfileCard, ProfileHeader, UserPagelayout } from "@/src/features/user"
 import { UserPageStoriesList } from "./list"
 
@@ -23,12 +23,4 @@ export async function UserPage({ params }: UserPageProps) {
          storiesList={<UserPageStoriesList userId={user.id} />}
       />
    )
-}
-
-async function fetchUser(id: string) {
-   try {
-      return await userService.findByID(id)
-   } catch (error) {
-      return null
-   }
 }

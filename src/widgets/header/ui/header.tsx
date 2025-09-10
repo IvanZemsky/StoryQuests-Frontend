@@ -1,8 +1,7 @@
 import { Logo, Wrapper } from "@/src/shared/ui"
 import styles from "./styles.module.css"
 import { HeaderMenu } from "./header-menu/header-menu"
-import { userService, type Session } from "@/src/entities/user"
-import { getTokenFromCookie } from "@/src/features/auth"
+import { getSession} from "@/src/entities/user"
 
 export async function Header() {
    const session = await getSession()
@@ -17,17 +16,4 @@ export async function Header() {
          </Wrapper>
       </header>
    )
-}
-
-async function getSession(): Promise<Session | null> {
-   const token = await getTokenFromCookie()
-
-   if (!token) return null
-
-   const session = await userService.getSession(token)
-   if (!session) {
-      return null
-   }
-
-   return session
 }

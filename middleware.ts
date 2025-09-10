@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server"
 import { authMiddleware } from "./src/features/auth"
-import { userService } from "./src/entities/user"
+import { getSession } from "./src/entities/user"
 import { profileMiddleware } from "./src/features/user"
 
 export const config = {
@@ -8,8 +8,7 @@ export const config = {
 }
 
 export async function middleware(req: NextRequest) {
-   const token = req.cookies.get("token")?.value
-   const session = await userService.getSession(token)
+   const session = await getSession()
 
    const authResponse = await authMiddleware(req, session)
    if (authResponse.status !== 200) {

@@ -25,12 +25,10 @@ export const userService = {
       return data
    },
 
-   async getSession(token?: string): Promise<Session | null> {
+   async getSession(headers: Record<string, string> = {}): Promise<Session | null> {
       try {
          const { data } = await API.get<Session>("auth/session", {
-            headers: {
-               Cookie: `token=${token}`,
-            },
+            headers,
          })
          return data
       } catch (error) {
