@@ -1,3 +1,5 @@
+"use server"
+
 import { storyService } from "@/src/entities/story"
 import { headers } from "next/headers"
 

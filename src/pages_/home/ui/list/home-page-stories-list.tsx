@@ -1,11 +1,10 @@
 import styles from "./home-page-stories-list.module.css"
-import { StoriesList, StoriesFilters } from "@/src/entities/story"
+import { StoriesList, StoriesFilters, fetchStories } from "@/src/entities/story"
 import { Button } from "@/src/shared/ui"
 import Link from "next/link"
 import ArrowRightLongIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
 import { stringifyObjectValues } from "@/src/shared/lib"
-import { fetchStories } from "../../model/fetch-stories"
 
 type Props = {
    filters: StoriesFilters

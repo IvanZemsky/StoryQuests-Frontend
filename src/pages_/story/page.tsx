@@ -1,7 +1,7 @@
 import { StoryPreviewCard } from "./ui/preview-card/preview-card"
-import { fetchStory } from "./model/fetch-story"
 import { PageSceneWrap } from "./ui/scene/wrap"
 import { fetchSession } from "./model/fetch-session"
+import { fetchStory } from "@/src/entities/story"
 
 export type StoryPageProps = {
    params: Promise<{

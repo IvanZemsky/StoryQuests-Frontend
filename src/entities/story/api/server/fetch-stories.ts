@@ -1,5 +1,8 @@
-import { StoriesFilters, storyService } from "@/src/entities/story"
+"use server"
+
 import { headers } from "next/headers"
+import { StoriesFilters } from "../../model/types"
+import { storyService } from "../service"
 
 export async function fetchStories(filters: StoriesFilters) {
    const headersList = await headers()

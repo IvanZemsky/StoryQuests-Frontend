@@ -12,7 +12,8 @@ export type {
    StoryId,
    SetStoryResult,
    StoriesFiltersParams,
-   // StoryResult,
-   // StoryResultInLS,
 } from "./model/types"
 export type { CreateStoryDTO, GetStoriesDTO, CreateStoryInfoDTO } from "./api/dto"
+
+export { fetchStories } from "./api/server/fetch-stories"
+export { fetchStory } from "./api/server/fetch-story"

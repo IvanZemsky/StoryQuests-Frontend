@@ -1,7 +1,6 @@
 import { StoryPageProps } from "./page"
 import { Metadata } from "next"
-import { fetchStory } from "./model/fetch-story"
-import { Story } from "@/src/entities/story"
+import { fetchStory, Story } from "@/src/entities/story"
 
 export async function generateMetadata({ params }: StoryPageProps): Promise<Metadata> {
    const { id } = await params

@@ -1,12 +1,11 @@
 import {
+   fetchStories,
    STORIES_SEARCH_LIMIT,
    StoriesFiltersParams,
    StoriesList,
-   storyService,
 } from "@/src/entities/story"
 import { countPages } from "@/src/shared/lib"
 import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
-import { headers } from "next/headers"
 
 type Props = {
    filters: StoriesFiltersParams
@@ -14,7 +13,7 @@ type Props = {
 }
 
 export async function StoriesPageList({ filters, pagination }: Props) {
-   const stories = await getStories(filters)
+   const stories = await fetchStories({ ...filters, limit: STORIES_SEARCH_LIMIT })
 
    const totalPagesCount = countPages(stories?.total ?? 0, STORIES_SEARCH_LIMIT)
 
@@ -27,23 +26,4 @@ export async function StoriesPageList({ filters, pagination }: Props) {
          {pagination(totalPagesCount)}
       </>
    )
-}
-
-async function getStories(filters: StoriesFiltersParams) {
-   const headersList = await headers()
-   const cookieHeader = headersList.get("cookie") ?? ""
-
-   try {
-      const stories = await storyService.find(
-         {
-            limit: STORIES_SEARCH_LIMIT,
-            ...filters,
-         },
-         { Cookie: cookieHeader },
-      )
-
-      return stories
-   } catch (error) {
-      return undefined
-   }
 }
