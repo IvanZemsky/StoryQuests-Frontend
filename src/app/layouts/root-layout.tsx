@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
-import "@/src/app/styles/fonts.css"
 import "@/src/app/styles/reset.css"
 import "@/src/shared/ui/styles/vars.css"
 import { Providers } from "@/src/app"
 import styles from "./root-layout.module.css"
+import clsx from "clsx"
+import { philosopher } from "../fonts/philosopher"
 
 // initServerSideMocks()
 
@@ -20,7 +21,7 @@ export function RootLayout({
    return (
       <html lang="en">
          <Providers>
-            <body className={styles.app}>
+            <body className={clsx(styles.app, philosopher.className)}>
                {children}
                <div id="modal"></div>
             </body>
