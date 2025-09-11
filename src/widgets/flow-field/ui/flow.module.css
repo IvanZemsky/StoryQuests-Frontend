@@ -2,7 +2,7 @@
    height: 500px;
 }
 
-.content.fullScreenMode {
+.fullScreenMode {
    position: fixed;
    top: 0;
    left: 0;

@@ -3,6 +3,7 @@
    flex-direction: column;
    width: 100%;
    border: 4px solid var(--secondaryMain);
+   background-color: var(--primaryMain);
    border-radius: 1rem;
    overflow: hidden;
    height: 500px;
