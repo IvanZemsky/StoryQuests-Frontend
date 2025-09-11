@@ -3,9 +3,9 @@
 import { useForm } from "react-hook-form"
 import Link from "next/link"
 import { TextInput, Button } from "@/src/shared/ui"
-import { AuthFormLayout } from "../form-layout/form-layout"
-import { SignInFormData } from "../../model/types"
-import { useSignInForm } from "../../model/use-sign-in-form"
+import { AuthFormLayout } from "./form-layout/form-layout"
+import { SignInFormData } from "../model/types"
+import { useSignInForm } from "../model/use-sign-in-form"
 
 export const SignInForm = () => {
    const { register, handleSubmit } = useForm<SignInFormData>()
@@ -32,7 +32,7 @@ export const SignInForm = () => {
             </>
          }
          link={<Link href="/sign-up">Doesn&apos;t have an account? Sign up!</Link>}
-         error={undefined}
+         error={loginMutation.error?.response?.data.message}
       />
    )
 }

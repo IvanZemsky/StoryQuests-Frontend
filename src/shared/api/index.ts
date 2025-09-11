@@ -10,3 +10,4 @@ export { initQueryClient } from "./mocks/query-client"
 
 export { useInitClientSideMocks } from "./mocks/init/client"
 export {mockMiddleware} from "./mocks/test-middleware"
+export type {APIError, APIAxiosError} from "./errors"

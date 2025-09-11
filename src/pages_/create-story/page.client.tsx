@@ -26,10 +26,9 @@ import { CreationField } from "./ui/creation-field"
 import { StoryPreview } from "./ui/preview"
 import { useCreateStory } from "./model/create"
 import { useModal, useOnBeforeUnload } from "@/src/shared/lib"
-import { TagsInput } from "@/src/shared/ui"
 
 export function CreateStoryPageClient() {
-   // useOnBeforeUnload()
+   useOnBeforeUnload()
 
    const { setNodes, ...flow } = useFlow<SceneNode, AnswerEdge>({
       edgeFactory: createAnswerEdge,

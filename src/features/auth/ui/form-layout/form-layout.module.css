@@ -20,11 +20,6 @@
 }
 
 .error {
-   position: absolute;
-   bottom: 15px;
-   left: 15px;
-   padding: 15px;
-   border-radius: 15px;
-   background-color: rgb(208, 18, 18);
-   z-index: 1;
+   text-align: center;
+   color: rgb(255, 78, 78);
 }

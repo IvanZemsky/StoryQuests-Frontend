@@ -4,16 +4,18 @@ import { userService } from "@/src/entities/user"
 import { useMutation } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
 import { SignInFormData } from "./types"
+import type { APIAxiosError } from "@/src/shared/api"
 
 export function useSignInForm() {
    const router = useRouter()
 
-   const loginMutation = useMutation({
+   const loginMutation = useMutation<void, APIAxiosError, SignInFormData>({
       mutationFn: userService.login,
       onSuccess() {
          router.replace("/")
          router.refresh()
       },
+      
    })
 
    const onSubmit = (data: SignInFormData) => {

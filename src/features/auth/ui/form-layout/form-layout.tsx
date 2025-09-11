@@ -1,5 +1,5 @@
+import { capitalizeFirstLetter } from "@/src/shared/lib"
 import styles from "./form-layout.module.css"
-
 
 type Props = {
    onSubmit: React.FormEventHandler<HTMLFormElement>
@@ -13,10 +13,9 @@ export function AuthFormLayout({ inputs, link, error, onSubmit }: Props) {
       <div className={styles.auth}>
          <form className={styles.form} onSubmit={onSubmit}>
             {inputs}
+            {error && <p className={styles.error}>{capitalizeFirstLetter(error)}</p>}
             {link}
          </form>
-
-         {error && <p className={styles.error}>Incorrect login or password</p>}
       </div>
    )
 }
