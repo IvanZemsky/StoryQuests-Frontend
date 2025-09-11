@@ -56,8 +56,9 @@
 
 div.handle {
    top: 1px;
-   width: 7px;
+   width: 40%;
    height: 7px;
    border-color: var(--secondaryMain);
    background-color: var(--thirdMain);
+   border-radius: 5px;
 }

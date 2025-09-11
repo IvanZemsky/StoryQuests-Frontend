@@ -22,7 +22,7 @@ export function Flow(props: Props) {
          title="Story creation"
          panel={props.panel}
          field={
-            <ReactFlow {...props} fitView>
+            <ReactFlow {...props} maxZoom={4} fitView>
                <Controls className={styles.controls} showInteractive={false}>
                   <FullScreenBtn onClick={handleFullScreenClick} />
                </Controls>
