@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form"
 import styles from "./inputs.module.css"
 
 export function CreateStoryFormInputs() {
-   const { setValue, register, control } = useFormContext()
+   const { setValue, register } = useFormContext()
 
    const handleImgError = () => {
       setValue("img", "")

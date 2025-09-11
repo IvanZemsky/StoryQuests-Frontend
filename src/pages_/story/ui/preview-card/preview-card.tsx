@@ -1,7 +1,7 @@
 import { Story } from "@/src/entities/story"
 import styles from "./preview-card.module.css"
 import Image from "next/image"
-import { Button } from "@/src/shared/ui"
+import { Button, Tooltip } from "@/src/shared/ui"
 import Link from "next/link"
 import { PreviewInfoPanel } from "../preview-info-panel/preview-info-panel"
 import HeartIcon from "@/src/shared/assets/icons/heart.svg"
@@ -14,9 +14,11 @@ export function StoryPreviewCard({ data }: Props) {
    return (
       <div className={styles.card}>
          {data.isLiked && (
-            <div className={styles.isLiked}>
-               <HeartIcon />
-            </div>
+            <Tooltip content="You liked this story">
+               <div className={styles.isLiked}>
+                  <HeartIcon />
+               </div>
+            </Tooltip>
          )}
 
          <div className={styles.imgWrap}>

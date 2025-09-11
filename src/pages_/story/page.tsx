@@ -1,6 +1,6 @@
 import { StoryPreviewCard } from "./ui/preview-card/preview-card"
 import { PageSceneWrap } from "./ui/scene/wrap"
-import { fetchSession } from "./model/fetch-session"
+import { getSession } from "@/src/entities/user"
 import { fetchStory } from "@/src/entities/story"
 
 export type StoryPageProps = {
@@ -18,8 +18,8 @@ export async function StoryPage({ params, searchParams }: StoryPageProps) {
    if (!story) {
       return <div>Story not found</div>
    }
-   
-   const session = await fetchSession()
+
+   const session = await getSession()
 
    if (!story) {
       return <div>Story not found</div>

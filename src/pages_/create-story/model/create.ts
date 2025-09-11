@@ -57,7 +57,7 @@ function createStoryInfoDTO(
       name: data.name,
       description: data.desc,
       img: data.img,
-      tags: [],
+      tags: data.tags,
       sceneCount,
    }
 }

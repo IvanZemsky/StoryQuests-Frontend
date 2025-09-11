@@ -1,0 +1,10 @@
+.ui-tags-input-items {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+}
+
+.ui-tags-input-label {
+   margin-bottom: 0.5rem;
+   font-weight: 500;
+}

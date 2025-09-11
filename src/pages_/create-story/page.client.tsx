@@ -6,6 +6,7 @@ import {
    CreateStoryFormInputs,
    CreateStoryFormLayout,
    CreateStoryFormSubmitBtn,
+   CreateStoryTagsInput,
    CreateStoryValidationModal,
    PreviewBtn,
    useStoryPreview,
@@ -25,9 +26,10 @@ import { CreationField } from "./ui/creation-field"
 import { StoryPreview } from "./ui/preview"
 import { useCreateStory } from "./model/create"
 import { useModal, useOnBeforeUnload } from "@/src/shared/lib"
+import { TagsInput } from "@/src/shared/ui"
 
 export function CreateStoryPageClient() {
-   useOnBeforeUnload()
+   // useOnBeforeUnload()
 
    const { setNodes, ...flow } = useFlow<SceneNode, AnswerEdge>({
       edgeFactory: createAnswerEdge,
@@ -47,7 +49,7 @@ export function CreateStoryPageClient() {
       onInvalidScenes: validationModal.open,
    })
 
-   const { form, cardData } = useCreateStoryForm(flow.nodes, flow.edges)
+   const { form, cardData } = useCreateStoryForm()
    const { createStory, isPending } = useCreateStory({
       nodes: flow.nodes,
       edges: flow.edges,
@@ -61,9 +63,10 @@ export function CreateStoryPageClient() {
             <FormProvider {...form}>
                <CreateStoryFormLayout
                   onSubmit={form.handleSubmit(createStory)}
-                  inputs={<CreateStoryFormInputs />}
-                  previewBtn={<PreviewBtn onClick={preview.open} />}
                   exampleCard={<CreateStoryFormExampleCard data={cardData} />}
+                  inputs={<CreateStoryFormInputs />}
+                  tagsInput={<CreateStoryTagsInput />}
+                  previewBtn={<PreviewBtn onClick={preview.open} />}
                   submitBtn={<CreateStoryFormSubmitBtn disabled={isPending} />}
                >
                   <ReactFlowProvider>

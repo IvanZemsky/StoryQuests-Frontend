@@ -7,6 +7,7 @@ type Props = {
    previewBtn?: React.ReactNode
    submitBtn: React.ReactNode
    children?: React.ReactNode
+   tagsInput?: React.ReactNode
 }
 
 export function CreateStoryFormLayout({
@@ -15,6 +16,7 @@ export function CreateStoryFormLayout({
    exampleCard,
    previewBtn,
    submitBtn,
+   tagsInput,
    children,
 }: Props) {
    return (
@@ -23,6 +25,8 @@ export function CreateStoryFormLayout({
             <div className={styles.inputs}>{inputs}</div>
             {exampleCard}
          </div>
+
+         {tagsInput}
 
          {children}
 

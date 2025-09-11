@@ -1,3 +1,5 @@
+"use client"
+
 import clsx from "clsx"
 import { ButtonCheck, ButtonCheckProps } from "../button-check/button-check"
 import { useToggleButtonGroupContext } from "./context"

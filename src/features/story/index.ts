@@ -1,3 +1,5 @@
+export { CreateStoryTagsInput } from "./creation-form/ui/tags-input/tags-input"
+
 export { useInfiniteStories } from "./list/model/use-infinite-stories"
 export { InfiniteStoriesList } from "./list/ui/infinite-list/infinite-stories-list"
 
