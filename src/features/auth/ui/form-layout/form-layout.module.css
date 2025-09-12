@@ -2,7 +2,7 @@
    display: flex;
    flex-direction: column;
    justify-content: center;
-   gap: 20px;
+   gap: 1rem;
    margin: auto 0;
 }
 
@@ -21,5 +21,5 @@
 
 .error {
    text-align: center;
-   color: rgb(255, 78, 78);
+   color: var(--error-main);
 }

@@ -26,7 +26,7 @@ export function StoriesList({
 
    if (isError || !data) return <p className={styles.error}>{errorMessage}</p>
 
-   if (data.length === 0) return <p>{notFoundMessage}</p>
+   if (data.length === 0) return notFoundMessage
 
    return (
       <div className={styles.listWrap}>
