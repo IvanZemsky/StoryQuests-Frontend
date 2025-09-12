@@ -6,6 +6,7 @@ import Link from "next/link"
 import { PreviewInfoPanel } from "../preview-info-panel/preview-info-panel"
 import HeartIcon from "@/src/shared/assets/icons/heart.svg"
 import { CopyLinkBtn } from "./copy-link-btn/copy-link-btn"
+import { ShareTelegramBtn } from "./share-telegram-btn/share-telegram-btn"
 
 type Props = {
    data: Story
@@ -47,7 +48,8 @@ export function StoryPreviewCard({ data }: Props) {
             </Button>
 
             <div className={styles.links}>
-               <CopyLinkBtn />
+               <ShareTelegramBtn className={styles.linkBtn} />
+               <CopyLinkBtn className={styles.linkBtn} />
             </div>
          </div>
       </div>

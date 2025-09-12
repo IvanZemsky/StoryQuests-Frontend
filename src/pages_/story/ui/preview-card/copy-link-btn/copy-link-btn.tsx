@@ -7,7 +7,7 @@ import { copyToClipboard } from "@/src/shared/lib"
 import { CopyLinkModal } from "./copy-link-modal"
 import LinkIcon from "@/src/shared/assets/icons/link.svg"
 
-export function CopyLinkBtn() {
+export function CopyLinkBtn({ className }: { className?: string }) {
    const [isCopied, setIsCopied] = useState(false)
    const [error, setError] = useState(false)
 
@@ -30,7 +30,7 @@ export function CopyLinkBtn() {
 
    return (
       <>
-         <Button className={styles.btn} onClick={handleClick}>
+         <Button className={className} onClick={handleClick}>
             <LinkIcon />
          </Button>
          {isCopied && <CopyLinkModal open={isCopied} error={error} />}

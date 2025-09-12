@@ -16,16 +16,3 @@ export function stringifyObjectValues(obj: Record<string, unknown>) {
       Object.entries(obj).map(([key, value]) => [key, String(value)]),
    )
 }
-
-export function copyToClipboard(
-   text: string,
-   onSuccess?: () => void,
-   onError?: (error: unknown) => void,
-) {
-   try {
-      navigator.clipboard.writeText(text)
-      onSuccess?.()
-   } catch (error) {
-      onError?.(error)
-   }
-}
