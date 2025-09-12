@@ -1,0 +1,32 @@
+:global(.ui-button-container).btn {
+   min-width: 0;
+   width: 45px;
+   height: 45px;
+   border-radius: 1rem;
+}
+
+:global(.ui-button-container).btn :global(.ui-button-content) {
+   padding: 0;
+}
+
+:global(.ui-button-container).btn :global(.ui-button-content) svg {
+   width: 20px;
+   height: 20px;
+}
+
+.modal {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: auto;
+   z-index: 999;
+   background-color: var(--primaryMain);
+   padding: 1rem;
+   border-radius: 1rem;
+   color: var(--primaryText);
+   border: 3px solid var(--secondaryMain);
+}

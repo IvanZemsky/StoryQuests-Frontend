@@ -24,6 +24,7 @@ export function StoryLikeBtnLayout({
             className={clsx(styles.btn, { [styles.liked]: isLiked })}
             disabled={isPending}
             onClick={onClick}
+            type="button"
          >
             <HeartIcon />
          </button>

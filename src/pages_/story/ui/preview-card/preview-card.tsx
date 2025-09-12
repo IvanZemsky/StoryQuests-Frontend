@@ -5,6 +5,7 @@ import { Button, Tooltip } from "@/src/shared/ui"
 import Link from "next/link"
 import { PreviewInfoPanel } from "../preview-info-panel/preview-info-panel"
 import HeartIcon from "@/src/shared/assets/icons/heart.svg"
+import { CopyLinkBtn } from "./copy-link-btn/copy-link-btn"
 
 type Props = {
    data: Story
@@ -44,6 +45,10 @@ export function StoryPreviewCard({ data }: Props) {
             >
                Let's go!
             </Button>
+
+            <div className={styles.links}>
+               <CopyLinkBtn />
+            </div>
          </div>
       </div>
    )
