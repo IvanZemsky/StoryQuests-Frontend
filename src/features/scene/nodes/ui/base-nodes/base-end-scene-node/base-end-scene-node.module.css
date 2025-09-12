@@ -1,6 +1,6 @@
 .topBorder {
    height: 12px;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
    border-radius: 7.5px 7.5px 0 0;
 }
 
@@ -14,9 +14,9 @@
    min-height: 63px;
    max-height: 160px;
    padding: 5px;
-   background-image: var(--gradientMain);
+   background-image: var(--gradient-main);
    border-radius: 0 0 7.5px 7.5px;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    cursor: pointer;
 }
 
@@ -58,7 +58,7 @@ div.handle {
    top: 1px;
    width: 40%;
    height: 7px;
-   border-color: var(--secondaryMain);
-   background-color: var(--thirdMain);
+   border-color: var(--secondary-main);
+   background-color: var(--third-main);
    border-radius: 5px;
 }

@@ -7,12 +7,12 @@
    width: 81px;
    min-height: 50px;
    max-height: 160px;
-   border: 2px solid var(--thirdLight);
+   border: 2px solid var(--third-light);
    border-bottom: none;
    border-radius: 7.5px 7.5px 0 0;
    gap: 4px;
    padding: 5px;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    cursor: pointer;
 }
 
@@ -61,10 +61,10 @@ div.sourceHandle {
    height: 0.8rem;
    border-radius: 0 0 5px 5px;
    border: none;
-   background-color: var(--thirdLight);
+   background-color: var(--third-light);
 }
 
 div.sourceHandle svg {
    width: 7px;
-   fill: var(--thirdMain);
+   fill: var(--third-main);
 }

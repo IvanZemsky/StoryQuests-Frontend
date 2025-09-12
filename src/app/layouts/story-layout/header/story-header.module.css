@@ -1,5 +1,5 @@
 .header {
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
 }
 
 .content {
@@ -16,7 +16,7 @@
 }
 
 .content a {
-   color: var(--secondaryText);
+   color: var(--secondary-text);
 }
 
 .content a:hover {

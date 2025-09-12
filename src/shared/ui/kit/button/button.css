@@ -4,7 +4,7 @@
    padding: 2px;
    border-radius: 20px;
    transition: all 0.15s linear;
-   background: var(--gradientMain);
+   background: var(--gradient-main);
    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0);
 }
 
@@ -61,23 +61,23 @@
 }
 
 .ui-button-container.outlined.secondary .ui-button-content {
-   background-color: var(--secondaryMain);
-   color: var(--secondaryText);
+   background-color: var(--secondary-main);
+   color: var(--secondary-text);
 }
 
 .ui-button-container.outlined.secondary svg {
-   fill: var(--secondaryText);
-   stroke: var(--secondaryText);
+   fill: var(--secondary-text);
+   stroke: var(--secondary-text);
 }
 
 .ui-button-container.outlined.primary .ui-button-content {
-   background-color: var(--secondaryMain);
-   color: var(--primaryText);
+   background-color: var(--secondary-main);
+   color: var(--primary-text);
 }
 
 .ui-button-container.outlined.primary svg {
-   fill: var(--secondaryText);
-   stroke: var(--secondaryText);
+   fill: var(--secondary-text);
+   stroke: var(--secondary-text);
 }
 
 .ui-button-container:active {
@@ -97,47 +97,47 @@
 }
 
 .ui-button-container.gradient .ui-button-content {
-   color: var(--primaryText);
+   color: var(--primary-text);
 }
 
 @media (hover: hover) {
    .ui-button-container.gradient.default-hover:hover:not(:disabled) span {
-      background-color: var(--secondaryMain);
+      background-color: var(--secondary-main);
    }
 }
 
 @media (hover: none) {
    .ui-button-container.gradient.default-hover:active span {
-      background-color: var(--secondaryMain);
+      background-color: var(--secondary-main);
    }
 }
 
 .ui-button-container.filled.primary {
-   box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
+   box-shadow: 0px 0px 0px 5px var(--secondary-main) inset;
 }
 
 .ui-button-container.filled.primary .ui-button-content {
-   background-color: var(--secondaryMain);
-   color: var(--primaryText);
+   background-color: var(--secondary-main);
+   color: var(--primary-text);
 }
 
 .ui-button-container.filled.primary svg {
-   fill: var(--primaryText);
-   stroke: var(--primaryText);
+   fill: var(--primary-text);
+   stroke: var(--primary-text);
 }
 
 .ui-button-container.filled.secondary {
-   box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
+   box-shadow: 0px 0px 0px 5px var(--secondary-main) inset;
 }
 
 .ui-button-container.filled.secondary .ui-button-content {
-   background-color: var(--secondaryMain);
-   color: var(--secondaryText);
+   background-color: var(--secondary-main);
+   color: var(--secondary-text);
 }
 
 .ui-button-container.filled.secondary svg {
-   fill: var(--secondaryText);
-   stroke: var(--secondaryText);
+   fill: var(--secondary-text);
+   stroke: var(--secondary-text);
 }
 
 @media (hover: hover) {

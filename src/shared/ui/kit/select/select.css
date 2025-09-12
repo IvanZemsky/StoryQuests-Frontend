@@ -26,9 +26,9 @@
    flex-direction: column;
    gap: 1px;
    width: 100%;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    border-radius: 20px;
-   border: 1px solid var(--primaryMain);
+   border: 1px solid var(--primary-main);
    overflow: hidden;
    z-index: 50;
 }

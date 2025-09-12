@@ -1,6 +1,6 @@
 .ui-toggle-button-group {
    display: flex;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    border-radius: 20px;
    overflow: hidden;
    flex-shrink: 0;

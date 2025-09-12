@@ -12,7 +12,7 @@
 
 .form a {
    text-align: center;
-   color: var(--primaryText);
+   color: var(--primary-text);
 }
 
 .form a:hover {

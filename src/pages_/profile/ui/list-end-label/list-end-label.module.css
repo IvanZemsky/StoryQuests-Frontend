@@ -4,7 +4,7 @@
    align-items: center;
    gap: 25px;
    padding: 45px 20px;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
    border-radius: 25px;
 }
 

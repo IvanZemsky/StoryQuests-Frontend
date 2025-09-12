@@ -4,8 +4,8 @@
    gap: 0.5rem;
    padding: 15px;
    border-radius: 20px;
-   background-color: var(--secondaryMain);
-   color: var(--secondaryText);
+   background-color: var(--secondary-main);
+   color: var(--secondary-text);
 }
 
 .ui-image-loader-input {
@@ -13,7 +13,7 @@
 }
 
 .ui-image-loader-input input {
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    margin-bottom: 15px;
 }
 
@@ -36,7 +36,7 @@
 
 .ui-image-loader-content svg {
    width: 29px;
-   fill: var(--secondaryText);
+   fill: var(--secondary-text);
 }
 
 .ui-image-loader-content img {

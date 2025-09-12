@@ -2,7 +2,7 @@
    display: flex;
    align-items: center;
    gap: 20px;
-   background: var(--secondaryMain);
+   background: var(--secondary-main);
    border-radius: 10px;
    padding: 10px 10px 10px 20px;
 }

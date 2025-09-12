@@ -1,7 +1,7 @@
 .footer {
    padding: 15px 0;
-   background-color: var(--secondaryMain);
-   color: var(--secondaryText);
+   background-color: var(--secondary-main);
+   color: var(--secondary-text);
 }
 
 .content {

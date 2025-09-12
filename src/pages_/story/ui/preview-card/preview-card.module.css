@@ -3,7 +3,7 @@
    max-width: 500px;
    width: 100%;
    padding: 2px;
-   background-image: var(--gradientMain);
+   background-image: var(--gradient-main);
    border-radius: 1rem;
    overflow: hidden;
 }
@@ -28,7 +28,7 @@
    align-items: center;
    gap: 1rem;
    padding: 1rem;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
    border-radius: 0 0 0.95rem 0.95rem;
    text-align: center;
 }
@@ -44,7 +44,7 @@
    top: 0.5rem;
    left: 50%;
    transform: translateX(-50%);
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
    border-radius: 50%;
    z-index: 2;
 }
@@ -57,14 +57,14 @@
 }
 
 .title {
-   color: var(--thirdLight);
+   color: var(--third-light);
    font-family: Philosopher;
    font-weight: 700;
    font-size: 1.2rem;
 }
 
 .sceneCount {
-   font-size: 0.8rem;
+   font-size: 0.9rem;
 }
 
 .desc {

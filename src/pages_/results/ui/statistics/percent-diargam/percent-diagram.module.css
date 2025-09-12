@@ -1,7 +1,7 @@
 .percentDiagram {
    display: flex;
    flex-direction: column;
-   border: 4px solid var(--secondaryMain);
+   border: 4px solid var(--secondary-main);
    border-radius: 0.5rem;
    width: 4rem;
 }

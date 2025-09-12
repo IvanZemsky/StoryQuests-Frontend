@@ -13,7 +13,7 @@
 }
 
 .content.background {
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
 }
 
 div.controls {
@@ -23,8 +23,8 @@ div.controls {
 div.controls button {
    width: 35px;
    height: 35px;
-   background-color: var(--secondaryMain);
-   color: var(--secondaryText);
+   background-color: var(--secondary-main);
+   color: var(--secondary-text);
    opacity: 1;
 }
 
@@ -33,7 +33,7 @@ div.controls button svg {
    max-height: 100%;
    width: 16px;
    height: auto;
-   fill: var(--secondaryText);
+   fill: var(--secondary-text);
    flex-shrink: 0;
 }
 
@@ -42,6 +42,6 @@ div.controls button:first-child {
 }
 
 div.controls button:hover {
-   background-color: var(--secondaryMain);
-   color: var(--secondaryText);
+   background-color: var(--secondary-main);
+   color: var(--secondary-text);
 }

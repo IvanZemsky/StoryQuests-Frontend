@@ -1,14 +1,14 @@
 .wrap {
    border-radius: 15px;
    padding: 2px 2px 5px 2px;
-   background: var(--gradientMain);
+   background: var(--gradient-main);
 }
 
 .card {
    display: flex;
    flex-direction: column;
    height: 100%;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
    border-radius: 15px 15px 15px 15px;
    overflow: hidden;
 }
@@ -42,7 +42,7 @@
 }
 
 .title {
-   color: var(--thirdLight);
+   color: var(--third-light);
    font-family: Philosopher;
    font-weight: 700;
    font-size: 19px;
@@ -72,5 +72,5 @@
 .stats,
 .statsItem svg {
    width: 30px;
-   stroke: var(--secondaryText);
+   stroke: var(--secondary-text);
 }

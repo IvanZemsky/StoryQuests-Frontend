@@ -6,6 +6,6 @@
 
 .skeletonBlock{
    height: 500px;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
    border-radius: 15px;
 }

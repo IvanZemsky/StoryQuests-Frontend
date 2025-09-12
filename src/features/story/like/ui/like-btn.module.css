@@ -10,11 +10,11 @@
 
 .btn svg {
    width: 30px;
-   stroke: var(--secondaryText);
+   stroke: var(--secondary-text);
 }
 
 .btn.liked svg {
-   fill: var(--secondaryText);
+   fill: var(--secondary-text);
 }
 
 .countp {

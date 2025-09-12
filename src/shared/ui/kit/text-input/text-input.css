@@ -1,11 +1,11 @@
 .ui-input-wrap {
    display: flex;
    align-items: stretch;
-   color: var(--secondaryText);
+   color: var(--secondary-text);
    padding: 2px;
    border-radius: 20px;
    overflow: hidden;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
 }
 
 .ui-input-wrap.with-сounter {
@@ -15,7 +15,7 @@
 }
 
 .ui-input-wrap.outlined {
-   background-image: var(--gradientMain);
+   background-image: var(--gradient-main);
 }
 
 .ui-input {
@@ -27,11 +27,11 @@
    height: 100%;
    padding: 10px 20px;
    border-radius: 19px;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
 }
 
 .ui-input::placeholder {
-   color: var(--secondaryText);
+   color: var(--secondary-text);
    transition: color 0.15s linear;
 }
 
@@ -46,6 +46,6 @@
    flex-shrink: 0;
    width: 50px;
    margin: 0.5rem 0;
-   border-left: 1px solid var(--secondaryText);
-   color: var(--secondaryText);
+   border-left: 1px solid var(--secondary-text);
+   color: var(--secondary-text);
 }

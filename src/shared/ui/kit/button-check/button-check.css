@@ -37,13 +37,13 @@
 
 @media (hover: hover) {
    .ui-button-check-wrap .ui-button-check-label:hover > .ui-button-check > span {
-      color: var(--thirdLight);
+      color: var(--third-light);
    }
 }
 
 @media (hover: none) {
    .ui-button-check-wrap .ui-button-check-label:active > .ui-button-check > span {
-      color: var(--thirdLight);
+      color: var(--third-light);
    }
 }
 

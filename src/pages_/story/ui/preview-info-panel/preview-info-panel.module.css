@@ -1,7 +1,7 @@
 .panel {
    display: flex;
    align-items: center;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    padding: 0.4rem 0;
    border-radius: 1rem;
    overflow: hidden;
@@ -13,18 +13,18 @@
    gap: 0.5rem;
    padding: 0 0.4rem;
    font-size: 0.8rem;
-   color: var(--primaryText);
+   color: var(--primary-text);
 }
 
 .item svg{
    width: 1.1rem;
    height: auto;
-   stroke: var(--primaryText);
+   stroke: var(--primary-text);
    stroke-width: 1.5px;
 }
 
 .authorLink{
-   color: var(--primaryText);
+   color: var(--primary-text);
 }
 
 .authorLink:hover{
@@ -32,5 +32,5 @@
 }
 
 .item:not(:last-child) {
-   border-right: 1px solid var(--secondaryMain);
+   border-right: 1px solid var(--secondary-main);
 }

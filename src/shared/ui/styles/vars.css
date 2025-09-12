@@ -1,24 +1,24 @@
 :root {
    /* colors */
 
-   --primaryMain: #283345;
-   --primaryDark: #1A202C;
-   --primaryText: #FFFFFF;
+   --primary-main: #283345;
+   --primary-dark: #1A202C;
+   --primary-text: #FFFFFF;
 
-   --secondaryMain: #1B1E38;
-   --secondaryLight: #0FA9FF;
-   --secondaryText: #FFFFFF;
+   --secondary-main: #1B1E38;
+   --secondary-light: #0FA9FF;
+   --secondary-text: #FFFFFF;
 
-   --thirdMain: #FFFFFF;
-   --thirdText: #000000;
-   --thirdLight: #FA00FF;
+   --third-main: #FFFFFF;
+   --third-text: #000000;
+   --third-light: #FA00FF;
 
    --error-main: rgb(255, 78, 78);
 
    /* gradients */
 
-   --gradientMainFirst: #b14bf4;
-   --gradientMainSecond: #c82ccb;
+   --gradient-main-first: #b14bf4;
+   --gradient-main-second: #c82ccb;
 
-   --gradientMain: linear-gradient(90deg, var(--gradientMainFirst) 50%, var(--gradientMainSecond) 100%);
+   --gradient-main: linear-gradient(90deg, var(--gradient-main-first) 50%, var(--gradient-main-second) 100%);
 }

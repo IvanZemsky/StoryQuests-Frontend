@@ -5,7 +5,7 @@
    gap: 10px;
    border-radius: 20px;
    padding: 25px;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
 }
 
 .avatar{
@@ -15,7 +15,7 @@
    width: 100px;
    height: 100px;
    border-radius: 50%;
-   background-image: var(--gradientMain);
+   background-image: var(--gradient-main);
    text-transform: uppercase;
    font-size: 45px;
    font-weight: 500;

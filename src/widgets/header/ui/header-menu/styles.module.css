@@ -9,14 +9,14 @@
 }
 
 .nav a {
-   color: var(--secondaryText);
+   color: var(--secondary-text);
 }
 
 .skeleton {
    width: 100%;
    max-width: 278px;
    height: 28px;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    border-radius: 8px;
 }
 
@@ -27,7 +27,7 @@
 
 .closeBtn svg {
    width: 25px;
-   fill: var(--secondaryText);
+   fill: var(--secondary-text);
 }
 
 .burger {
@@ -37,7 +37,7 @@
 
 .burger svg {
    width: 30px;
-   fill: var(--primaryText);
+   fill: var(--primary-text);
 }
 
 @media screen and (max-width: 625px) {
@@ -58,9 +58,9 @@
       align-items: flex-start;
       width: auto;
       padding: 18px 65px 30px 30px;
-      background-color: var(--primaryMain);
-      border-left: 2px solid var(--primaryText);
-      border-bottom: 2px solid var(--primaryText);
+      background-color: var(--primary-main);
+      border-left: 2px solid var(--primary-text);
+      border-bottom: 2px solid var(--primary-text);
       transform: translateX(100%);
       transition: 0.15s transform linear;
       z-index: 998;

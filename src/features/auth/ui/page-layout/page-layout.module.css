@@ -11,7 +11,7 @@
    align-items: stretch;
    width: 514px;
    padding: 40px;
-   background-color: var(--secondaryMain);
+   background-color: var(--secondary-main);
 }
 
 .authWrap{
@@ -67,7 +67,7 @@
    width: 149px;
    height: 4px;
    margin: 0 auto;
-   background-image: var(--gradientMain);
+   background-image: var(--gradient-main);
 }
 
 @media screen and (max-width: 1135px) {

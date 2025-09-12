@@ -24,9 +24,9 @@
    justify-content: center;
    overflow: auto;
    z-index: 999;
-   background-color: var(--primaryMain);
+   background-color: var(--primary-main);
    padding: 1rem;
    border-radius: 1rem;
-   color: var(--primaryText);
-   border: 3px solid var(--secondaryMain);
+   color: var(--primary-text);
+   border: 3px solid var(--secondary-main);
 }
