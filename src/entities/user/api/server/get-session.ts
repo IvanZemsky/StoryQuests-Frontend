@@ -19,7 +19,10 @@ export const getSession = cache(async function () {
 
       const { payload } = await jwtVerify<Session>(token, secret_encoded)
 
-      return payload
+      return {
+         id: payload.id,
+         login: payload.login,
+      }
    } catch (error) {
       return null
    }

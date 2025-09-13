@@ -10,12 +10,15 @@ import {
 import { StoriesPageList } from "./ui/list/stories-page-list"
 import { Suspense } from "react"
 import styles from "./page.module.css"
+import { getSession, AuthContextProvider } from "@/src/entities/user"
 
 export async function StoriesPage({
    searchParams,
 }: {
    searchParams: Promise<Record<string, string>>
 }) {
+   const session = await getSession()
+
    const parsedParams = await getTypedSearchParams(
       storiesFiltersParamsSchema,
       searchParams,
@@ -30,34 +33,36 @@ export async function StoriesPage({
    }
 
    return (
-      <StoriesPageLayout
-         filters={
-            <StoriesFilters
-               key={JSON.stringify(parsedParams.data)}
-               params={parsedParams.data}
-            />
-         }
-         list={
-            <Suspense
-               fallback={<StoriesSkeleton limit={STORIES_SEARCH_LIMIT} />}
-               key={JSON.stringify(parsedParams.data)}
-            >
-               <StoriesPageList
-                  filters={parsedParams.data}
-                  pagination={async (totalPagesCount) =>
-                     !!totalPagesCount && (
-                        <Pagination
-                           className={styles.pagination}
-                           current={parsedParams.data.page}
-                           total={totalPagesCount}
-                           previousParams={await searchParams}
-                           href="/stories"
-                        />
-                     )
-                  }
+      <AuthContextProvider value={{ session }}>
+         <StoriesPageLayout
+            filters={
+               <StoriesFilters
+                  key={JSON.stringify(parsedParams.data)}
+                  params={parsedParams.data}
                />
-            </Suspense>
-         }
-      />
+            }
+            list={
+               <Suspense
+                  fallback={<StoriesSkeleton limit={STORIES_SEARCH_LIMIT} />}
+                  key={JSON.stringify(parsedParams.data)}
+               >
+                  <StoriesPageList
+                     filters={parsedParams.data}
+                     pagination={async (totalPagesCount) =>
+                        !!totalPagesCount && (
+                           <Pagination
+                              className={styles.pagination}
+                              current={parsedParams.data.page}
+                              total={totalPagesCount}
+                              previousParams={await searchParams}
+                              href="/stories"
+                           />
+                        )
+                     }
+                  />
+               </Suspense>
+            }
+         />
+      </AuthContextProvider>
    )
 }

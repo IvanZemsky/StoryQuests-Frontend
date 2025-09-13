@@ -3,6 +3,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import { revalidateStories } from "./action"
 import { useDebounce } from "@/src/shared/lib"
+import { StoryLikeUpdateDTO } from "@/src/entities/story/api/dto"
+import { APIAxiosError } from "@/src/shared/api"
+import { useRouter } from "next/navigation"
 
 export type LikeBtnState = {
    likes: number
@@ -10,11 +13,12 @@ export type LikeBtnState = {
 }
 
 export function useToggleLike(storyId: string, initialState: LikeBtnState) {
+   const router = useRouter()
    const queryClient = useQueryClient()
 
    const [likeBtnState, setLikeBtnState] = useState<LikeBtnState>(initialState)
 
-   const mutation = useMutation({
+   const mutation = useMutation<StoryLikeUpdateDTO | undefined, APIAxiosError, void>({
       mutationFn: () =>
          storyService.toggleLike({
             storyID: storyId,
@@ -24,7 +28,13 @@ export function useToggleLike(storyId: string, initialState: LikeBtnState) {
          queryClient.cancelQueries({ queryKey: ["stories"] })
          queryClient.cancelQueries({ queryKey: ["story", "byID", storyId] })
       },
-      onError: () => setLikeBtnState(initialState),
+      onError: (error) => {
+         setLikeBtnState(initialState)
+         if (error.status === 401) {
+            router.push("/sign-in")
+            router.refresh()
+         }
+      },
       onSettled: async (data) => {
          await revalidateStories(storyId)
          queryClient.invalidateQueries({ queryKey: ["stories"] })
