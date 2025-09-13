@@ -21,8 +21,16 @@ export const userService = {
    },
 
    async findByID(id: string) {
-      const { data } = await API.get<User>(`users/${id}`)
-      return data
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`, {
+         method: "GET",
+         next: { tags: [`user-${id}`] },
+      })
+
+      if (!response.ok) {
+         throw new Error(`Failed to fetch user ${id}: ${response.statusText}`)
+      }
+
+      return response.json() as Promise<User>
    },
 
    async getSession(headers: Record<string, string> = {}): Promise<Session | null> {

@@ -9,6 +9,7 @@ type Props = {
    isLiked: boolean
    disabled?: boolean
    className?: string
+   isAuth?: boolean
 }
 
 export function StoryLikeBtn({ storyId, likes, isLiked = false, className }: Props) {
