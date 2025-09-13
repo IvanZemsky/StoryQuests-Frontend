@@ -1,21 +1,26 @@
 "use server"
 
-import { headers } from "next/headers"
-import { userService } from "../service"
+import { cookies } from "next/headers"
+import { CONFIG } from "@/src/shared/model/config"
+import { jwtVerify } from "jose"
+import { Session } from "../../model/types"
+import { cache } from "react"
 
-export async function getSession() {
+export const getSession = cache(async function () {
    try {
-      const headersList = await headers()
-      const cookieHeader = headersList.get("cookie") ?? ""
+      const cookieStore = await cookies()
+      const token = cookieStore.get("token")?.value
 
-      if (!cookieHeader) {
+      if (!token) {
          return null
       }
 
-      const story = await userService.getSession({ Cookie: cookieHeader })
+      const secret_encoded = new TextEncoder().encode(CONFIG.JWT_SECRET)
 
-      return story
+      const { payload } = await jwtVerify<Session>(token, secret_encoded)
+
+      return payload
    } catch (error) {
       return null
    }
-}
+})
