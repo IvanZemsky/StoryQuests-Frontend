@@ -25,3 +25,4 @@ export type { AnswerEdgeData } from "./edges/model/types"
 
 export { useSceneControls } from "./controls/model/context"
 export { SceneControlsProvider } from "./controls/model/provider"
+export { ToggleVoiceoverBtn } from "./controls/ui/toggle-voiceover-btn/toggle-voiceover-btn"

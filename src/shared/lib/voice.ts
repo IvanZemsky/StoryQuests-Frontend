@@ -50,5 +50,5 @@ export function useVoiceover() {
       synth?.resume()
    }
 
-   return { speak, cancel, pause, resume }
+   return { isSpeaking: !!synth?.speaking, speak, cancel, pause, resume }
 }

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import styles from "./story-header.module.css"
 import { Wrapper } from "@/src/shared/ui"
+import { ToggleVoiceoverBtn } from "@/src/features/scene"
 
 type Props = {
    storyName?: string | null
@@ -18,7 +19,8 @@ export function StoryHeader({ storyName }: Props) {
                   <span>-</span> {storyName || "Story not found"}
                </h1>
                <nav className={styles.nav}>
-                  <ul>
+                  <ul className={styles.list}>
+                     <ToggleVoiceoverBtn />
                      <Link href={"/stories"}>Exit</Link>
                   </ul>
                </nav>

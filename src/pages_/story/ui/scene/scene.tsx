@@ -16,7 +16,7 @@ type Props = {
 }
 
 export function PageScene({ storyId, data, isAuth }: Props) {
-   const { voiceover } = useSceneControls()
+   const { voiceover, options } = useSceneControls()
 
    const incrementStoryPassesMutation = useIncrementStoryPasses(storyId)
    const incrementEndScenePassesMutation = useIncrementEndScenePasses(storyId)
@@ -29,7 +29,9 @@ export function PageScene({ storyId, data, isAuth }: Props) {
 
    const onSceneChange = (scene: SceneType | null) => {
       if (!scene) return
-      voiceover.speak(createSceneVoiceoverText(scene))
+      if (options.voiceover) {
+         voiceover.speak(createSceneVoiceoverText(scene))
+      }
 
       if (scene.type === "end") {
          incrementStoryPassesMutation.mutate()

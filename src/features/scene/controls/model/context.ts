@@ -3,8 +3,14 @@
 import { useVoiceover } from "@/src/shared/lib"
 import { createContext, useContext } from "react"
 
+type SceneOptions = {
+   voiceover: boolean
+}
+
 type SceneControlsContextValue = {
+   options: SceneOptions
    voiceover: ReturnType<typeof useVoiceover>
+   toggleVoiceover: () => void
 }
 
 export const SceneControlsContext = createContext<SceneControlsContextValue | undefined>(
