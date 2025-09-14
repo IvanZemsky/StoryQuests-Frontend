@@ -1,3 +1,5 @@
+"use client"
+
 import { Node, useReactFlow } from "@xyflow/react"
 import { useState } from "react"
 import { SceneNode, SceneNodeData } from "./types"

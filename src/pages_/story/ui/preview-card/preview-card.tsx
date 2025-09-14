@@ -42,7 +42,6 @@ export function StoryPreviewCard({ data }: Props) {
                className={styles.startBtn}
                as={Link}
                href={`/stories/${data.id}?play`}
-               replace
             >
                Let's go!
             </Button>

@@ -1,9 +1,12 @@
+"use client"
+
 import { ToggleButtonGroup, Button } from "@/src/shared/ui"
 import ArrowRightIcon from "@/src/shared/assets/icons/arrow-right.svg"
 import styles from "./select-answer.module.css"
 import { ChangeEvent, useState } from "react"
 import { SceneAnswer } from "@/src/entities/scene"
 import { SelectAnswerBtn } from "./select-answer-btn"
+import { useEventListener } from "@/src/shared/lib"
 
 type Props = {
    answers: SceneAnswer[] | null
@@ -22,6 +25,17 @@ export function SelectAnswer({ answers, onSelect }: Props) {
    const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
       setNextSceneNumber(Number(event.target.value))
    }
+
+   useEventListener("window", ["keydown"], (event: KeyboardEvent) => {
+      answers?.forEach((answer, i) => {
+         if (event.key === String(i + 1)) {
+            setNextSceneNumber(answer.nextSceneNumber)
+         }
+      })
+      if (event.key === "Enter") {
+         handleSetSceneCLick()
+      }
+   })
 
    return (
       <div className={styles.wrap}>

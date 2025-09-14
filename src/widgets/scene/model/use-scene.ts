@@ -8,7 +8,7 @@ export function useScene(
    firstSceneNumber: number,
    onSceneChange?: (scene: Scene | null) => void,
 ) {
-   const [scene, setScene] = useState<Scene | null>(() =>
+   const [scene, setScene] = useState<Scene | null>(
       findSceneByNumber(data, firstSceneNumber),
    )
 

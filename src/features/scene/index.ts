@@ -22,3 +22,6 @@ export { useLatestSceneNumber } from "./nodes/model/use-latest-scene-number"
 export type { AnswerEdge } from "./edges/model/types"
 export type { SceneNode, SceneNodeProps } from "./nodes/model/types"
 export type { AnswerEdgeData } from "./edges/model/types"
+
+export { useSceneControls } from "./controls/model/context"
+export { SceneControlsProvider } from "./controls/model/provider"

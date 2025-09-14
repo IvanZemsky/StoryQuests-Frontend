@@ -30,8 +30,6 @@ export function StoryLikeBtnLayout({
          </button>
 
          <p className={styles.count}>{likes}</p>
-
-         {/* <AuthModal id={storyId} /> */}
       </div>
    )
 }

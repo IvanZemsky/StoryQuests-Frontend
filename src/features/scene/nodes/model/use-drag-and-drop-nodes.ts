@@ -1,3 +1,5 @@
+"use client"
+
 import { useReactFlow } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"

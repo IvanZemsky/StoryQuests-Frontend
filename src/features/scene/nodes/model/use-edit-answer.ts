@@ -1,3 +1,5 @@
+"use client"
+
 import { useReactFlow } from "@xyflow/react"
 import { SceneNode } from "../../nodes/model/types"
 import { AnswerEdge } from "../../edges/model/types"

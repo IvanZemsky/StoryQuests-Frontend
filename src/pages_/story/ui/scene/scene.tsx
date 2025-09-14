@@ -5,6 +5,9 @@ import { Scene } from "@/src/widgets/scene"
 import { useIncrementStoryPasses } from "../../model/use-increment-story-passes"
 import { useIncrementEndScenePasses } from "../../model/use-increment-end-scene-passes"
 import { useSetStoryResult } from "../../model/use-set-story-result"
+import { useSceneControls } from "@/src/features/scene"
+import { useEffect } from "react"
+import { createSceneVoiceoverText } from "../../model/create-voiceover-text"
 
 type Props = {
    storyId: string
@@ -13,6 +16,8 @@ type Props = {
 }
 
 export function PageScene({ storyId, data, isAuth }: Props) {
+   const { voiceover } = useSceneControls()
+
    const incrementStoryPassesMutation = useIncrementStoryPasses(storyId)
    const incrementEndScenePassesMutation = useIncrementEndScenePasses(storyId)
    const setStoryResultMutation = useSetStoryResult(storyId)
@@ -24,6 +29,8 @@ export function PageScene({ storyId, data, isAuth }: Props) {
 
    const onSceneChange = (scene: SceneType | null) => {
       if (!scene) return
+      voiceover.speak(createSceneVoiceoverText(scene))
+
       if (scene.type === "end") {
          incrementStoryPassesMutation.mutate()
          incrementEndScenePassesMutation.mutate(scene.id)
@@ -31,6 +38,12 @@ export function PageScene({ storyId, data, isAuth }: Props) {
          if (isAuth) setStoryResultMutation.mutate(scene.id)
       }
    }
+
+   useEffect(() => {
+      return () => {
+         voiceover.cancel()
+      }
+   }, [])
 
    return (
       <Scene
