@@ -8,22 +8,20 @@ export const config = {
 }
 
 export async function middleware(req: NextRequest) {
+   const requestHeaders = new Headers(req.headers)
+   requestHeaders.set("x-next-pathname", req.nextUrl.pathname)
+   
    const session = await getSession()
 
    const authResponse = await authMiddleware(req, session)
    if (authResponse.status !== 200) {
-      return withPathnameHeader(req, authResponse)
+      return authResponse
    }
 
    const profileResponse = await profileMiddleware(req, session)
    if (profileResponse.status !== 200) {
-      return withPathnameHeader(req, profileResponse)
+      return profileResponse
    }
 
-   return withPathnameHeader(req, NextResponse.next())
-}
-
-function withPathnameHeader(req: NextRequest, res: NextResponse) {
-   res.headers.set("x-next-pathname", req.nextUrl.pathname)
-   return res
+   return NextResponse.next()
 }
