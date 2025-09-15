@@ -8,7 +8,7 @@ import styles from "./styles.module.css"
 import { ReactNode } from "react"
 
 import "@xyflow/react/dist/style.css"
-import type { SceneNode } from "@/src/entities/scene"
+import type { SceneNode } from "@/src/features/scene"
 
 type Props = {
    title: string

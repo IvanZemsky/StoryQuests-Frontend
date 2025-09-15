@@ -1,5 +1,3 @@
-"use server"
-
 import "./loading.css"
 import TubeSpinner from "../../../assets/animated/tube-spinner.svg"
 
