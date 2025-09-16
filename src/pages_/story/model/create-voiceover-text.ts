@@ -9,10 +9,12 @@ export function createSceneVoiceoverText({
    description: string
    answers: SceneAnswer[]
 }): string {
+   return title + `... ` + description + "..." + createSceneAnswersVoiceoverText(answers)
+}
+
+function createSceneAnswersVoiceoverText(answers: SceneAnswer[]): string {
+   if (!answers.length) return "You reached the end of the story."
    return (
-      title +
-      `... ` +
-      description +
       " ... Possible actions..." +
       answers?.map((answer, i) => i + 1 + "." + answer.text + "...").join(", ")
    )
