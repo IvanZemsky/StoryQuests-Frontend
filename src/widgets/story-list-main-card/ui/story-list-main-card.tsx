@@ -4,7 +4,7 @@ import { StoryCard } from "@/src/entities/story"
 import Image from "next/image"
 import Link from "next/link"
 import styles from "./story-list-main-card.module.css"
-import { StoryLikeBtn } from "@/src/features/story"
+import { StoryLikeBtn } from "@/src/features/story/like"
 
 type Props = {
    data: Story

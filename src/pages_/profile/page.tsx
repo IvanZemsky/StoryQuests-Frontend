@@ -3,7 +3,7 @@ import {
    ProfileCard,
    ProfileHeader,
    UserPagelayout,
-} from "@/src/features/user"
+} from "@/src/features/user/profile"
 import { ProfilePageStoriesList } from "./ui/list"
 import { redirect } from "next/navigation"
 import { SignOutBtn } from "@/src/features/auth"

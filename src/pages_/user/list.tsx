@@ -1,7 +1,7 @@
 "use client"
 
 import { Story } from "@/src/entities/story"
-import { InfiniteStoriesList } from "@/src/features/story"
+import { InfiniteStoriesList } from "@/src/features/story/list"
 import { StoryListMainCard } from "@/src/widgets/story-list-main-card"
 
 type Props = {

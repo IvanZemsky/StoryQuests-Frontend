@@ -1,5 +1,5 @@
 import type { Scene as SceneType } from "@/src/entities/scene"
-import { StoryPreviewModal } from "@/src/features/story"
+import { StoryPreviewModal } from "@/src/features/story/preview-modal"
 import { Scene } from "@/src/widgets/scene"
 
 type Props = {

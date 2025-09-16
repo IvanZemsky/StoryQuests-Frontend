@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server"
 import { authMiddleware } from "./src/features/auth"
 import { getSession } from "./src/entities/user"
-import { profileMiddleware } from "./src/features/user"
+import { profileMiddleware } from "./src/features/user/profile"
 
 export const config = {
    matcher: ["/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)"],

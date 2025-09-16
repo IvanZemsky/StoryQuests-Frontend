@@ -9,8 +9,7 @@ import {
    CreateStoryTagsInput,
    CreateStoryValidationModal,
    PreviewBtn,
-   useStoryPreview,
-} from "@/src/features/story"
+} from "@/src/features/story/creation-form"
 import { FormProvider } from "react-hook-form"
 import { type SceneNode } from "@/src/features/scene/nodes"
 import { createAnswerEdge, type AnswerEdge } from "@/src/features/scene/edges"
@@ -23,6 +22,7 @@ import { StoryPreview } from "./ui/preview"
 import { useCreateStory } from "./model/create"
 import { useModal, useOnBeforeUnload } from "@/src/shared/lib"
 import { useCreateScenesFromFlowData } from "@/src/features/scene/create-scenes"
+import { useStoryPreview } from "@/src/features/story/preview-modal"
 
 export function CreateStoryPageClient() {
    useOnBeforeUnload()

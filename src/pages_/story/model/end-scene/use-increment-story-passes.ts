@@ -1,7 +1,7 @@
 "use client"
 
 import { storyService } from "@/src/entities/story"
-import { revalidateStories } from "@/src/features/story"
+import { revalidateStories } from "@/src/features/story/like"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export function useIncrementStoryPasses(storyId: string) {

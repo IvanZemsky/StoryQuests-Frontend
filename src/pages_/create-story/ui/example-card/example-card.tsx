@@ -2,7 +2,7 @@ import { Story, StoryCard } from "@/src/entities/story"
 import styles from "./example-card.module.css"
 import Image from "next/image"
 import { Button } from "@/src/shared/ui"
-import { StoryLikeBtnLayout } from "@/src/features/story"
+import { StoryLikeBtnLayout } from "@/src/features/story/like"
 
 type Props = {
    data: Story

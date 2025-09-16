@@ -1,5 +1,5 @@
 import { fetchUser } from "@/src/entities/user"
-import { ProfileCard, ProfileHeader, UserPagelayout } from "@/src/features/user"
+import { ProfileCard, ProfileHeader, UserPagelayout } from "@/src/features/user/profile"
 import { UserPageStoriesList } from "./list"
 
 export type UserPageProps = {

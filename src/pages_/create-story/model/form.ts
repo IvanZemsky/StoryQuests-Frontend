@@ -2,10 +2,9 @@ import {
    CreateStoryFormSchema,
    CreateStoryFormValues,
    getCardData,
-} from "@/src/features/story"
+} from "@/src/features/story/creation-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, useWatch } from "react-hook-form"
-import { trim } from "zod"
 
 export function useCreateStoryForm() {
    const form = useForm<CreateStoryFormValues>({
