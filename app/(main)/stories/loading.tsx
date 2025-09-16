@@ -1,1 +1,1 @@
-export {Loading as default} from '@/src/shared/ui'
+export { StoriesPageLoading as default } from "@/src/pages_/stories/loading"

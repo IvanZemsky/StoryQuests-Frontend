@@ -22,12 +22,12 @@
    height: 50px;
 }
 
-.select {
+.length {
    max-width: 215px;
    width: 100%;
 }
 
-.select :global(.ui-select-button) {
+.length :global(.ui-select-button) {
    text-transform: uppercase;
 }
 
@@ -35,16 +35,12 @@
    width: 28px;
 }
 
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1000px) {
    .filters {
       flex-wrap: wrap;
    }
    .sort {
       flex-grow: 1;
-   }
-   .searchInput {
-      flex-grow: 1;
-      max-width: 100%;
    }
 }
 
@@ -52,5 +48,9 @@
    .filters,
    .searchWrap {
       gap: 0.5rem;
+   }
+   .length{
+      flex-grow: 1;
+      max-width: 100%;
    }
 }

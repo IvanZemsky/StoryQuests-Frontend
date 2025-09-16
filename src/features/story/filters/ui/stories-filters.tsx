@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "./styles.module.css"
+import styles from "./stories-filters.module.css"
 import SearchIcon from "@/src/shared/assets/icons/search.svg"
 import CrossIcon from "@/src/shared/assets/icons/cross.svg"
 import { Button, Select, TextInput, ToggleButtonGroup } from "@/src/shared/ui"
@@ -36,7 +36,7 @@ export function StoriesFilters({ params }: Props) {
          </ToggleButtonGroup>
 
          <Select
-            className={styles.select}
+            className={styles.length}
             value={filters.length}
             onChange={(e) => setFilters((prev) => ({ ...prev, length: e.target.value }))}
             title="Length"
