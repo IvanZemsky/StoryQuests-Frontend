@@ -12,12 +12,8 @@ import {
    useStoryPreview,
 } from "@/src/features/story"
 import { FormProvider } from "react-hook-form"
-import {
-   type AnswerEdge,
-   createAnswerEdge,
-   type SceneNode,
-   useCreateScenesFromFlowData,
-} from "@/src/features/scene"
+import { type SceneNode } from "@/src/features/scene/nodes"
+import { createAnswerEdge, type AnswerEdge } from "@/src/features/scene/edges"
 import { initialNodes } from "./model/flow"
 import { useCreateStoryForm } from "./model/form"
 import { CreateStoryFormExampleCard } from "./ui/example-card/example-card"
@@ -26,6 +22,7 @@ import { CreationField } from "./ui/creation-field"
 import { StoryPreview } from "./ui/preview"
 import { useCreateStory } from "./model/create"
 import { useModal, useOnBeforeUnload } from "@/src/shared/lib"
+import { useCreateScenesFromFlowData } from "@/src/features/scene/create-scenes"
 
 export function CreateStoryPageClient() {
    useOnBeforeUnload()

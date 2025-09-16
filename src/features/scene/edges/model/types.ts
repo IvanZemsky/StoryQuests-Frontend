@@ -1,5 +1,4 @@
 import { Edge, EdgeProps } from "@xyflow/react"
-import { MouseEventHandler } from "react"
 
 export type AnswerEdgeData = {} & Record<string, unknown> & {
       text: string

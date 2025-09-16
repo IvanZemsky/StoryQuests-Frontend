@@ -2,7 +2,7 @@ import { StoryHeader } from "./header/story-header"
 import styles from "./story-layout.module.css"
 import { Wrapper } from "@/src/shared/ui"
 import { fetchStory } from "./model/fetch-story"
-import { SceneControlsProvider } from "@/src/features/scene"
+import { SceneControlsProvider } from "@/src/features/scene/controls"
 
 type Props = {
    children: React.ReactNode

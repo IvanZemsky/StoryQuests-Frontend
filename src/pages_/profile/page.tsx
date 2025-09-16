@@ -2,11 +2,11 @@ import { getSession } from "@/src/entities/user"
 import {
    ProfileCard,
    ProfileHeader,
-   SignOutBtn,
    UserPagelayout,
 } from "@/src/features/user"
 import { ProfilePageStoriesList } from "./ui/list"
 import { redirect } from "next/navigation"
+import { SignOutBtn } from "@/src/features/auth"
 redirect
 
 export async function ProfilePage() {

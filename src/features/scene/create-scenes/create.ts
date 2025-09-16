@@ -1,8 +1,9 @@
 "use client"
 
 import { Scene } from "@/src/entities/scene"
-import { SceneNode, AnswerEdge } from "@/src/features/scene"
+import { SceneNode } from "@/src/features/scene/nodes"
 import { useState } from "react"
+import { AnswerEdge } from "../edges"
 
 export function useCreateScenesFromFlowData(nodes: SceneNode[], edges: AnswerEdge[]) {
    const [scenes, setScenes] = useState<Scene[]>([])

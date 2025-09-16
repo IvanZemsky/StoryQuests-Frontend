@@ -1,7 +1,7 @@
 "use client"
 
 import type { Scene } from "@/src/entities/scene"
-import { EndSceneLink, SceneLayout, SelectAnswer } from "@/src/features/scene"
+import { EndSceneLink, SceneLayout, SelectAnswer } from "@/src/features/scene/scene-layout"
 import { SwitchFade } from "@/src/shared/ui"
 import { useScene } from "../model/use-scene"
 

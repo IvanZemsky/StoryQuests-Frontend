@@ -1,4 +1,4 @@
-import { SceneNode } from "@/src/features/scene";
+import type { SceneNode } from "@/src/features/scene/nodes";
 
 export const initialNodes: SceneNode[] = [
    {

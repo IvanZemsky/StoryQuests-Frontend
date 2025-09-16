@@ -1,7 +1,8 @@
 "use client"
 
-import { AnswerEdge, SceneNode } from "@/src/features/scene"
-import { validateSceneFlowData } from "@/src/features/scene/create-scenes/validation"
+import type { SceneNode } from "@/src/features/scene/nodes"
+import type { AnswerEdge } from "@/src/features/scene/edges"
+import { validateSceneFlowData } from "@/src/features/scene/create-scenes"
 import { useModal } from "@/src/shared/lib"
 
 export function useStoryPreview({

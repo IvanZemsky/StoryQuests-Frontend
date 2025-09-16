@@ -2,10 +2,10 @@
 
 import { type Scene as SceneType } from "@/src/entities/scene"
 import { Scene } from "@/src/widgets/scene"
-import { useSceneControls } from "@/src/features/scene"
 import { useEffect } from "react"
 import { createSceneVoiceoverText } from "../../model/create-voiceover-text"
 import { useEndScene } from "../../model/end-scene/use-end-scene"
+import { useSceneControls } from "@/src/features/scene/controls"
 
 type Props = {
    storyId: string

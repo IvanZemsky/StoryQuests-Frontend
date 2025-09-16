@@ -1,7 +1,7 @@
 import Link from "next/link"
 import styles from "./story-header.module.css"
 import { Wrapper } from "@/src/shared/ui"
-import { ToggleVoiceoverBtn } from "@/src/features/scene"
+import { ToggleVoiceoverBtn } from "@/src/features/scene/controls"
 
 type Props = {
    storyName?: string | null

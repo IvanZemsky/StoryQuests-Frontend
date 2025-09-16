@@ -1,6 +1,7 @@
 "use client"
 
-import { SceneNode, ScenePanel, useDragAndDropNodes } from "@/src/features/scene"
+import { ScenePanel } from "@/src/features/scene/scene-panel"
+import { type SceneNode, useDragAndDropNodes } from "@/src/features/scene/nodes"
 import { Flow } from "@/src/widgets/flow-field"
 import { nodeTypes, edgeTypes } from "@/src/widgets/flow-field"
 import { ReactFlowProps } from "@xyflow/react"
