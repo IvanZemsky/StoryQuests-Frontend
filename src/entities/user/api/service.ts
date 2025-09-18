@@ -1,4 +1,4 @@
-import { API, getBaseUrl } from "@/src/shared/api"
+import { API, getBaseAPIURL } from "@/src/shared/api"
 import { LoginDTO, RegisterDTO, Session, User } from "../model/types"
 
 export const userService = {
@@ -21,7 +21,7 @@ export const userService = {
    },
 
    async findByID(id: string) {
-      const url = getBaseUrl()
+      const url = getBaseAPIURL()
       const response = await fetch(`${url}/users/${id}`, {
          method: "GET",
          next: { tags: [`user-${id}`] },
