@@ -1,4 +1,4 @@
-import { API } from "@/src/shared/api"
+import { API, getBaseUrl } from "@/src/shared/api"
 import { StoriesFilters, Story } from "../model/types"
 import {
    CreateStoryDTO,
@@ -45,7 +45,8 @@ export const storyService = {
 
    // fetch for deduplication
    async findByID(storyID: string, headers: Record<string, string> = {}): Promise<Story> {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/stories/${storyID}`, {
+      const url = getBaseUrl()
+      const res = await fetch(`${url}/stories/${storyID}`, {
          method: "GET",
          headers: {
             "Content-Type": "application/json",

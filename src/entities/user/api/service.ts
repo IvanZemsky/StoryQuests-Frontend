@@ -1,4 +1,4 @@
-import { API } from "@/src/shared/api"
+import { API, getBaseUrl } from "@/src/shared/api"
 import { LoginDTO, RegisterDTO, Session, User } from "../model/types"
 
 export const userService = {
@@ -21,7 +21,8 @@ export const userService = {
    },
 
    async findByID(id: string) {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`, {
+      const url = getBaseUrl()
+      const response = await fetch(`${url}/users/${id}`, {
          method: "GET",
          next: { tags: [`user-${id}`] },
       })

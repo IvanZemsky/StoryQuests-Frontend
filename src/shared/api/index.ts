@@ -9,5 +9,6 @@ export { fetchClient } from "./mocks/instance"
 export { initQueryClient } from "./mocks/query-client"
 
 export { useInitClientSideMocks } from "./mocks/init/client"
-export {mockMiddleware} from "./mocks/test-middleware"
-export type {APIError, APIAxiosError} from "./errors"
+export { mockMiddleware } from "./mocks/test-middleware"
+export type { APIError, APIAxiosError } from "./errors"
+export { getBaseUrl } from "./client/axios-client"
