@@ -6,7 +6,7 @@
 + Поиск и фильтрация квестов с пагинацией
 + Упрощённая авторизация на JWT
 + Прохождение тестов
-+ Озвучка сцен и варинатов действий
++ Озвучка сцен и варинатов действий, возможности выбирать сцены клавишами цифр от 1 до 9
 + Создание квестов при помощи редактирования диаграммы сцен
 + Добавение картинок ссылками на ресурсы, адрес которых начинается с `https://`
 + Лайки квестов
@@ -51,7 +51,9 @@ Backend (Golang): https://github.com/IvanZemsky/StoryQuests-Backend
 
     ```
     NEXT_PUBLIC_API_URL=http://localhost:8080
-    NEXT_PUBLIC_ENABLE_MOCKS=false # разрешены ли моки
+    INTERNAL_API_URL=http://localhost:8080
+    NEXT_PUBLIC_ENABLE_MOCKS=false
+    JWT_SECRET=secret
     ```
 
 5. Запустите проект: ```npm run dev```
