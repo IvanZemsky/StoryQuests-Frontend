@@ -1,0 +1,14 @@
+services:
+   frontend:
+      build:
+         context: ./frontend
+         args:
+            NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+            INTERNAL_API_URL: ${INTERNAL_API_URL}
+      ports:
+         - "${PORT}:3000"
+      environment:
+         - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+         - INTERNAL_API_URL=${INTERNAL_API_URL}
+         - NEXT_PUBLIC_ENABLE_MOCKS=false
+         - JWT_SECRET=${JWT_SECRET}
