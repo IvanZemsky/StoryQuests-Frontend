@@ -1,7 +1,7 @@
 services:
    frontend:
       build:
-         context: ./frontend
+         context: .
          args:
             NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
             INTERNAL_API_URL: ${INTERNAL_API_URL}
