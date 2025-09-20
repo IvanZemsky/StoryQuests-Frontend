@@ -1,14 +1,28 @@
+version: '3.8'
+
 services:
-   frontend:
-      build:
-         context: .
-         args:
-            NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
-            INTERNAL_API_URL: ${INTERNAL_API_URL}
-      ports:
-         - "${PORT}:3000"
-      environment:
-         - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-         - INTERNAL_API_URL=${INTERNAL_API_URL}
-         - NEXT_PUBLIC_ENABLE_MOCKS=false
-         - JWT_SECRET=${JWT_SECRET}
+  frontend:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        INTERNAL_API_URL: ${INTERNAL_API_URL}
+    ports:
+      - "3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - INTERNAL_API_URL=${INTERNAL_API_URL}
+      - NEXT_PUBLIC_ENABLE_MOCKS=false
+      - JWT_SECRET=${JWT_SECRET}
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend-app.rule=Host(`your-domain.com`)"
+      - "traefik.http.routers.frontend-app.entrypoints=websecure"
+      - "traefik.http.routers.frontend-app.tls.certResolver=letsencrypt"
+      - "traefik.http.services.frontend-app.loadbalancer.server.port=3000"
+
+networks:
+  dokploy-network:
+    external: true
