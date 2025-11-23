@@ -47,7 +47,7 @@ Backend (Golang): https://github.com/IvanZemsky/StoryQuests-Backend
 3. Выполните установку пакетов:
 ```npm install ```
 
-4. Создайте файл ```.end.local```:
+4. Создайте файл ```.env.local```:
 
     ```
     NEXT_PUBLIC_API_URL=http://localhost:8080
